@@ -123,7 +123,7 @@ function showPin(id, pan) {
     refresh();
   }
   const u = new URL(location.href); u.searchParams.set("pin", id); history.replaceState(null, "", u);
-  $("detail").scrollIntoView({ block: "start", behavior: "smooth" });
+  $("detail").scrollIntoView({ block: "nearest", behavior: "smooth" });
 }
 
 function closePin() {
@@ -177,7 +177,7 @@ function renderPin(pin) {
     parts.push(`<div class="callout emergency" role="alert">
       <p class="big">Call 911 now</p>
       <a class="call" href="tel:911">Call 911</a>
-      <p>${esc(pin.summary)}</p>
+      <p>${esc(String(pin.summary || "").replace(/^call 911 now\.?\s*/i, ""))}</p>
       <p class="hint">The agent never routes a possible emergency. Nothing was posted or drafted.</p></div>`);
   } else {
     parts.push(stepper(pin));
@@ -337,7 +337,7 @@ function showBrief(markdown, status) {
   card.innerHTML = (status ? `<p class="hint">${esc(status)}</p>` : "") + renderMarkdown(markdown) +
     `<button type="button" class="ghost" id="brief-close" style="margin-top:12px">Close brief</button>`;
   $("brief-close").addEventListener("click", () => card.classList.add("hidden"));
-  card.scrollIntoView({ block: "start", behavior: "smooth" });
+  card.scrollIntoView({ block: "nearest", behavior: "smooth" });
 }
 
 $("brief-btn").addEventListener("click", async () => {
