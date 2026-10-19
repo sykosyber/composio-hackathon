@@ -1,0 +1,58 @@
+{
+  "namespace": "parallel_dedupe",
+  "input": {
+    "objective": "Find out whether a other problem near Valencia St and 18th St in San Francisco has already been reported recently, for example in 311 open data, an outage map, or local news.",
+    "queries": [
+      "Valencia St and 18th St other 311 report San Francisco",
+      "San Francisco other near Valencia St and 18th St news recent"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000067671",
+      "excerpt": "998 Valencia St\nCLOSED 1w ago Sep 16, 2026, 11:00 PM · #202000067671\nAbated Full. Related tasks/inspection are complete.\nOpened Sep 14, 2026, 8:28 PM 2w ago\nClosed Sep 16, 2026, 11:00 PM 1w ago\nDescription Rat infestation- senor sesig. There is a reported rat infestation and overflowing trash bins at this location."
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000061919",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000061919\nDamaged public property"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000091291",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000091291\nGeneric"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000102736",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000102736\nShared spaces"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000079637",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000079637\nStreet or sidewalk cleaning"
+    },
+    {
+      "title": "Anita Darkling · Hsi-Pu A Shih · 310 Valencia St, San Francisco, CA 94103",
+      "url": "https://opengovus.com/san-francisco-business/1184855-04-181",
+      "excerpt": "* Business Name | Address | Location Start Date\n* Anita Darkling · Hsi - Pu Anita Shih | 253 Corbett Ave, San Francisco, CA 94114 | 2018-03-21\n* Anita Darkling · Hsi - Pu Anita Shih | 310 Valencia St, San Francisco, CA 94103 | 2018-04-01\n* Anita Darkling · Hsi-Pu A Shih | 3150 18th St, Unit 260, San Francisco, CA 94110 | 2023-03-07"
+    },
+    {
+      "title": "Anita Darkling · Hsi - Pu Anita Shih · 310 Valencia St, San Francisco, CA 94103",
+      "url": "https://opengovus.com/san-francisco-business/1297670-02-221",
+      "excerpt": "Gavarrette Cruz | 316 Valencia St, Apt 203, San Francisco, CA 94103 | 2023-02-13\n* 311 Valencia Street · Obrien Kiernan Investment Co | 311 Valencia St, San Ferancisco, CA 94103 | 2022-09-27\n* 421 14th Street · Anh-Minh Leu | 421 14th St, San Francisco, CA 94103 | 2024-07-07"
+    },
+    {
+      "title": "Valencia St, San Francisco: Bike Crash Statistics",
+      "url": "https://www.safestreetsmap.com/cycling/san-francisco/valencia-st",
+      "excerpt": "The most were at Valencia St & 18th St (14). 52% were side-impact crashes at junctions (drivers pulling out or turning across). 19% were sideswipes (close passes, right hooks, car doors)."
+    },
+    {
+      "title": "Valencia St, San Francisco: Pedestrian Crash Statistics",
+      "url": "https://www.safestreetsmap.com/walking/san-francisco/valencia-st",
+      "excerpt": "The most were at Valencia St & 18th St (3). 64% involved a driver turning, 43% turning left. 46% of the people hit were in a crosswalk at an intersection."
+    }
+  ]
+}

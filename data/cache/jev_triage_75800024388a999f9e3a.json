@@ -1,0 +1,12 @@
+{
+  "namespace": "jev_triage",
+  "input": {
+    "note": "light out",
+    "v": 1
+  },
+  "value": {
+    "emergency_p": 0.05,
+    "category": "streetlight",
+    "category_confidence": 0.99
+  }
+}

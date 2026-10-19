@@ -1,0 +1,63 @@
+{
+  "namespace": "parallel_dedupe",
+  "input": {
+    "objective": "Find out whether a road pothole problem near Valencia St and 18th St in San Francisco has already been reported recently, for example in 311 open data, an outage map, or local news.",
+    "queries": [
+      "Valencia St and 18th St road pothole 311 report San Francisco",
+      "San Francisco road pothole near Valencia St and 18th St news recent"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000108311",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000108311\nGraffiti"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets",
+      "excerpt": "* Graffiti 3585 18th St Image submitted with report Large white graffiti tags are covering the green signal box and need removal. OPEN 2m ago Sep 22, 2026, 11:03 AM · #202000094102\n* Graffiti 3618 18th St Image submitted with report Offensive writing and an illegal poster are on the bus shelter advertisement panel."
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000061919",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000061919\nDamaged public property"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000091603",
+      "excerpt": "Intersection 18th St, Texas St\nCLOSED 5d ago Sep 22, 2026, 10:45 AM · #202000091603\nCase Resolved. case is resolved.\nOpened Sep 21, 2026, 3:48 PM 6d ago\nClosed Sep 22, 2026, 10:45 AM 5d ago\nDescription Multiple meters along 1300 block of 18th st appear to be stuck in \"Configuring\" mode, not accepting payment\nAdditional Details Object\nParking meter"
+    },
+    {
+      "title": "Report pothole and street issues | SF.gov",
+      "url": "https://www.sf.gov/report-pothole-and-street-issues",
+      "excerpt": "Report pothole and street issues | SF.gov\nAfter you report, you will get a tracking number from 311. You can use this number, and your email address if provided, to track your case online or on the SF311 mobile app."
+    },
+    {
+      "title": "Potholes | Public Works",
+      "url": "https://sfpublicworks.org/services/potholes",
+      "excerpt": "Potholes | Public Works\nReport a pothole online, use the mobile SF311 app or call 311. Our goal is to repair any pothole that is our responsibility within 72 hours during weekdays. Before you call, please determine the street address and the nearest cross-street where the pothole is located. What happens after I call?"
+    },
+    {
+      "title": "Report a problem with a streetlight | SF.gov",
+      "url": "https://www.sf.gov/report-problem-streetlight",
+      "excerpt": "Report a problem with a streetlight | SF.gov\nWhat to do To report a damaged traffic signal, please call 311 for quicker response."
+    },
+    {
+      "title": "California 311 - Report Issues to California Local Government",
+      "url": "https://311ca.org/",
+      "excerpt": "California 311 - Report Issues to California Local Government\nSpot a pothole, a broken streetlight, some graffiti? Reporting it is the first step to the fix. We work out whether it belongs to your city,"
+    },
+    {
+      "title": "Traffic Signal Repair - SFMTA",
+      "url": "https://www.sfmta.com/services/maintenance-requests/traffic-signal-repair",
+      "excerpt": "Traffic Signal Repair - SFMTA\nTo report a traffic signal needing maintenance or repairs please call the San Francisco 311 Customer Service Center or 415.401.3700."
+    },
+    {
+      "title": "Solve SF",
+      "url": "https://solvesf.com/",
+      "excerpt": "Solve SF\nQuick and easy 311 reporting Snap a photo of any issue in San Francisco and Solve SF handles the reporting for you. Your issues and"
+    }
+  ]
+}

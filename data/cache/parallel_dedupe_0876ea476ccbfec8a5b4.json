@@ -1,0 +1,63 @@
+{
+  "namespace": "parallel_dedupe",
+  "input": {
+    "objective": "Find out whether a transit stop problem near Valencia St and 18th St in San Francisco has already been reported recently, for example in 311 open data, an outage map, or local news.",
+    "queries": [
+      "Valencia St and 18th St transit stop 311 report San Francisco",
+      "San Francisco transit stop near Valencia St and 18th St news recent"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000091291",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000091291\nGeneric\n1493 Valencia St\nCLOSED 12m ago Sep 22, 2026, 11:20 AM · #202000091291\nUnable to Locate. Agencies responded to request and no encampment in area. Area verified clean.\nOpened Sep 21, 2026, 2:31 PM 21h ago\nClosed Sep 22, 2026, 11:20 AM 12m ago\nDescription Homeless\nLocation 1493 Valencia St\n37.74904966, -122.4203154\nPhotos Image submitted with report"
+    },
+    {
+      "title": "SF OpenData | DataSF",
+      "url": "https://data.sf.gov/",
+      "excerpt": "Our website address recently changed from data.sfgov.org to data.sf.gov. This change should not affect how you use the Open Data Portal. Click here to learn more\nSeal of the City and County of San Francisco DataSF | Open Data Portal\nSearch\nSan Francisco Open Data"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000067671",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000067671\nShared spaces"
+    },
+    {
+      "title": "18th St & Valencia St (13349) - SF MUNI",
+      "url": "https://sfbaytransit.org/18th-st-valencia-st-south",
+      "excerpt": "18th St & Valencia St (13349) - SF MUNI\n18th St & Valencia St stop is an MUNI Transit stop, located in San Francisco, CA. Get stop realtime and schedule information."
+    },
+    {
+      "title": "18th St & Valencia St (#13349) | SFMTA",
+      "url": "https://www.sfmta.com/stops/18th-st-valencia-st-13349",
+      "excerpt": "* 18th St & Valencia St (#13348) (118 feet)\n* 33\nPlan a Trip"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/posts",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. News\nNews"
+    },
+    {
+      "title": "18th St & Valencia St (#13349) | SFMTA",
+      "url": "https://www.sfmta.com/zh-hant/node/8447?_disable_route_normalizer=true",
+      "excerpt": "* Destination | Predicted Arrivals\n* Potrero + 25th Street | 21, 37 min\n  Live Map\nVicinity Map\nNearby Stops\n* 18th St & Valencia St (#13348) (118 feet)\n* 33\nPlan a Trip\nGet directions for 18th St & Valencia St (#13349): Let's go here... Let's leave from here...\nTransit Shelter Maintenance Requests"
+    },
+    {
+      "title": "16th St & Valencia St (#13301) | SFMTA",
+      "url": "https://www.sfmta.com/stops/16th-st-valencia-st-13301",
+      "excerpt": "* 16th St & Valencia St (#13300) (124 feet)\n* 22\nPlan a Trip\nPlease use the following 311 San Francisco Customer Service Center forms to make a transit shelter maintenance request. Be sure to fill in the form as shown below:\nRequest Transit shelter/Transit Platform Cleaning For the Object field, choose \"Transit Shelter/Platform\""
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/101003181493",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #101003181493\nAutonomous vehicle complaints"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000102736",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000102736\nShared spaces"
+    }
+  ]
+}

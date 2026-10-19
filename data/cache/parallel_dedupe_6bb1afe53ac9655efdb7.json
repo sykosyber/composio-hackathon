@@ -1,0 +1,63 @@
+{
+  "namespace": "parallel_dedupe",
+  "input": {
+    "objective": "Find out whether a tree problem near Valencia St and 18th St in San Francisco has already been reported recently, for example in 311 open data, an outage map, or local news.",
+    "queries": [
+      "Valencia St and 18th St tree 311 report San Francisco",
+      "San Francisco tree near Valencia St and 18th St news recent"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000097197",
+      "excerpt": "1058 Valencia St\nOPEN 4d ago Sep 23, 2026, 9:00 AM · #202000097197\nOpened Sep 23, 2026, 9:00 AM 4d ago\nDescription Two trees at this location are overgrown and are making contact with the building siding and windows. Real damage potential upcoming El Niño storm season."
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000079206",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000079206\nTree maintenance"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000062801",
+      "excerpt": "120 18 Th Ave, Us\nOPEN 2h ago Sep 13, 2026, 2:48 PM · #202000062801\nOpened Sep 13, 2026, 2:48 PM 2h ago\nDescription NOT AN EMERGENCY — stump removal and replacement tree request. The street tree in the sidewalk basin in front of 120 18th Ave (near Lake St) was removed by the City approximately 6+ months ago (roughly Feb–Mar 2026)."
+    },
+    {
+      "title": "Report a problem with a streetlight | SF.gov",
+      "url": "https://www.sf.gov/report-problem-streetlight",
+      "excerpt": "Report a problem with a streetlight | SF.gov\nWhat to do To report a damaged traffic signal, please call 311 for quicker response."
+    },
+    {
+      "title": "Valencia St, San Francisco: Pedestrian Crash Statistics",
+      "url": "https://www.safestreetsmap.com/walking/san-francisco/valencia-st",
+      "excerpt": "Where to look next\n* The worst spot, on the map Valencia St & 18th St 3 crashes. People hit walking in the road.\n* Next in San Francisco Mission St 197 pedestrian crashes, 2021–2026\n* The whole city Pedestrian hotspots in San Francisco 3,263 pedestrian crashes, 2021–2026\nHow people on foot get hit on Valencia St"
+    },
+    {
+      "title": "Anita Darkling · Hsi - Pu Anita Shih · 310 Valencia St, San Francisco, CA 94103",
+      "url": "https://opengovus.com/san-francisco-business/1297670-02-221",
+      "excerpt": "Gavarrette Cruz | 316 Valencia St, Apt 203, San Francisco, CA 94103 | 2023-02-13\n* 311 Valencia Street · Obrien Kiernan Investment Co | 311 Valencia St, San Ferancisco, CA 94103 | 2022-09-27\n* 421 14th Street · Anh-Minh Leu | 421 14th St, San Francisco, CA 94103 | 2024-07-07"
+    },
+    {
+      "title": "California 311 - Report Issues to California Local Government",
+      "url": "https://311ca.org/",
+      "excerpt": "California 311 - Report Issues to California Local Government\nSpot a pothole, a broken streetlight, some graffiti? Reporting it is the first step to the fix. We work out whether it belongs to your city,"
+    },
+    {
+      "title": "Valencia St, San Francisco: Bike Crash Statistics",
+      "url": "https://www.safestreetsmap.com/cycling/san-francisco/valencia-st",
+      "excerpt": "Where to look next\n* The worst spot, on the map Valencia St & 18th St 14 crashes. Side-impact crashes at the junction.\n* Next in San Francisco Market St 160 bike crashes, 2021–2026\n* The whole city Bike hotspots in San Francisco 2,412 bike crashes, 2021–2026\nHow people on bikes get hit on Valencia St"
+    },
+    {
+      "title": "Solve SF",
+      "url": "https://solvesf.com/",
+      "excerpt": "Solve SF\nQuick and easy 311 reporting Snap a photo of any issue in San Francisco and Solve SF handles the reporting for you. Your issues and"
+    },
+    {
+      "title": "SF311 - SF Service Guide",
+      "url": "https://www.sfserviceguide.org/organizations/918",
+      "excerpt": "SF311 - SF Service Guide\nNote: SF311 may also be added as an app to any smartphone, to easily report issues or contact customer service. Call 311 to report"
+    }
+  ]
+}

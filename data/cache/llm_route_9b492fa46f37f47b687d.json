@@ -49,15 +49,24 @@
     "model": "openai/gpt-oss-20b"
   },
   "value": {
-    "category": "other",
+    "category": "streetlight",
     "severity": "medium",
-    "summary": "Streetlight out at the intersection of Valencia St and 18th St, San Francisco.",
-    "agency": "SF 311",
-    "channel": "Web form",
+    "summary": "A streetlight is out at Valencia St and 18th St, leaving the crosswalk dark at night.",
+    "agency": "San Francisco Public Utilities Commission",
+    "channel": "SF 311 web form or the SF311 app",
     "channel_url": "https://www.sf.gov/report-problem-streetlight",
     "already_reported": "unknown",
-    "sources": [],
-    "draft_subject": "[PIN-f22e77] Streetlight out at Valencia St & 18th St",
-    "draft_body": "A streetlight is out at the intersection of Valencia St and 18th St, San Francisco. The issue was reported on 2026-10-19. Please investigate and restore lighting to ensure safety at night."
+    "sources": [
+      {
+        "title": "Report a problem with a streetlight | SF.gov",
+        "url": "https://www.sf.gov/report-problem-streetlight"
+      },
+      {
+        "title": "311 Customer Service Center | SF.gov",
+        "url": "https://www.sf.gov/departments--311-customer-service-center"
+      }
+    ],
+    "draft_subject": "[PIN-x] Streetlight out at Valencia St and 18th St",
+    "draft_body": "Hello,\n\nA neighbor reported that a streetlight is out at Valencia St and 18th St in San Francisco. The crosswalk is very dark at night, which is a safety concern for people walking.\n\nCould you confirm the service request and the expected repair window?\n\nThank you."
   }
 }

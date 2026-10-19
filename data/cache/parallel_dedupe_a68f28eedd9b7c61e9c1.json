@@ -1,0 +1,63 @@
+{
+  "namespace": "parallel_dedupe",
+  "input": {
+    "objective": "Find out whether a sidewalk accessibility problem near Valencia St and 18th St in San Francisco has already been reported recently, for example in 311 open data, an outage map, or local news.",
+    "queries": [
+      "Valencia St and 18th St sidewalk accessibility 311 report San Francisco",
+      "San Francisco sidewalk accessibility near Valencia St and 18th St news recent"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000075311",
+      "excerpt": "1329 Valencia St\nOPEN 1w ago Sep 16, 2026, 6:46 PM · #202000075311\nOpened Sep 16, 2026, 6:46 PM 1w ago\nDescription sign blocking sidewalk. There is an A-frame sign blocking the sidewalk and obstructing the path for pedestrians. Please have this illegal sign removed to keep the walkway clear and accessible.\nAdditional Details Nature of request"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000099582",
+      "excerpt": "Lack of ADA accessible seating, Obstruction of crosswalk, Traffic barrier, Tripping hazard\nIs this a disability issue? (ADA)\nYes\nADA details\nUnsafe for everyone\nLocation 972 Valencia St\n37.75736732, -122.42136202\nLast updated 3d ago Last updated Sep 23, 2026, 9:06 PM"
+    },
+    {
+      "title": "Report curb and sidewalk problems | San Francisco",
+      "url": "https://www-temp.sf.gov/report-curb-and-sidewalk-problems",
+      "excerpt": "English Español 中文 Filipino\nCity and County of San Francisco sfgov home\nMenu\n* Services\n* Departments\n  Search\nReport curb and sidewalk problems\nReport sidewalks, curbs, and public stairways that are cracked, raised by tree roots, or have other defects including side sewer covers that need repair.\nResponse time"
+    },
+    {
+      "title": "Street & Sidewalk Defects - San Francisco",
+      "url": "https://www.sfgov.org/services/street-sidewalk-defects",
+      "excerpt": "Report any street and sidewalk defects. The City's Public Works Dept investigates obstructions and repairing defects on most of the city's streets and sidewalks.\nLink:\nhttp://www.sf311.org/index.aspx?page=111\nAgencyID:\n228\nImage:\nStreet and Sidewalk Defects\nServices Category:\nResidents\nAgency Name:\nPublic Works, Department of"
+    },
+    {
+      "title": "Sidewalk Show On Valencia and 16th Street in San Francisco",
+      "url": "https://docpop.org/2026/10/sidewalk-show-on-valencia-and-16th-street-in-san-francisco",
+      "excerpt": "Sidewalk Show On Valencia and 16th Street in San Francisco\nFootage from a lively and spontaneous rock show on the sidewalk of Valencia and 16th Street in San Francisco."
+    },
+    {
+      "title": "Valencia St.",
+      "url": "https://sidewalkjuice.com/locations/valencia",
+      "excerpt": "Valencia St.\nAug 3, 2023 — 3287 21st. San Francisco,, CA 94110 Hours Monday - Saturday: 8:30 AM - 7:00 PM Sunday: 9:00 AM - 7:00 PM. Juice on 21st and Valencia!"
+    },
+    {
+      "title": "18th St & Valencia St (#13348) | SFMTA",
+      "url": "https://www.sfmta.com/stops/18th-st-valencia-st-13348",
+      "excerpt": "* 18th St & Valencia St (#13349) (118 feet)\n* 33\nPlan a Trip"
+    },
+    {
+      "title": "https://www-temp.sf.gov/sites/default/files/2024-11/Letter%20to%20MTA%20regarding%20Valencia%20St.%20October%202024.pdf",
+      "url": "https://www-temp.sf.gov/sites/default/files/2024-11/Letter%20to%20MTA%20regarding%20Valencia%20St.%20October%202024.pdf",
+      "excerpt": "Like the speed bumps, it will have a bike-traffic calming effect.\n1455 Market St., 8th Floor, San Francisco, CA 94103 1+ 415.554.6789 1+ 415.554.6159 fax MDC@sfgov.org\nDisabled parking and disabled drop off zones are crucial to accessibility along Valencia Street. These areas should be well marked."
+    },
+    {
+      "title": "Sidewalk Juice Locations",
+      "url": "https://sidewalkjuice.com/locations",
+      "excerpt": "Sidewalk Juice Locations\nFind your nearest Sidewalk Juice for pickup and delivery. Airport HAight ST.,SF SERRAMONTE MALL Folsom ST.,SF Valencia St.,SF. MALL 41 Serramonte Center Daly"
+    },
+    {
+      "title": "Valencia Streetscape Project | Public Works",
+      "url": "https://sfpublicworks.org/project/valencia-streetscape-project",
+      "excerpt": "Public Works and the San Francisco Municipal Transportation Agency (SFMTA) teamed up to create a vision to improve the area with the goal of providing residents and visitors with safe and easy access to businesses, schools, shopping and regional transit connections."
+    }
+  ]
+}

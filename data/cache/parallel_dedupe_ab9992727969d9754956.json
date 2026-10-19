@@ -1,0 +1,63 @@
+{
+  "namespace": "parallel_dedupe",
+  "input": {
+    "objective": "Find out whether a graffiti problem near Valencia St and 18th St in San Francisco has already been reported recently, for example in 311 open data, an outage map, or local news.",
+    "queries": [
+      "Valencia St and 18th St graffiti 311 report San Francisco",
+      "San Francisco graffiti near Valencia St and 18th St news recent"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000094109",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000094109\nGraffiti"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000062979",
+      "excerpt": "1681 Valencia St, Us\nOPEN 1h ago Sep 13, 2026, 3:43 PM · #202000062979\nOpened Sep 13, 2026, 3:43 PM 1h ago\nDescription Clean the large light blue tag on the black fence; post an NOV and issue a blight citation.\nAdditional Details Nature of request\nNot offensive (no racial slurs or profanity)\nObject\nBuilding - other\nLocation 1681 Valencia St, Us"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000108311",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000108311\nGraffiti"
+    },
+    {
+      "title": "Report graffiti issues | SF.gov",
+      "url": "https://www.sf.gov/report-graffiti-issues",
+      "excerpt": "Other ways to report\nCall 311 to make a report\n415-701-2311 if calling from outside San Francisco\nHearing or speaking impaired; please call TDD/TTY 711\nUse our Mobile App\nDownload our mobile app to report a problem and track your request! Available on Android or iOS.\nLearn more about the SF311 mobile app.\nRelated"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000090969",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000090969\nGraffiti"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000062977",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000062977\nGraffiti"
+    },
+    {
+      "title": "San Francisco deals with increasing graffiti, tagging to private properties - ABC7 San Francisco",
+      "url": "https://abc7news.com/post/graffiti-in-san-francisco-tagging-vandalism-street/13801629",
+      "excerpt": "SAN FRANCISCO (KGO) -- If you think you've noticed more graffiti and tagging in San Francisco lately, you're not wrong. It has gotten worse. Graffiti is illegal and for a city that is trying to improve its image, it's going to take more than enforcement by police to get the city cleaned up."
+    },
+    {
+      "title": "Report graffiti issues | San Francisco",
+      "url": "https://www-temp.sf.gov/report-graffiti-issues",
+      "excerpt": "English Español 中文 Filipino\nCity and County of San Francisco sfgov home\nMenu\n* Services\n* Departments\n  Search\nReport graffiti issues\nReport graffiti on buildings, public property, and other objects\nResponse time\nVaries. For most graffiti, between 48 hours to 3 days. Graffiti on parking or traffic signs can take up to 20 days."
+    },
+    {
+      "title": "S.F. anti-graffiti workers paint over the Valencia Art Wall",
+      "url": "https://missionlocal.org/2025/11/sf-valencia-art-wall-graffiti",
+      "excerpt": "San Francisco’s graffiti abatement crew — intentionally, and perhaps only temporarily — painted over the Art Wall at the former Mission District police station that, for more than 20 years, has been a destination for hundreds of artists and amateurs.\nThere, on the southern facade of 1240 Valencia St."
+    },
+    {
+      "title": "Graffiti on Private Property",
+      "url": "https://sfpublicworks.org/services/graffiti-private-property",
+      "excerpt": "Graffiti on Private Property\nprivate property owners to remove graffiti from their property within 30 days. Call 311 or fax 415-695-2175 … for a minimum of $500 plus"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "namespace": "parallel_dedupe",
+  "input": {
+    "objective": "Find out whether a noise problem near Valencia St and 18th St in San Francisco has already been reported recently, for example in 311 open data, an outage map, or local news.",
+    "queries": [
+      "Valencia St and 18th St noise 311 report San Francisco",
+      "San Francisco noise near Valencia St and 18th St news recent"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000091291",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000091291\nGeneric"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000102781",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000102781\nEncampment"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000061919",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000061919\nDamaged public property"
+    },
+    {
+      "title": "311 Cases",
+      "url": "https://data.sf.gov/api/views/ktji-gk7t/rows.pdf?app_token=U29jcmF0YS0td2VraWNrYXNz0",
+      "excerpt": "210341677. Citation was issued.\nFRANCISCO, CA, 94107\n1360 48TH AVE, SAN FRANCISCO,\nCA, 94122\n48TH AVE 4 Outer Sunset\n901 VALENCIA ST, SAN\nFRANCISCO, CA, 94110\nVALENCIA ST 9 Mission\n5 WOOL ST, SAN FRANCISCO, CA,\n94110\nWOOL ST 9 Bernal Heights\nIntersection of CHENERY ST and\nBURNSIDE AVE\nCHENERY ST 8 Glen Park\n168 ESCOLTA WAY, SAN"
+    },
+    {
+      "title": "Street Use Contact List",
+      "url": "https://data.sf.gov/api/views/vpdg-4ask/rows.pdf?app_token=U29jcmF0YS0td2VraWNrYXNz0",
+      "excerpt": "ABE202002182093\n26E-00198 29TH ST MISSION ST TIFFANY AVE ExcStreet\n26B-00012 18TH ST VALENCIA ST LAPIDGE ST Banners\n26B-00012 18TH ST ALABAMA ST HARRISON ST Banners\n26B-00012 20TH ST LEXINGTON ST VALENCIA ST Banners\n26B-00012 VALENCIA ST 17TH ST CLARION ALY Banners\n14B-0141 FRONT ST UNION ST Banners"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000079637",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000079637\nStreet or sidewalk cleaning"
+    },
+    {
+      "title": "Department of Public Health | SF.gov",
+      "url": "https://www.sf.gov/departments--department-public-health",
+      "excerpt": "Report a Health Nuisance or Hazards Contact 311 to report health issues connected to businesses, apartments, or other living and working spaces including issues with abandoned vehicles, garbage and refuse, water quality & sewage. Report Pest Issues Report issues with rodents, bedbugs, mosquitos, or pigeons."
+    }
+  ]
+}

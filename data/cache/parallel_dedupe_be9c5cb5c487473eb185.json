@@ -1,0 +1,53 @@
+{
+  "namespace": "parallel_dedupe",
+  "input": {
+    "objective": "Find out whether a water sewer problem near Valencia St and 18th St in San Francisco has already been reported recently, for example in 311 open data, an outage map, or local news.",
+    "queries": [
+      "Valencia St and 18th St water sewer 311 report San Francisco",
+      "San Francisco water sewer near Valencia St and 18th St news recent"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000067671",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000067671\nShared spaces"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000091291",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000091291\nGeneric"
+    },
+    {
+      "title": "Sewer Issues | SF311",
+      "url": "https://sf311.archive.sf.gov/services/flooding-and-sewer-issues",
+      "excerpt": "* Privacy Policy\n* Terms & Conditions\n* Facebook\n* Twitter\n  Logo alt text City and County of San Francisco"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000084318",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000084318\nFlooding, sewer and water leak issues"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000108198",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000108198\nFlooding, sewer and water leak issues"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets?filter%5Bfacets%5D%5Bticket_type_code%5D%5B%5D=PUC%3AWater%3ASewer&page=2",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\nReports 167,539 of 7,597,501 · 1 filter applied\n2 of 20"
+    },
+    {
+      "title": "Report flooding, water leaks, sewer backup, or odor issues | San Francisco",
+      "url": "https://training.api.sf.gov/report-flooding-water-leaks-sewer-backup-or-odor-issues",
+      "excerpt": "English Español 中文 Filipino\nCity and County of San Francisco sfgov home\nMenu\n* Services\n* Departments\n  Search\nReport flooding, water leaks, sewer backup, or odor issues\nTell us if there are flooding, sewage backup or odor problems on the street.\nResponse time"
+    },
+    {
+      "title": "Water Quality | SF311",
+      "url": "https://sf311.archive.sf.gov/services/water-issues",
+      "excerpt": "* Privacy Policy\n* Terms & Conditions\n* Facebook\n* Twitter\n  Logo alt text City and County of San Francisco"
+    }
+  ]
+}

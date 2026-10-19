@@ -1,0 +1,53 @@
+{
+  "namespace": "parallel_dedupe",
+  "input": {
+    "objective": "Find out whether a illegal dumping problem near Valencia St and 18th St in San Francisco has already been reported recently, for example in 311 open data, an outage map, or local news.",
+    "queries": [
+      "Valencia St and 18th St illegal dumping 311 report San Francisco",
+      "San Francisco illegal dumping near Valencia St and 18th St news recent"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000102781",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000102781\nEncampment"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000094164",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000094164\nStreet or sidewalk cleaning"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000067671",
+      "excerpt": "998 Valencia St\nCLOSED 1w ago Sep 16, 2026, 11:00 PM · #202000067671\nAbated Full. Related tasks/inspection are complete.\nOpened Sep 14, 2026, 8:28 PM 2w ago\nClosed Sep 16, 2026, 11:00 PM 1w ago\nDescription Rat infestation- senor sesig. There is a reported rat infestation and overflowing trash bins at this location."
+    },
+    {
+      "title": "Exploring San Francisco's Approach to Illegal Dumping ...",
+      "url": "https://www.sf.gov/sites/default/files/2024-09/Illegal%20Dumping%20Final%20Report.pdf",
+      "excerpt": "Exploring San Francisco's Approach to Illegal Dumping ...\n311 is a platform for people to get help with any nonemergency City matter, not just illegal dumping. A user in the City of San Francisco can call, go online,"
+    },
+    {
+      "title": "311 Cases",
+      "url": "https://data.sf.gov/api/views/ktji-gk7t/rows.pdf?app_token=U29jcmF0YS0td2VraWNrYXNz0",
+      "excerpt": "210341677. Citation was issued.\nFRANCISCO, CA, 94107\n1360 48TH AVE, SAN FRANCISCO,\nCA, 94122\n48TH AVE 4 Outer Sunset\n901 VALENCIA ST, SAN\nFRANCISCO, CA, 94110\nVALENCIA ST 9 Mission\n5 WOOL ST, SAN FRANCISCO, CA,\n94110\nWOOL ST 9 Bernal Heights\nIntersection of CHENERY ST and\nBURNSIDE AVE\nCHENERY ST 8 Glen Park\n168 ESCOLTA WAY, SAN"
+    },
+    {
+      "title": "Report illegal dumping activity | SF.gov",
+      "url": "https://www.sf.gov/report-illegal-dumping-activity",
+      "excerpt": "Service\nReport illegal dumping activity\nReport in progress and past incidents of illegal dumping by an individual or business\nWhat to know\nResponse time\nYou will be contacted by Public Works for a witness statement within 3 business days.\nWhat to know\nResponse time"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000082410",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000082410\nLitter receptacle maintenance"
+    },
+    {
+      "title": "Report a problem | SF.gov",
+      "url": "https://www.sf.gov/topics--problems-and-complaints",
+      "excerpt": "Report homeless encampments Report homeless tents and other structures in San Francisco for removal Report illegal color curb painting Report colored curbs that do not have a SFMTA logo, this indicates that they are illegally painted Report illegal dumping activity Report in progress and past incidents of illegal dumping by an individual or"
+    }
+  ]
+}

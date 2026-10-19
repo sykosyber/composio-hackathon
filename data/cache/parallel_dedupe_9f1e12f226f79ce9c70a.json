@@ -1,0 +1,48 @@
+{
+  "namespace": "parallel_dedupe",
+  "input": {
+    "objective": "Find out whether a parking problem near Valencia St and 18th St in San Francisco has already been reported recently, for example in 311 open data, an outage map, or local news.",
+    "queries": [
+      "Valencia St and 18th St parking 311 report San Francisco",
+      "San Francisco parking near Valencia St and 18th St news recent"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000093176",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000093176\nBlocked driveway and illegal parking"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000067671",
+      "excerpt": "Location of issue\nParking lane\nIssue involves\nGraffiti, Waste management issues\nIs this a disability issue? (ADA)\nNo\nLocation 998 Valencia St\n37.75704689, -122.42129325\nLast updated 1w ago Last updated Sep 16, 2026, 11:00 PM"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000109603",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000109603\nBlocked driveway and illegal parking"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000091603",
+      "excerpt": "Intersection 18th St, Texas St\nCLOSED 5d ago Sep 22, 2026, 10:45 AM · #202000091603\nCase Resolved. case is resolved.\nOpened Sep 21, 2026, 3:48 PM 6d ago\nClosed Sep 22, 2026, 10:45 AM 5d ago\nDescription Multiple meters along 1300 block of 18th st appear to be stuck in \"Configuring\" mode, not accepting payment\nAdditional Details Object\nParking meter"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000091291",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000091291\nGeneric"
+    },
+    {
+      "title": "Pristine Parking Inc · 742 Valencia St, San Francisco, CA 94110",
+      "url": "https://opengovus.com/san-francisco-business/1007653-09-141",
+      "excerpt": "San Francisco Registered Business\nPristine Parking Inc\n742 Valencia St, San Francisco, CA 94110\nOverview"
+    },
+    {
+      "title": "Valencia St, San Francisco: Pedestrian Crash Statistics",
+      "url": "https://www.safestreetsmap.com/walking/san-francisco/valencia-st",
+      "excerpt": "The most were at Valencia St & 18th St (3). 64% involved a driver turning, 43% turning left. 46% of the people hit were in a crosswalk at an intersection."
+    }
+  ]
+}
