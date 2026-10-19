@@ -7,16 +7,18 @@ minutes of lag anyway. So every GMAIL_POLL_S seconds we run GMAIL_FETCH_EMAILS f
 """
 from __future__ import annotations
 
+import html
 import os
 import re
 import threading
 from typing import Callable
 
-from . import actions, store
+from . import actions, guardrails, store
 
 POLL_S = float(os.getenv("GMAIL_POLL_S", "8"))
 QUERY = os.getenv("GMAIL_REPLY_QUERY", "subject:PIN newer_than:2d -in:drafts -in:sent -from:me")
 PIN_TAG = re.compile(r"\[PIN-([A-Za-z0-9_-]{1,40})\]", re.I)
+QUOTE_HEADER = re.compile(r"\s*(?:On\s.{0,120}?\swrote:|-{2,}\s*Original Message|From:\s.{0,80}?Sent:)", re.I | re.S)
 DONE = {"acknowledged", "resolved", "emergency"}
 
 _seen: set[str] = set()
@@ -24,14 +26,17 @@ _thread: threading.Thread | None = None
 
 
 def _reply_text(msg: dict) -> str:
+    """The agency's new words only: no quoted history, no HTML entities, no email addresses."""
     preview = msg.get("preview") if isinstance(msg.get("preview"), dict) else {}
-    text = str(msg.get("messageText") or preview.get("body") or "")
+    text = html.unescape(str(msg.get("messageText") or preview.get("body") or ""))
+    # Gmail previews arrive as one line, so cut at the quote header wherever it appears.
+    text = QUOTE_HEADER.split(text, maxsplit=1)[0]
     keep = []
-    for line in text.splitlines():  # drop quoted history
-        if line.startswith(">") or re.match(r"^On .+wrote:\s*$", line.strip()):
+    for line in text.splitlines():
+        if line.startswith(">"):
             break
         keep.append(line)
-    return "\n".join(keep).strip() or text
+    return guardrails.scrub(" ".join(" ".join(keep).split()))
 
 
 def poll_once(on_reply: Callable[[str, str, str], dict]) -> list[dict]:
