@@ -35,6 +35,7 @@ browser: Leaflet + OpenStreetMap, polls GET /pins every 3s
    v  POST /pins  (returns immediately, pipeline runs in the background)
 +---------------------------------------------------------------+
 | 0 guardrail   emergency check            local rules           |
+| 0 triage      emergency p + category     TYPESAFE Jev          |
 | 1 geocode     coarse address hint        offline table         |
 | 2 research    responsible agency + URL   PARALLEL Search       |
 | 3 dedupe      is this already known      PARALLEL Search       |
@@ -51,11 +52,19 @@ data/pins.json       Google Sheet mirror         Slack channel
 (source of truth)    (best effort)               (+ Gmail draft)
 
 later, asynchronously:
-  agency replies  -> COMPOSIO Gmail trigger -> POST /webhooks/composio
-                     match [PIN-<id>] -> status acknowledged -> Slack
+  agency replies  -> COMPOSIO Gmail poller  -> match [PIN-<id>]
+                     TYPESAFE Jev reads the reply:
+                       "request opened"      -> acknowledged
+                       "lamp replaced, done" -> resolved
+                       "need more info"      -> needs_human
+                     -> notify on Slack
   new web signal  -> PARALLEL Monitor       -> POST /webhooks/parallel
                      attach an update to the pin
 ```
+
+The Gmail path is a poller on an 8 second loop rather than the Composio trigger, because
+Gmail triggers poll upstream and can lag by minutes. `POST /webhooks/composio` is still
+wired and tested for the trigger case.
 
 `data/pins.json` is the source of truth so the map always works. The Google Sheet is a mirror. If the Sheet write fails we log it and continue.
 
@@ -67,8 +76,18 @@ later, asynchronously:
 |---|---|---|
 | **Parallel** | `app/research.py`. `client.search(objective, search_queries)` for the agency lookup and the duplicate check. `client.monitor.create(type="event_stream")` for the ongoing watch, delivered to `/webhooks/parallel`. | This is what makes routing trustworthy. Without cited search results the agent refuses to name an agency. |
 | **Composio** | `app/actions.py`. Gmail draft, Google Sheets append, Slack post, all by verified tool slug. Gmail trigger delivers agency replies to `/webhooks/composio`. | This is the agent's hands. The pin becomes a real row, a real draft, and a real message in your neighbors' Slack. |
-| **Open source model** | `app/llm.py`. Any OpenAI compatible endpoint via `LLM_BASE_URL` and `LLM_MODEL`. JSON out, validated by Pydantic, one retry, then a rule based classifier. | The fuzzy part only: classify, summarize, write the draft. It is never allowed to invent an agency or a URL. |
+| **Open source model** | `app/llm.py`. OpenAI's open-weight **gpt-oss-20b** on NVIDIA's OpenAI-compatible endpoint, set with `NVIDIA_API_KEY`. Any other OpenAI-compatible provider works via `LLM_BASE_URL`. JSON out, validated by Pydantic, one retry, then a rule based classifier. | The fuzzy part only: classify, summarize, write the draft. It is never allowed to invent an agency or a URL. |
+| **TypeSafe Jev** | `app/jev.py`. Typed decisions with calibrated confidence, about 100 to 300ms each, in three places: emergency triage, category triage before the Parallel search, and reading what an agency reply actually means. | Decisions, not prose. Confidence is a number we can threshold on, so a low confidence answer falls back to rules instead of guessing. |
 | **Cline** | The whole build. | Pivoted the repo from an earlier idea and shipped this in one afternoon. |
+
+**On the open-weight model choice:** gpt-oss-20b was picked after Gemma 4, DeepSeek and GLM
+all timed out past 60 seconds and Nemotron came in slower. With `reasoning_effort: low` and a
+tightened prompt, routing lands in 5 to 10 seconds, tested live on streetlight, pothole,
+graffiti and tree reports.
+
+**On Jev and the emergency guardrail:** a pin is treated as an emergency if the keyword rules
+**or** Jev say so. Jev can only ever make that check more cautious, never less. If Jev is
+unavailable or slow, the keyword rules stand on their own and the pipeline continues.
 
 Tool slugs are never chosen by a model. The pipeline executes `GMAIL_CREATE_EMAIL_DRAFT`, `GOOGLESHEETS_SPREADSHEETS_VALUES_APPEND` and `SLACK_SEND_MESSAGE` directly, against schemas verified on 2026-10-19.
 
