@@ -103,8 +103,8 @@ def _acknowledge(pin_id: str, who: str, excerpt: str) -> dict:
     updated = store.update(pin_id, status=status)
     if updated:
         actions.post_to_slack(
-            f"*Update on `PIN-{pin_id}`*: {updated.agency or who} replied. "
-            f"Status is now *{status.replace('_', ' ')}*.\n> {excerpt[:240]}",
+            f"**Blockwise update** · `PIN-{pin_id}`: {updated.agency or who} replied. "
+            f"Status is now **{status.replace('_', ' ')}**.\n> {excerpt[:240]}",
             thread_ts=updated.slack_ts,
         )
     return {"matched": True, "pin_id": pin_id, "status": status, "jev": entry.get("jev")}

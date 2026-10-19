@@ -83,7 +83,7 @@ def build(lat: float = HOME_LAT, lng: float = HOME_LNG, reporter: str = "") -> d
 
 def to_markdown(area: str, counts: dict, items: list[BriefItem]) -> str:
     lines = [
-        f"*Morning brief for {area}*",
+        f"**Blockwise morning brief for {area}**",
         (f"{counts['open']} open, {counts['acknowledged']} acknowledged, "
          f"{counts['resolved']} resolved, {counts['needs_human']} need a human."),
     ]
@@ -91,10 +91,10 @@ def to_markdown(area: str, counts: dict, items: list[BriefItem]) -> str:
     changes = [i for i in items if i.kind == "status_change"]
     civic = [i for i in items if i.kind == "civic_date"]
     if new_pins:
-        lines += ["", "*New on your blocks*"] + [f"- {i.text}" for i in new_pins]
+        lines += ["", "**New on your blocks**"] + [f"- {i.text}" for i in new_pins]
     if changes:
-        lines += ["", "*Status changes on your issues*"] + [f"- {i.text}" for i in changes]
+        lines += ["", "**Status changes on your issues**"] + [f"- {i.text}" for i in changes]
     if civic:
-        lines += ["", "*Civic dates*"] + [f"- {i.text} <{i.url}|official source>" for i in civic]
-    lines += ["", "Drafts are ready for your review. The agent never sends anything on its own."]
+        lines += ["", "**Civic dates**"] + [f"- {i.text} [Official source]({i.url})" for i in civic]
+    lines += ["", "Drafts are ready for your review. Blockwise never sends anything on its own."]
     return "\n".join(lines)
