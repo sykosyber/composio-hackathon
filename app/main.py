@@ -1,4 +1,4 @@
-"""Altruistic Agent API. FastAPI serves both the JSON API and the static Leaflet map.
+"""Blockwise API. FastAPI serves both the JSON API and the static Leaflet map.
 
   GET  /pins                 all pins
   POST /pins                 create a pin, run the pipeline in the background, return immediately
@@ -23,7 +23,7 @@ from fastapi.staticfiles import StaticFiles
 from . import actions, brief as brief_mod, config, guardrails, jev, pipeline, reply_poller, research, store
 from .models import Pin, PinCreate, now_iso
 
-app = FastAPI(title="Altruistic Agent", version="1.0.0")
+app = FastAPI(title="Blockwise", version="1.0.0")
 
 # Matches generated ids (hex) and seeded ids (seed00). Kept loose on purpose.
 PIN_TAG = re.compile(r"\[PIN-([0-9a-z]{4,16})\]", re.I)

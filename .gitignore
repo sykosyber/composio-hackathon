@@ -8,3 +8,6 @@ data/pins.json
 *.sqlite3
 .DS_Store
 .cline-home/
+
+# Claude Code local state and agent worktrees
+.claude/

@@ -86,7 +86,7 @@ def _mcp_execute(slug: str, arguments: dict) -> dict:
     """Run exactly one named tool, normalized to {successful, data, error} like the SDK."""
     out = mcp_call("COMPOSIO_MULTI_EXECUTE_TOOL", {
         "tools": [{"tool_slug": slug, "arguments": arguments}],
-        "thought": f"Altruistic Agent pipeline step {slug}", "current_step": slug,
+        "thought": f"Blockwise pipeline step {slug}", "current_step": slug,
     })
     results = (out.get("data") or {}).get("results") or []
     if not results:
