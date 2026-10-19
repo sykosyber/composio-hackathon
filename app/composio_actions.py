@@ -31,7 +31,9 @@ log = logging.getLogger("composio_actions")
 
 COMPOSIO_API_KEY = os.getenv("COMPOSIO_API_KEY", "")
 COMPOSIO_USER_ID = os.getenv("COMPOSIO_USER_ID", "mateo-demo")
-SHEET_ID = os.getenv("GOOGLE_SHEET_ID", "")            # spreadsheet id from the Sheet URL
+SHEET_ID = os.getenv("GOOGLE_SHEET_ID", "")            # spreadsheet id, or the full Sheet URL
+if "/d/" in SHEET_ID:
+    SHEET_ID = SHEET_ID.split("/d/", 1)[1].split("/", 1)[0]
 SHEET_TAB = os.getenv("GOOGLE_SHEET_TAB", "Sheet1")
 SLACK_CHANNEL = os.getenv("SLACK_CHANNEL", "")         # e.g. "#mission-neighbors" or a C... id
 DRAFT_TO = os.getenv("AGENCY_DRAFT_TO", "")            # demo stand-in for the agency inbox. Never a real agency.
