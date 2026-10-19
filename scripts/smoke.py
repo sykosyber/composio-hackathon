@@ -61,10 +61,11 @@ def main() -> int:
     check("pin returns immediately", created["status"] == "routing")
     check("personal data stripped", "555" not in created["note"])
     pin = {}
-    for _ in range(20):
+    for _ in range(150):  # live LLM routing takes ~5-10s
         time.sleep(0.4)
         pin = client.get(f"/pins/{created['id']}").json()
-        if pin["status"] != "routing":
+        # status flips at "verify"; wait for the last step so the full trace is in
+        if pin["status"] != "routing" and any(t["step"] == "watch" for t in pin.get("trace", [])):
             break
     check("pipeline finished", pin["status"] != "routing", pin["status"])
     check("category classified", pin["category"] == "streetlight")
