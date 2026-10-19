@@ -1,106 +1,591 @@
 [
   {
-    "id": "fx01",
-    "created_at": "2026-10-19T08:12:00-07:00",
-    "updated_at": "2026-10-19T08:13:10-07:00",
-    "lat": 37.76155,
-    "lng": -122.42185,
-    "address_hint": "Valencia St and 18th St",
-    "note": "Streetlight out at Valencia and 18th, very dark at night.",
-    "reporter": "Mateo",
-    "status": "reported",
-    "card": {
-      "category": "streetlight",
-      "severity": "medium",
-      "summary": "A streetlight at Valencia St and 18th St is out, leaving the crosswalk dark at night.",
-      "agency": "San Francisco Public Utilities Commission (SFPUC) Streetlights",
-      "channel": "SF311 app or web form, category Streetlight",
-      "channel_url": "https://sf311.org/",
-      "already_reported": "unknown",
-      "sources": [
-        {"title": "SFPUC: Report a streetlight outage", "url": "https://www.sfpuc.gov/"},
-        {"title": "SF311: Streetlight repair", "url": "https://sf311.org/"}
-      ],
-      "draft_subject": "[PIN-fx01] Streetlight out at Valencia and 18th",
-      "draft_body": "Hello,\n\nI would like to report a streetlight that is out at Valencia St and 18th St in the Mission. The crosswalk is very dark at night.\n\nThank you,\nA neighbor"
-    },
-    "trace": [
-      {"step": "classify", "tool": "llm", "ms": 1840, "ok": true},
-      {"step": "parallel_search", "tool": "parallel", "ms": 4210, "ok": true},
-      {"step": "sheet", "tool": "composio", "ms": 980, "ok": true},
-      {"step": "gmail_draft", "tool": "composio", "ms": 1320, "ok": true},
-      {"step": "slack", "tool": "composio", "ms": 760, "ok": true}
-    ],
-    "updates": ["Draft ready in Gmail. Review and click send."],
-    "draft_id": "r-fixture-1",
-    "slack_ts": "1760886780.000100",
-    "seed": true
-  },
-  {
-    "id": "fx02",
-    "created_at": "2026-10-18T17:40:00-07:00",
-    "updated_at": "2026-10-19T07:02:00-07:00",
-    "lat": 37.7648,
-    "lng": -122.4194,
-    "address_hint": "16th St and Mission St",
-    "note": "Overflowing pile of dumped mattresses on the sidewalk by the BART plaza.",
+    "id": "s01",
+    "created_at": "2026-10-16T08:20:00-07:00",
+    "updated_at": "2026-10-18T10:05:00-07:00",
+    "lat": 37.75785,
+    "lng": -122.42135,
+    "address_hint": "Valencia St between 20th St and 21st St",
+    "note": "Deep pothole in the bike lane on Valencia between 20th and 21st. Saw a cyclist swerve into traffic.",
     "reporter": "Ana",
     "status": "acknowledged",
     "card": {
-      "category": "illegal_dumping",
-      "severity": "medium",
-      "summary": "Several mattresses dumped on the sidewalk near the 16th St BART plaza.",
+      "category": "road_pothole",
+      "severity": "high",
+      "summary": "A deep pothole in the Valencia St bike lane between 20th and 21st is forcing cyclists into traffic.",
       "agency": "San Francisco Public Works",
-      "channel": "SF311, category Street and Sidewalk Cleaning",
-      "channel_url": "https://sf311.org/",
-      "already_reported": "likely",
+      "channel": "SF311: app, web form, or call 311, category Pothole and street issues",
+      "channel_url": "https://www.sf.gov/report-pothole-and-street-issues",
+      "already_reported": "unknown",
       "sources": [
-        {"title": "SF Public Works: Street cleaning requests", "url": "https://sfpublicworks.org/"}
+        {
+          "title": "Report pothole and street issues | SF.gov",
+          "url": "https://www.sf.gov/report-pothole-and-street-issues"
+        },
+        {
+          "title": "Potholes | Public Works",
+          "url": "https://www.sfpublicworks.org/services/potholes"
+        }
       ],
-      "draft_subject": "[PIN-fx02] Dumped mattresses at 16th and Mission",
-      "draft_body": "Hello,\n\nThere are several mattresses dumped on the sidewalk near the 16th St BART plaza.\n\nThank you,\nA neighbor"
+      "draft_subject": "[PIN-s01] Pothole in Valencia bike lane between 20th and 21st",
+      "draft_body": "Hello,\n\nI'd like to report an issue at Valencia St between 20th St and 21st St in the Mission District, San Francisco.\n\nThere is a deep pothole in the northbound bike lane. Cyclists are swerving into the travel lane to avoid it.\n\nThis was flagged by a neighbor on our community map. Thank you for looking into it.\n\nA Mission neighbor"
     },
     "trace": [
-      {"step": "classify", "tool": "llm", "ms": 1500, "ok": true},
-      {"step": "parallel_search", "tool": "parallel", "ms": 3900, "ok": true},
-      {"step": "sheet", "tool": "composio", "ms": 1100, "ok": false},
-      {"step": "gmail_draft", "tool": "composio", "ms": 1250, "ok": true},
-      {"step": "slack", "tool": "composio", "ms": 700, "ok": true}
+      {
+        "step": "classify",
+        "tool": "llm",
+        "ms": 1600,
+        "ok": true
+      },
+      {
+        "step": "parallel_search",
+        "tool": "parallel",
+        "ms": 4200,
+        "ok": true
+      },
+      {
+        "step": "sheet",
+        "tool": "composio",
+        "ms": 900,
+        "ok": true
+      },
+      {
+        "step": "gmail_draft",
+        "tool": "composio",
+        "ms": 1250,
+        "ok": true
+      },
+      {
+        "step": "slack",
+        "tool": "composio",
+        "ms": 700,
+        "ok": true
+      }
     ],
-    "updates": ["Agency replied: request received, crew scheduled."],
-    "draft_id": "r-fixture-2",
-    "slack_ts": null,
+    "updates": [
+      "Draft ready in Gmail. Ana reviewed and sent it.",
+      "Public Works replied: request received, crew assigned."
+    ],
+    "draft_id": "seed-draft-s01",
+    "slack_ts": "1760800010.000100",
     "seed": true
   },
   {
-    "id": "fx03",
-    "created_at": "2026-10-19T09:00:00-07:00",
-    "updated_at": "2026-10-19T09:00:30-07:00",
-    "lat": 37.7583,
-    "lng": -122.4148,
-    "address_hint": "20th St and Folsom St",
-    "note": "Weird smell from a manhole, not sure who handles it.",
+    "id": "s02",
+    "created_at": "2026-10-18T19:10:00-07:00",
+    "updated_at": "2026-10-18T19:11:20-07:00",
+    "lat": 37.75235,
+    "lng": -122.41235,
+    "address_hint": "Balmy Alley near 24th St",
+    "note": "Someone tagged over part of the mural in Balmy Alley.",
+    "reporter": "Luis",
+    "status": "reported",
+    "card": {
+      "category": "graffiti",
+      "severity": "medium",
+      "summary": "Fresh tags painted over part of a community mural in Balmy Alley near 24th St.",
+      "agency": "San Francisco Public Works",
+      "channel": "SF311: app, web form, or call 311, category Graffiti",
+      "channel_url": "https://www.sf.gov/report-graffiti-issues",
+      "already_reported": "unknown",
+      "sources": [
+        {
+          "title": "Report graffiti issues | SF.gov",
+          "url": "https://www.sf.gov/report-graffiti-issues"
+        },
+        {
+          "title": "Graffiti | Public Works",
+          "url": "https://www.sfpublicworks.org/services/graffiti"
+        }
+      ],
+      "draft_subject": "[PIN-s02] Graffiti over mural in Balmy Alley",
+      "draft_body": "Hello,\n\nI'd like to report an issue at Balmy Alley near 24th St in the Mission District, San Francisco.\n\nFresh tags were painted over part of a mural in Balmy Alley, near the 24th St entrance.\n\nThis was flagged by a neighbor on our community map. Thank you for looking into it.\n\nA Mission neighbor"
+    },
+    "trace": [
+      {
+        "step": "classify",
+        "tool": "llm",
+        "ms": 1600,
+        "ok": true
+      },
+      {
+        "step": "parallel_search",
+        "tool": "parallel",
+        "ms": 4200,
+        "ok": true
+      },
+      {
+        "step": "sheet",
+        "tool": "composio",
+        "ms": 900,
+        "ok": true
+      },
+      {
+        "step": "gmail_draft",
+        "tool": "composio",
+        "ms": 1250,
+        "ok": true
+      },
+      {
+        "step": "slack",
+        "tool": "composio",
+        "ms": 700,
+        "ok": true
+      }
+    ],
+    "updates": [
+      "Draft ready in Gmail. Review and click send."
+    ],
+    "draft_id": "seed-draft-s02",
+    "slack_ts": "1760800020.000100",
+    "seed": true
+  },
+  {
+    "id": "s03",
+    "created_at": "2026-10-14T07:45:00-07:00",
+    "updated_at": "2026-10-17T15:30:00-07:00",
+    "lat": 37.76005,
+    "lng": -122.41575,
+    "address_hint": "19th St and Shotwell St",
+    "note": "Couch and a pile of boxes dumped on the corner of 19th and Shotwell.",
+    "reporter": "Priya",
+    "status": "resolved",
+    "card": {
+      "category": "illegal_dumping",
+      "severity": "medium",
+      "summary": "A couch and boxes were dumped on the sidewalk at 19th and Shotwell.",
+      "agency": "San Francisco Public Works",
+      "channel": "SF311: app, web form, or call 311, category Illegal dumping",
+      "channel_url": "https://www.sf.gov/report-illegal-dumping",
+      "already_reported": "likely",
+      "sources": [
+        {
+          "title": "Report illegal dumping activity | SF.gov",
+          "url": "https://www.sf.gov/report-illegal-dumping"
+        },
+        {
+          "title": "Request street or sidewalk cleaning | SF.gov",
+          "url": "https://www.sf.gov/request-street-or-sidewalk-cleaning"
+        }
+      ],
+      "draft_subject": "[PIN-s03] Couch and boxes dumped at 19th and Shotwell",
+      "draft_body": "Hello,\n\nI'd like to report an issue at 19th St and Shotwell St in the Mission District, San Francisco.\n\nA couch and a pile of boxes were left on the sidewalk at the corner, partly blocking it.\n\nThis was flagged by a neighbor on our community map. Thank you for looking into it.\n\nA Mission neighbor"
+    },
+    "trace": [
+      {
+        "step": "classify",
+        "tool": "llm",
+        "ms": 1600,
+        "ok": true
+      },
+      {
+        "step": "parallel_search",
+        "tool": "parallel",
+        "ms": 4200,
+        "ok": true
+      },
+      {
+        "step": "sheet",
+        "tool": "composio",
+        "ms": 900,
+        "ok": true
+      },
+      {
+        "step": "gmail_draft",
+        "tool": "composio",
+        "ms": 1250,
+        "ok": true
+      },
+      {
+        "step": "slack",
+        "tool": "composio",
+        "ms": 700,
+        "ok": true
+      }
+    ],
+    "updates": [
+      "Public Works replied: request received.",
+      "Crew picked it up. Marked resolved by Priya."
+    ],
+    "draft_id": "seed-draft-s03",
+    "slack_ts": "1760800030.000100",
+    "seed": true
+  },
+  {
+    "id": "s04",
+    "created_at": "2026-10-17T16:05:00-07:00",
+    "updated_at": "2026-10-18T09:12:00-07:00",
+    "lat": 37.75985,
+    "lng": -122.42625,
+    "address_hint": "19th St and Dolores St",
+    "note": "Big branch cracked and hanging over the sidewalk on the Dolores Park side of 19th.",
+    "reporter": "Sam",
+    "status": "acknowledged",
+    "card": {
+      "category": "tree",
+      "severity": "high",
+      "summary": "A large cracked branch is hanging over the sidewalk at 19th and Dolores, next to Dolores Park.",
+      "agency": "San Francisco Public Works, Bureau of Urban Forestry",
+      "channel": "SF311: app, web form, or call 311, category Damaged or fallen tree",
+      "channel_url": "https://www.sf.gov/report-damaged-or-fallen-tree",
+      "already_reported": "unknown",
+      "sources": [
+        {
+          "title": "Report a damaged or fallen tree | SF.gov",
+          "url": "https://www.sf.gov/report-damaged-or-fallen-tree"
+        },
+        {
+          "title": "Street Trees and Plants | Public Works",
+          "url": "https://www.sfpublicworks.org/services/trees"
+        }
+      ],
+      "draft_subject": "[PIN-s04] Cracked branch over sidewalk at 19th and Dolores",
+      "draft_body": "Hello,\n\nI'd like to report an issue at 19th St and Dolores St in the Mission District, San Francisco.\n\nA large branch has cracked and is hanging over the sidewalk on the park side of 19th St.\n\nThis was flagged by a neighbor on our community map. Thank you for looking into it.\n\nA Mission neighbor"
+    },
+    "trace": [
+      {
+        "step": "classify",
+        "tool": "llm",
+        "ms": 1600,
+        "ok": true
+      },
+      {
+        "step": "parallel_search",
+        "tool": "parallel",
+        "ms": 4200,
+        "ok": true
+      },
+      {
+        "step": "sheet",
+        "tool": "composio",
+        "ms": 900,
+        "ok": true
+      },
+      {
+        "step": "gmail_draft",
+        "tool": "composio",
+        "ms": 1250,
+        "ok": true
+      },
+      {
+        "step": "slack",
+        "tool": "composio",
+        "ms": 700,
+        "ok": true
+      }
+    ],
+    "updates": [
+      "Draft sent by Sam.",
+      "Urban Forestry replied: inspection scheduled."
+    ],
+    "draft_id": "seed-draft-s04",
+    "slack_ts": "1760800040.000100",
+    "seed": true
+  },
+  {
+    "id": "s05",
+    "created_at": "2026-10-18T12:30:00-07:00",
+    "updated_at": "2026-10-18T12:31:40-07:00",
+    "lat": 37.75245,
+    "lng": -122.41395,
+    "address_hint": "24th St and Folsom St",
+    "note": "Curb ramp at 24th and Folsom is crumbling, really hard with a stroller or wheelchair.",
+    "reporter": "Mei",
+    "status": "reported",
+    "card": {
+      "category": "sidewalk_accessibility",
+      "severity": "medium",
+      "summary": "The curb ramp at 24th and Folsom is broken up, making it hard to cross with a stroller or wheelchair.",
+      "agency": "San Francisco Public Works",
+      "channel": "SF311: app, web form, or call 311, category Curb and sidewalk problems",
+      "channel_url": "https://www.sf.gov/report-curb-and-sidewalk-problems",
+      "already_reported": "unknown",
+      "sources": [
+        {
+          "title": "Report curb and sidewalk problems | SF.gov",
+          "url": "https://www.sf.gov/report-curb-and-sidewalk-problems"
+        }
+      ],
+      "draft_subject": "[PIN-s05] Broken curb ramp at 24th and Folsom",
+      "draft_body": "Hello,\n\nI'd like to report an issue at 24th St and Folsom St in the Mission District, San Francisco.\n\nThe curb ramp is crumbling and uneven, which makes crossing difficult for strollers and wheelchairs.\n\nThis was flagged by a neighbor on our community map. Thank you for looking into it.\n\nA Mission neighbor"
+    },
+    "trace": [
+      {
+        "step": "classify",
+        "tool": "llm",
+        "ms": 1600,
+        "ok": true
+      },
+      {
+        "step": "parallel_search",
+        "tool": "parallel",
+        "ms": 4200,
+        "ok": true
+      },
+      {
+        "step": "sheet",
+        "tool": "composio",
+        "ms": 900,
+        "ok": true
+      },
+      {
+        "step": "gmail_draft",
+        "tool": "composio",
+        "ms": 1250,
+        "ok": true
+      },
+      {
+        "step": "slack",
+        "tool": "composio",
+        "ms": 700,
+        "ok": true
+      }
+    ],
+    "updates": [
+      "Draft ready in Gmail. Review and click send."
+    ],
+    "draft_id": "seed-draft-s05",
+    "slack_ts": "1760800050.000100",
+    "seed": true
+  },
+  {
+    "id": "s06",
+    "created_at": "2026-10-19T06:50:00-07:00",
+    "updated_at": "2026-10-19T06:51:30-07:00",
+    "lat": 37.76325,
+    "lng": -122.41815,
+    "address_hint": "17th St and Capp St",
+    "note": "Strong sewer smell from the storm drain at 17th and Capp since last night.",
+    "reporter": "Jordan",
+    "status": "reported",
+    "card": {
+      "category": "water_sewer",
+      "severity": "medium",
+      "summary": "A strong sewer odor is coming from the storm drain at 17th and Capp.",
+      "agency": "San Francisco Public Utilities Commission (SFPUC)",
+      "channel": "SF311: app, web form, or call 311, category Sewer or odor issues",
+      "channel_url": "https://www.sf.gov/report-flooding-water-leaks-sewer-backup-or-odor-issues",
+      "already_reported": "unknown",
+      "sources": [
+        {
+          "title": "Report flooding, water leaks, sewer backup, or odor issues | SF.gov",
+          "url": "https://www.sf.gov/report-flooding-water-leaks-sewer-backup-or-odor-issues"
+        },
+        {
+          "title": "Contact Us | SFPUC",
+          "url": "https://www.sfpuc.gov/about-us/contact-us"
+        }
+      ],
+      "draft_subject": "[PIN-s06] Sewer odor from storm drain at 17th and Capp",
+      "draft_body": "Hello,\n\nI'd like to report an issue at 17th St and Capp St in the Mission District, San Francisco.\n\nThere has been a strong sewer smell coming from the storm drain on the corner since last night.\n\nThis was flagged by a neighbor on our community map. Thank you for looking into it.\n\nA Mission neighbor"
+    },
+    "trace": [
+      {
+        "step": "classify",
+        "tool": "llm",
+        "ms": 1600,
+        "ok": true
+      },
+      {
+        "step": "parallel_search",
+        "tool": "parallel",
+        "ms": 4200,
+        "ok": true
+      },
+      {
+        "step": "sheet",
+        "tool": "composio",
+        "ms": 900,
+        "ok": true
+      },
+      {
+        "step": "gmail_draft",
+        "tool": "composio",
+        "ms": 1250,
+        "ok": true
+      },
+      {
+        "step": "slack",
+        "tool": "composio",
+        "ms": 700,
+        "ok": true
+      }
+    ],
+    "updates": [
+      "Draft ready in Gmail. Review and click send."
+    ],
+    "draft_id": "seed-draft-s06",
+    "slack_ts": "1760800060.000100",
+    "seed": true
+  },
+  {
+    "id": "s07",
+    "created_at": "2026-10-19T07:40:00-07:00",
+    "updated_at": "2026-10-19T07:40:35-07:00",
+    "lat": 37.757,
+    "lng": -122.41985,
+    "address_hint": "21st St and Bartlett St",
+    "note": "Utility box on the corner of 21st and Bartlett is humming loudly and the door is hanging open.",
     "reporter": "neighbor",
     "status": "needs_human",
     "card": {
-      "category": "water_sewer",
-      "severity": "low",
-      "summary": "Unusual odor coming from a manhole at 20th and Folsom.",
+      "category": "other",
+      "severity": "medium",
+      "summary": "An unlabeled utility box at 21st and Bartlett is humming loudly and its door is open.",
       "agency": null,
       "channel": null,
       "channel_url": null,
       "already_reported": "unknown",
       "sources": [],
-      "draft_subject": "[PIN-fx03] Odor from manhole at 20th and Folsom",
+      "draft_subject": "[PIN-s07] Open utility box at 21st and Bartlett",
       "draft_body": ""
     },
     "trace": [
-      {"step": "classify", "tool": "llm", "ms": 1700, "ok": true},
-      {"step": "parallel_search", "tool": "parallel", "ms": 15000, "ok": false}
+      {
+        "step": "classify",
+        "tool": "llm",
+        "ms": 1500,
+        "ok": true
+      },
+      {
+        "step": "parallel_search",
+        "tool": "parallel",
+        "ms": 5200,
+        "ok": true
+      }
     ],
-    "updates": [],
+    "updates": [
+      "Couldn't verify which agency owns this box. Needs a human."
+    ],
     "draft_id": null,
     "slack_ts": null,
+    "seed": true
+  },
+  {
+    "id": "s08",
+    "created_at": "2026-10-19T08:05:00-07:00",
+    "updated_at": "2026-10-19T08:06:10-07:00",
+    "lat": 37.759,
+    "lng": -122.4112,
+    "address_hint": "20th St and Alabama St",
+    "note": "Van with flat tires hasn't moved from 20th and Alabama in over a week.",
+    "reporter": "Chris",
+    "status": "routed",
+    "card": {
+      "category": "parking",
+      "severity": "low",
+      "summary": "A van with flat tires appears abandoned at 20th and Alabama, unmoved for over a week.",
+      "agency": "San Francisco Municipal Transportation Agency (SFMTA)",
+      "channel": "SF311: app, web form, or call 311, category Abandoned vehicle",
+      "channel_url": "https://www.sf.gov/report-abandoned-vehicle",
+      "already_reported": "unknown",
+      "sources": [
+        {
+          "title": "Report an abandoned vehicle | SF.gov",
+          "url": "https://www.sf.gov/report-abandoned-vehicle"
+        },
+        {
+          "title": "Contact Us | SFMTA",
+          "url": "https://www.sfmta.com/contact-us"
+        }
+      ],
+      "draft_subject": "[PIN-s08] Abandoned van at 20th and Alabama",
+      "draft_body": "Hello,\n\nI'd like to report an issue at 20th St and Alabama St in the Mission District, San Francisco.\n\nA van with flat tires has been parked in the same spot for more than a week.\n\nThis was flagged by a neighbor on our community map. Thank you for looking into it.\n\nA Mission neighbor"
+    },
+    "trace": [
+      {
+        "step": "classify",
+        "tool": "llm",
+        "ms": 1600,
+        "ok": true
+      },
+      {
+        "step": "parallel_search",
+        "tool": "parallel",
+        "ms": 4200,
+        "ok": true
+      },
+      {
+        "step": "sheet",
+        "tool": "composio",
+        "ms": 900,
+        "ok": true
+      }
+    ],
+    "updates": [],
+    "draft_id": "seed-draft-s08",
+    "slack_ts": "1760800080.000100",
+    "seed": true
+  },
+  {
+    "id": "s09",
+    "created_at": "2026-10-17T21:15:00-07:00",
+    "updated_at": "2026-10-18T14:40:00-07:00",
+    "lat": 37.7649,
+    "lng": -122.4196,
+    "address_hint": "16th St and Mission St",
+    "note": "Mattresses dumped on the sidewalk next to the 16th St BART plaza.",
+    "reporter": "Ana",
+    "status": "acknowledged",
+    "card": {
+      "category": "illegal_dumping",
+      "severity": "medium",
+      "summary": "Several mattresses were dumped on the sidewalk beside the 16th St BART plaza.",
+      "agency": "San Francisco Public Works",
+      "channel": "SF311: app, web form, or call 311, category Illegal dumping",
+      "channel_url": "https://www.sf.gov/report-illegal-dumping",
+      "already_reported": "likely",
+      "sources": [
+        {
+          "title": "Report illegal dumping activity | SF.gov",
+          "url": "https://www.sf.gov/report-illegal-dumping"
+        },
+        {
+          "title": "Request street or sidewalk cleaning | SF.gov",
+          "url": "https://www.sf.gov/request-street-or-sidewalk-cleaning"
+        }
+      ],
+      "draft_subject": "[PIN-s09] Mattresses dumped at 16th and Mission",
+      "draft_body": "Hello,\n\nI'd like to report an issue at 16th St and Mission St in the Mission District, San Francisco.\n\nSeveral mattresses were left on the sidewalk beside the BART plaza, blocking part of the walkway.\n\nThis was flagged by a neighbor on our community map. Thank you for looking into it.\n\nA Mission neighbor"
+    },
+    "trace": [
+      {
+        "step": "classify",
+        "tool": "llm",
+        "ms": 1600,
+        "ok": true
+      },
+      {
+        "step": "parallel_search",
+        "tool": "parallel",
+        "ms": 4200,
+        "ok": true
+      },
+      {
+        "step": "sheet",
+        "tool": "composio",
+        "ms": 900,
+        "ok": true
+      },
+      {
+        "step": "gmail_draft",
+        "tool": "composio",
+        "ms": 1250,
+        "ok": true
+      },
+      {
+        "step": "slack",
+        "tool": "composio",
+        "ms": 700,
+        "ok": true
+      }
+    ],
+    "updates": [
+      "Draft sent by Ana.",
+      "Public Works replied: request received, crew scheduled."
+    ],
+    "draft_id": "seed-draft-s09",
+    "slack_ts": "1760800090.000100",
     "seed": true
   }
 ]
