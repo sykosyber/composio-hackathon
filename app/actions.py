@@ -7,8 +7,10 @@ against the live Composio tool schemas on 2026-10-19:
   GOOGLESHEETS_SPREADSHEETS_VALUES_APPEND  spreadsheetId, range, valueInputOption, values[[...]]
   SLACK_SEND_MESSAGE                       channel, markdown_text
 
-SDK surface (composio 0.28.0): Composio().sessions.create(user_id=..., toolkits=[...])
-then session.execute(slug, arguments={...}).
+Transport, picked from the key type:
+- `ck_...` consumer key: Composio MCP at https://connect.composio.dev/mcp (header x-consumer-api-key),
+  COMPOSIO_MULTI_EXECUTE_TOOL with one fixed slug + arguments. Verified live 2026-10-19 12:43.
+- project key: SDK, Composio().sessions.create(user_id=..., toolkits=[...]) then session.execute(slug, arguments={...}).
 
 Every function here is best effort: it returns an Outcome and never raises into the
 pipeline, so a dead Sheet or Slack never stalls the demo.
@@ -52,6 +54,48 @@ def session() -> Any:
         return _session
 
 
+MCP_URL = "https://connect.composio.dev/mcp"
+
+
+def _use_mcp() -> bool:
+    return config.COMPOSIO_API_KEY.startswith("ck_")
+
+
+def mcp_call(name: str, arguments: dict) -> dict:
+    """One JSON-RPC tools/call against the Composio MCP server. Returns the parsed tool result."""
+    import httpx
+
+    r = httpx.post(MCP_URL, timeout=config.COMPOSIO_TIMEOUT, headers={
+        "x-consumer-api-key": config.COMPOSIO_API_KEY, "Content-Type": "application/json",
+        "Accept": "application/json, text/event-stream",
+    }, json={"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": name, "arguments": arguments}})
+    r.raise_for_status()
+    msg = None
+    for line in r.text.splitlines():  # streamable HTTP answers as SSE: "data: {...}"
+        if line.startswith("data:"):
+            msg = json.loads(line[5:])
+    if msg is None:
+        msg = r.json()
+    if msg.get("error"):
+        raise RuntimeError(f"mcp error: {msg['error']}")
+    content = (msg.get("result") or {}).get("content") or []
+    return json.loads(content[0]["text"]) if content else {}
+
+
+def _mcp_execute(slug: str, arguments: dict) -> dict:
+    """Run exactly one named tool, normalized to {successful, data, error} like the SDK."""
+    out = mcp_call("COMPOSIO_MULTI_EXECUTE_TOOL", {
+        "tools": [{"tool_slug": slug, "arguments": arguments}],
+        "thought": f"Altruistic Agent pipeline step {slug}", "current_step": slug,
+    })
+    results = (out.get("data") or {}).get("results") or []
+    if not results:
+        return {"successful": False, "error": out.get("error") or "no result", "data": {}}
+    resp = results[0].get("response") or {}
+    return {"successful": bool(resp.get("successful")), "data": resp.get("data") or {},
+            "error": resp.get("error") or results[0].get("error")}
+
+
 def _unwrap(resp: Any) -> dict:
     if hasattr(resp, "model_dump"):
         return resp.model_dump()
@@ -68,7 +112,10 @@ def execute(slug: str, arguments: dict) -> Outcome:
 
     def _call() -> None:
         try:
-            box["data"] = _unwrap(session().execute(slug, arguments=arguments))
+            if _use_mcp():
+                box["data"] = _mcp_execute(slug, arguments)
+            else:
+                box["data"] = _unwrap(session().execute(slug, arguments=arguments))
         except Exception as exc:
             box["error"] = f"{type(exc).__name__}: {exc}"[:300]
 

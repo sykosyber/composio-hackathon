@@ -27,8 +27,10 @@ COMPOSIO_API_KEY = os.getenv("COMPOSIO_API_KEY", "")
 COMPOSIO_USER_ID = os.getenv("COMPOSIO_USER_ID", "mateo-demo")
 COMPOSIO_WEBHOOK_SECRET = os.getenv("COMPOSIO_WEBHOOK_SECRET", "")
 COMPOSIO_TRIGGER_ID = os.getenv("COMPOSIO_TRIGGER_ID", "")
-SHEET_ID = os.getenv("SHEET_ID", "")
-SHEET_RANGE = os.getenv("SHEET_RANGE", "Pins!A:Q")
+SHEET_ID = os.getenv("SHEET_ID", "") or os.getenv("GOOGLE_SHEET_ID", "")
+if "/d/" in SHEET_ID:  # accept the full Sheet URL too
+    SHEET_ID = SHEET_ID.split("/d/", 1)[1].split("/", 1)[0]
+SHEET_RANGE = os.getenv("SHEET_RANGE", "Sheet1!A:Q")
 SLACK_CHANNEL = os.getenv("SLACK_CHANNEL", "")
 AGENCY_DRAFT_TO = os.getenv("AGENCY_DRAFT_TO", "")
 

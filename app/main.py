@@ -20,7 +20,7 @@ from fastapi import BackgroundTasks, FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from . import actions, brief as brief_mod, config, guardrails, pipeline, research, store
+from . import actions, brief as brief_mod, config, guardrails, pipeline, reply_poller, research, store
 from .models import Pin, PinCreate, now_iso
 
 app = FastAPI(title="Altruistic Agent", version="1.0.0")
@@ -99,6 +99,12 @@ def _acknowledge(pin_id: str, who: str, excerpt: str) -> dict:
             thread_ts=updated.slack_ts,
         )
     return {"matched": True, "pin_id": pin_id, "status": "acknowledged"}
+
+
+@app.on_event("startup")
+def _start_reply_poller() -> None:
+    """Real agency replies: poll Gmail via Composio for [PIN-<id>] replies (no tunnel or trigger needed)."""
+    reply_poller.start(_acknowledge)
 
 
 @app.post("/webhooks/composio")
