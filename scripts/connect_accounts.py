@@ -28,7 +28,7 @@ accounts = {}
 for tk in a.toolkits.split(","):
     req = session.authorize(tk)
     print(f"Connect {tk}: {req.redirect_url}", flush=True)
-    accounts[tk] = req.wait_for_connection()
+    accounts[tk] = req.wait_for_connection(timeout=1200)
     print(f"  connected {tk}: {accounts[tk].id}")
 
 if a.trigger:
