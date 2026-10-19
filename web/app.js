@@ -184,7 +184,7 @@ function renderPin(pin) {
   }
 
   parts.push(`<blockquote class="note-quote">${esc(pin.note)}
-    <span class="by">Pinned by ${esc(pin.reporter || "a neighbor")} · ${esc(title(pin.severity))} severity</span></blockquote>`);
+    <span class="by">Pinned by ${esc(pin.reporter || "a neighbor")}${pin.emergency ? "" : ` · ${esc(title(pin.severity))} severity`}</span></blockquote>`);
 
   if (pin.emergency) {
     // Nothing else to show for an emergency.
