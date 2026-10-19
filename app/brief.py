@@ -83,7 +83,7 @@ def build(lat: float = HOME_LAT, lng: float = HOME_LNG, reporter: str = "") -> d
 
 def to_markdown(area: str, counts: dict, items: list[BriefItem]) -> str:
     lines = [
-        f"**Blockwise morning brief for {area}**",
+        f"**PorchLight morning brief for {area}**",
         (f"{counts['open']} open, {counts['acknowledged']} acknowledged, "
          f"{counts['resolved']} resolved, {counts['needs_human']} need a human."),
     ]
@@ -96,5 +96,5 @@ def to_markdown(area: str, counts: dict, items: list[BriefItem]) -> str:
         lines += ["", "**Status changes on your issues**"] + [f"- {i.text}" for i in changes]
     if civic:
         lines += ["", "**Civic dates**"] + [f"- {i.text} [Official source]({i.url})" for i in civic]
-    lines += ["", "Drafts are ready for your review. Blockwise never sends anything on its own."]
+    lines += ["", "Drafts are ready for your review. PorchLight never sends anything on its own."]
     return "\n".join(lines)

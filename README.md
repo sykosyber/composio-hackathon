@@ -1,14 +1,16 @@
-# Blockwise
+<p align="center"><img src="docs/brand/porchlight-logo.png" alt="PorchLight logo" width="320"></p>
 
-**Drop a pin. Blockwise finds who fixes it.**
+# PorchLight
 
-Blockwise is the first, narrow slice of the Altruistic Agent vision: a personal agent that makes a whole neighborhood smarter.
+**Drop a pin. PorchLight finds who fixes it.**
+
+PorchLight is the first, narrow slice of the Altruistic Agent vision: a personal agent that makes a whole neighborhood smarter.
 
 Drop a pin about something in your neighborhood. Your agent figures out who can fix it, drafts the report, puts it on a shared community map, tells your neighbors, and keeps you updated. Every morning it briefs you on your blocks.
 
 Built for the Cline x Composio x Parallel hackathon, Monday October 19 2026. Demo city is San Francisco.
 
-One person reporting a broken streetlight helps one block. The same work, made shareable, helps a neighborhood. Blockwise does the boring part: figuring out which of a dozen city departments owns the problem, finding the real reporting channel, writing the report, and keeping everyone posted.
+One person reporting a broken streetlight helps one block. The same work, made shareable, helps a neighborhood. PorchLight does the boring part: figuring out which of a dozen city departments owns the problem, finding the real reporting channel, writing the report, and keeping everyone posted.
 
 ---
 

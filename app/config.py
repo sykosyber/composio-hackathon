@@ -1,4 +1,4 @@
-"""Env + paths for Blockwise. Loaded once; every module imports from here.
+"""Env + paths for PorchLight. Loaded once; every module imports from here.
 
 Reused from the legacy ballot explainer (legacy/ballot_explainer/src/config.py) and
 re-pointed at the neighborhood pin-and-route product.

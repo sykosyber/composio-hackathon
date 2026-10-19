@@ -38,8 +38,10 @@ header.top {
   display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
   padding: 12px 22px; background: var(--card); border-bottom: 1px solid var(--line);
 }
-.brand { flex: 1 1 360px; min-width: 0; }
-.brand h1 { margin: 0; font-size: 26px; letter-spacing: -.01em; }
+.brand { flex: 1 1 360px; min-width: 0; display: flex; align-items: center; gap: 12px; }
+.brand-mark { height: 56px; width: auto; flex: none; }
+.brand-text { min-width: 0; }
+.brand h1 { margin: 0; font-size: 26px; letter-spacing: -.01em; color: #13224f; }
 .tagline { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
 .actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .health { color: var(--muted); font-size: 13px; }
@@ -224,6 +226,7 @@ ol.trace li.skip .step { color: var(--muted); }
   body { font-size: 16px; }
   header.top { padding: 10px 16px; }
   .brand h1 { font-size: 22px; }
+  .brand-mark { height: 44px; }
   body { display: block; height: auto; }
   main { flex-direction: column; }
   #map-wrap { flex: none; height: min(52vh, 440px); }

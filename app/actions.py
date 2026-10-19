@@ -86,7 +86,7 @@ def _mcp_execute(slug: str, arguments: dict) -> dict:
     """Run exactly one named tool, normalized to {successful, data, error} like the SDK."""
     out = mcp_call("COMPOSIO_MULTI_EXECUTE_TOOL", {
         "tools": [{"tool_slug": slug, "arguments": arguments}],
-        "thought": f"Blockwise pipeline step {slug}", "current_step": slug,
+        "thought": f"PorchLight pipeline step {slug}", "current_step": slug,
     })
     results = (out.get("data") or {}).get("results") or []
     if not results:
@@ -223,7 +223,7 @@ def pin_slack_message(pin: Pin) -> str:
     label = pin.category.replace("_", " ").capitalize()
     where = pin.address_hint or f"{pin.lat:.4f}, {pin.lng:.4f}"
     lines = [
-        f"**Blockwise: new pin** · {label} at {where} ({pin.severity})",
+        f"**PorchLight: new pin** · {label} at {where} ({pin.severity})",
         f"> {pin.note}",
     ]
     if pin.status == "needs_human":

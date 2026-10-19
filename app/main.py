@@ -1,4 +1,4 @@
-"""Blockwise API. FastAPI serves both the JSON API and the static Leaflet map.
+"""PorchLight API. FastAPI serves both the JSON API and the static Leaflet map.
 
   GET  /pins                 all pins
   POST /pins                 create a pin, run the pipeline in the background, return immediately
@@ -23,7 +23,7 @@ from fastapi.staticfiles import StaticFiles
 from . import actions, brief as brief_mod, config, guardrails, jev, pipeline, reply_poller, research, store
 from .models import Pin, PinCreate, now_iso
 
-app = FastAPI(title="Blockwise", version="1.0.0")
+app = FastAPI(title="PorchLight", version="1.0.0")
 
 # Matches generated ids (hex) and seeded ids (seed00). Kept loose on purpose.
 PIN_TAG = re.compile(r"\[PIN-([0-9a-z]{4,16})\]", re.I)
@@ -103,7 +103,7 @@ def _acknowledge(pin_id: str, who: str, excerpt: str) -> dict:
     updated = store.update(pin_id, status=status)
     if updated:
         actions.post_to_slack(
-            f"**Blockwise update** · `PIN-{pin_id}`: {updated.agency or who} replied. "
+            f"**PorchLight update** · `PIN-{pin_id}`: {updated.agency or who} replied. "
             f"Status is now **{status.replace('_', ' ')}**.\n> {excerpt[:240]}",
             thread_ts=updated.slack_ts,
         )
