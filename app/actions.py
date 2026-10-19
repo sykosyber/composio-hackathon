@@ -220,19 +220,20 @@ def post_to_slack(markdown_text: str, thread_ts: str = "") -> Outcome:
 
 
 def pin_slack_message(pin: Pin) -> str:
-    label = pin.category.replace("_", " ")
+    label = pin.category.replace("_", " ").capitalize()
+    where = pin.address_hint or f"{pin.lat:.4f}, {pin.lng:.4f}"
     lines = [
-        f"*New neighborhood pin:* {label} ({pin.severity})",
+        f"**Blockwise: new pin** · {label} at {where} ({pin.severity})",
         f"> {pin.note}",
-        f"Location: {pin.address_hint or f'{pin.lat:.4f}, {pin.lng:.4f}'}",
     ]
     if pin.status == "needs_human":
-        lines.append(f"Status: *needs a human*. {pin.needs_human_reason}.")
+        lines.append(f"**Needs a human.** {pin.needs_human_reason}. No source, no claim, so nothing was guessed.")
     else:
-        lines.append(f"Route to: *{pin.agency}* via {pin.channel} <{pin.channel_url}|link>")
-        lines.append(f"Already reported: {pin.already_reported}")
+        link = f" · [report form]({pin.channel_url})" if pin.channel_url else ""
+        lines.append(f"**Who fixes it:** {pin.agency} via {pin.channel}{link}")
+        lines.append(f"**Already reported:** {pin.already_reported}")
     if pin.sources:
-        cites = " ".join(f"<{s.url}|{s.title[:40]}>" for s in pin.sources[:3])
-        lines.append(f"Sources: {cites}")
-    lines.append(f"A Gmail draft is ready for review. Nothing was sent. `PIN-{pin.id}`")
+        cites = " · ".join(f"[{s.title[:40].replace('[', '(').replace(']', ')')}]({s.url})" for s in pin.sources[:3])
+        lines.append(f"**Sources:** {cites}")
+    lines.append(f"Draft email ready for review. Nothing was sent. `PIN-{pin.id}`")
     return "\n".join(lines)

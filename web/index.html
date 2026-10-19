@@ -3,39 +3,49 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Altruistic Agent - neighborhood pins</title>
+<title>Blockwise</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="/static/app.css">
 </head>
 <body>
-<header>
-  <h1>Altruistic Agent</h1>
-  <p>Drop a pin. The agent finds who can fix it, drafts the report, tells your neighbors, and keeps you posted.</p>
+<header class="top">
+  <div class="brand">
+    <h1 id="product-name">Blockwise</h1>
+    <p class="tagline">Drop a pin. Blockwise finds who fixes it.</p>
+  </div>
   <div class="actions">
-    <button id="brief-btn" class="ghost">Morning brief</button>
-    <button id="send-brief-btn" class="ghost">Send brief to Slack</button>
-    <button id="reset-btn" class="ghost">Reset demo</button>
-    <span id="health" class="health"></span>
+    <button type="button" id="brief-btn" class="ghost">Morning brief</button>
+    <button type="button" id="send-brief-btn" class="ghost">Send brief to Slack</button>
+    <button type="button" id="reset-btn" class="ghost">Reset demo</button>
+    <span id="health" class="health" aria-live="polite"></span>
   </div>
 </header>
 
 <main>
-  <div id="map"></div>
+  <div id="map-wrap">
+    <div id="map" aria-label="Map of neighborhood pins"></div>
+    <div id="legend" class="legend" aria-label="Pin status legend"></div>
+  </div>
 
   <aside id="panel">
+    <section id="detail" class="card hidden" aria-live="polite"></section>
+    <section id="brief" class="card hidden" aria-live="polite"></section>
+
     <section id="form-card" class="card">
-      <h2>New pin</h2>
-      <p class="hint" id="coords">Click anywhere on the map to choose a location.</p>
-      <label for="note">What is going on?</label>
+      <h2>Drop a pin</h2>
+      <p class="hint" id="coords">Click the map to choose a spot.</p>
+      <label for="note">What's going on?</label>
       <textarea id="note" rows="3" placeholder="Streetlight out at Valencia and 18th, very dark at night."></textarea>
       <label for="reporter">Your display name</label>
       <input id="reporter" value="mateo" maxlength="40">
-      <button id="submit" disabled>Drop pin</button>
-      <p class="hint small">Only your note, the coordinates and this display name are stored. Personal details are stripped before anything is shared.</p>
+      <button type="button" id="submit" disabled>Drop pin</button>
+      <p class="hint small">We keep only your note, the spot and this name. Personal details are removed before anything is shared.</p>
     </section>
 
-    <section id="detail" class="card hidden"></section>
-    <section id="brief" class="card hidden"></section>
+    <section class="card">
+      <h2>Pins nearby</h2>
+      <ul id="pin-list" class="pin-list"></ul>
+    </section>
   </aside>
 </main>
 
