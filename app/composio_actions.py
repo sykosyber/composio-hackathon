@@ -6,7 +6,11 @@ Rules:
 - The Sheet gets only note, coordinates, routing fields, and a display name. Emails/phones are scrubbed.
 
 Tool slugs and argument schemas are recorded in docs/composio_slugs.md (verified against the live API).
-Execution: composio.tools.execute(slug, arguments, user_id=COMPOSIO_USER_ID).
+
+Transport (picked from the key type):
+- `ck_...` consumer key: Composio MCP at https://connect.composio.dev/mcp (header x-consumer-api-key),
+  calling COMPOSIO_MULTI_EXECUTE_TOOL with one explicit slug + arguments. The model never picks tools.
+- `ak_...` project key: Python SDK, composio.tools.execute(slug, arguments, user_id=COMPOSIO_USER_ID).
 """
 from __future__ import annotations
 
@@ -39,6 +43,8 @@ SLACK_CHANNEL = os.getenv("SLACK_CHANNEL", "")         # e.g. "#mission-neighbor
 DRAFT_TO = os.getenv("AGENCY_DRAFT_TO", "")            # demo stand-in for the agency inbox. Never a real agency.
 PUBLIC_URL = os.getenv("PUBLIC_URL", "http://localhost:8000")
 TIMEOUT_S = 15
+MCP_URL = os.getenv("COMPOSIO_MCP_URL", "https://connect.composio.dev/mcp")
+USE_MCP = COMPOSIO_API_KEY.startswith("ck_")
 
 SLUGS = {
     "sheet_append": "GOOGLESHEETS_SPREADSHEETS_VALUES_APPEND",
@@ -66,6 +72,41 @@ def _composio():
     return _client
 
 
+def _mcp_call(name: str, arguments: dict[str, Any]) -> dict:
+    """One JSON-RPC tools/call against the Composio MCP server. Returns the parsed tool result JSON."""
+    import httpx
+
+    r = httpx.post(MCP_URL, timeout=TIMEOUT_S, headers={
+        "x-consumer-api-key": COMPOSIO_API_KEY, "Content-Type": "application/json",
+        "Accept": "application/json, text/event-stream",
+    }, json={"jsonrpc": "2.0", "id": int(time.time() * 1000), "method": "tools/call",
+             "params": {"name": name, "arguments": arguments}})
+    r.raise_for_status()
+    msg = None
+    for line in r.text.splitlines():  # streamable HTTP answers as SSE: "data: {...}"
+        if line.startswith("data:"):
+            msg = json.loads(line[5:])
+    if msg is None:
+        msg = r.json()
+    if msg.get("error"):
+        raise RuntimeError(f"mcp error: {msg['error']}")
+    content = (msg.get("result") or {}).get("content") or []
+    return json.loads(content[0]["text"]) if content else {}
+
+
+def _mcp_execute(slug: str, arguments: dict[str, Any]) -> dict:
+    """Execute exactly one named tool via COMPOSIO_MULTI_EXECUTE_TOOL, normalized to {successful, data, error}."""
+    out = _mcp_call("COMPOSIO_MULTI_EXECUTE_TOOL", {
+        "tools": [{"tool_slug": slug, "arguments": arguments}],
+        "thought": f"Altruistic Agent pipeline step {slug}", "current_step": slug, "sync_response_to_workbench": False,
+    })
+    results = ((out.get("data") or {}).get("results")) or []
+    if not out.get("successful") or not results:
+        return {"successful": False, "error": out.get("error") or out}
+    resp = results[0].get("response") or {}
+    return {"successful": bool(resp.get("successful")), "data": resp.get("data") or {}, "error": resp.get("error")}
+
+
 def _execute(slug: str, arguments: dict[str, Any]) -> dict | None:
     """Run one Composio tool with a hard timeout. Returns the tool's `data` dict, or None on failure."""
     if not COMPOSIO_API_KEY:
@@ -74,6 +115,8 @@ def _execute(slug: str, arguments: dict[str, Any]) -> dict | None:
     t0 = time.perf_counter()
 
     def call():
+        if USE_MCP:
+            return _mcp_execute(slug, arguments)
         return _composio().tools.execute(slug, arguments, user_id=COMPOSIO_USER_ID,
                                          dangerously_skip_version_check=True)
     try:

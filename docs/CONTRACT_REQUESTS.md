@@ -23,7 +23,7 @@ async def parallel_webhook(request: Request):
 
 @app.on_event("startup")          # or lifespan
 def _start_listeners():
-    webhooks.start_gmail_listener()   # Composio realtime subscription, no tunnel needed; no-op without a key
+    webhooks.start_gmail_listener()   # polls Gmail via Composio every 8s for [PIN-id] replies; no-op without a key
 ```
 
 - `POST /webhooks/composio` also accepts `{"simulate": true, "pin_id": "..."}` when `DEMO_MODE=1`
@@ -70,7 +70,8 @@ Add `tzdata` (Windows has no system tz database; code falls back to fixed PDT wi
 ```
 GOOGLE_SHEET_ID=          # id from the community ledger Sheet URL
 GOOGLE_SHEET_TAB=Sheet1
-SLACK_CHANNEL=            # neighborhood channel, e.g. #mission-neighbors
+SLACK_CHANNEL=            # channel id, e.g. C0CAABPUP1T (#all-neighborhood)
+GMAIL_POLL_S=8
 AGENCY_DRAFT_TO=          # demo stand-in for the agency inbox (second test Gmail). Never a real agency.
 PUBLIC_URL=http://localhost:8000
 BRIEF_HOME_LAT=37.7599

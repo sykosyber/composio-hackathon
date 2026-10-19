@@ -21,26 +21,35 @@ from app.models import Pin, RoutingCard, Source  # noqa: E402
 
 
 def check() -> bool:
-    c = ca._composio()
     ok = True
+    print("transport:", "MCP (consumer key)" if ca.USE_MCP else "SDK (project key)")
     try:
-        accts = c.connected_accounts.list(user_ids=[ca.COMPOSIO_USER_ID])
-        have = {a.toolkit.slug.lower(): a.status for a in accts.items}
-        print("connected accounts:", have)
-        for tk in ("gmail", "googlesheets", "slack"):
-            if have.get(tk) != "ACTIVE":
-                print(f"  MISSING: {tk} is not connected for user {ca.COMPOSIO_USER_ID}")
-                ok = False
+        if ca.USE_MCP:
+            out = ca._mcp_call("COMPOSIO_MANAGE_CONNECTIONS",
+                               {"toolkits": [{"name": n, "action": "list"} for n in ("gmail", "googlesheets", "slack")]})
+            have = {k: v.get("status") for k, v in ((out.get("data") or {}).get("results") or {}).items()}
+            schemas = ca._mcp_call("COMPOSIO_GET_TOOL_SCHEMAS", {"tool_slugs": list(ca.SLUGS.values())})
+            missing = (schemas.get("data") or {}).get("not_found") or []
+        else:
+            c = ca._composio()
+            have = {a.toolkit.slug.lower(): a.status.lower() for a in c.connected_accounts.list(user_ids=[ca.COMPOSIO_USER_ID]).items}
+            missing = []
+            for slug in ca.SLUGS.values():
+                try:
+                    c.tools.get_raw_composio_tool_by_slug(slug)
+                except Exception:  # noqa: BLE001
+                    missing.append(slug)
     except Exception as e:  # noqa: BLE001
-        print("connected accounts check failed:", e)
+        print("check failed:", e)
         return False
-    for name, slug in ca.SLUGS.items():
-        try:
-            c.tools.get_raw_composio_tool_by_slug(slug)
-            print(f"  slug ok: {name} -> {slug}")
-        except Exception as e:  # noqa: BLE001
-            print(f"  SLUG MISSING: {name} -> {slug}: {e}")
+    print("connected accounts:", have)
+    for tk in ("gmail", "googlesheets", "slack"):
+        if str(have.get(tk)).lower() != "active":
+            print(f"  MISSING: {tk} is not connected")
             ok = False
+    for name, slug in ca.SLUGS.items():
+        print(f"  slug {'MISSING' if slug in missing else 'ok'}: {name} -> {slug}")
+    ok = ok and not missing
     print("env:", {k: bool(v) for k, v in {"GOOGLE_SHEET_ID": ca.SHEET_ID, "SLACK_CHANNEL": ca.SLACK_CHANNEL,
                                            "AGENCY_DRAFT_TO": ca.DRAFT_TO}.items()})
     return ok

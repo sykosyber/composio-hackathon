@@ -132,16 +132,51 @@ def handle_composio(body: bytes, headers: Mapping[str, str]) -> tuple[int, dict[
 
 
 _subscription = None
+GMAIL_POLL_S = float(os.getenv("GMAIL_POLL_S", "8"))
+# Replies only: not our own drafts or sent mail.
+GMAIL_REPLY_QUERY = os.getenv("GMAIL_REPLY_QUERY", "subject:PIN newer_than:2d -in:drafts -in:sent -from:me")
+_seen: set[str] = set()
+
+
+def poll_gmail_once() -> list[dict[str, Any]]:
+    """One pass: fetch recent [PIN-id] replies via Composio GMAIL_FETCH_EMAILS and acknowledge matching pins."""
+    data = ca._execute("GMAIL_FETCH_EMAILS", {"query": GMAIL_REPLY_QUERY, "max_results": 10,
+                                              "include_payload": True, "verbose": False})
+    results = []
+    for msg in (data or {}).get("messages") or []:
+        mid = msg.get("messageId")
+        if not mid or mid in _seen:
+            continue
+        _seen.add(mid)
+        results.append(handle_gmail_event({"trigger_slug": GMAIL_TRIGGER, "payload": msg}))
+    return results
+
+
+def _poll_loop() -> None:
+    log.info("Gmail reply poller started (every %ss, query %r)", GMAIL_POLL_S, GMAIL_REPLY_QUERY)
+    while True:
+        try:
+            for r in poll_gmail_once():
+                if r.get("pin_id"):
+                    log.info("gmail reply: %s", r)
+        except Exception as e:  # noqa: BLE001
+            log.error("gmail poll failed: %r", e)
+        threading.Event().wait(GMAIL_POLL_S)
 
 
 def start_gmail_listener() -> bool:
-    """Subscribe to Composio trigger events over its realtime channel (no tunnel needed). Call once at startup.
+    """Start watching for agency replies. Call once at startup; safe to call again.
 
-    Requires a GMAIL_NEW_GMAIL_MESSAGE trigger instance for COMPOSIO_USER_ID (scripts/setup_gmail_trigger.py).
+    - Consumer (ck_) key: poll Gmail through Composio every GMAIL_POLL_S seconds (MCP has no trigger API).
+    - Project (ak_) key: Composio realtime trigger subscription (needs scripts/setup_gmail_trigger.py once).
     """
     global _subscription
     if _subscription is not None or not ca.COMPOSIO_API_KEY:
         return _subscription is not None
+    if ca.USE_MCP:
+        _subscription = threading.Thread(target=_poll_loop, name="gmail-poller", daemon=True)
+        _subscription.start()
+        return True
 
     def run():
         global _subscription
