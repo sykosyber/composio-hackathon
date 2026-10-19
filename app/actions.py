@@ -172,6 +172,24 @@ def post_to_slack(markdown_text: str, thread_ts: str = "") -> Outcome:
     return out
 
 
+def run_spec(spec, pin: Pin) -> Outcome:
+    """Execute one ActionSpec declared by a domain pack.
+
+    The mapping from declared intent to a verified Composio slug lives here, in shared
+    infrastructure. Domain packs declare what they want done, never which tool slug or
+    which arguments, so a pack cannot invent a slug or bypass the timeout wrapper.
+    """
+    handlers = {
+        "sheet_append": append_to_sheet,
+        "gmail_draft": create_draft,
+        "slack_post": lambda p: post_to_slack(pin_slack_message(p)),
+    }
+    handler = handlers.get(spec.kind)
+    if handler is None:
+        return Outcome(False, f"unknown action kind: {spec.kind}")
+    return handler(pin)
+
+
 def pin_slack_message(pin: Pin) -> str:
     label = pin.category.replace("_", " ")
     lines = [

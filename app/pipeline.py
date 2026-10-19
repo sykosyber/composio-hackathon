@@ -15,7 +15,7 @@ Every external call has a timeout and a fallback, so the map never stalls.
 """
 from __future__ import annotations
 
-from . import actions, guardrails, llm, research, store
+from . import actions, domains, guardrails, llm, research, store
 from .geo import address_hint
 from .models import Pin
 from .trace import Tracer
@@ -46,6 +46,8 @@ def _run(pin_id: str) -> Pin | None:
         print(f"[pipeline] unknown pin {pin_id}")
         return None
     tracer = Tracer(pin_id)
+    domain = getattr(pin, "domain", None) or domains.DEFAULT_DOMAIN
+    pack = domains.get(domain)
 
     # 0 Emergencies are not routed.
     with tracer.step("guardrail", "local-rules") as box:
@@ -63,15 +65,15 @@ def _run(pin_id: str) -> Pin | None:
     _save(pin_id, tracer, address_hint=hint)
 
     # 2 Who is responsible, with citations.
-    guess = llm.rule_category(pin.note)
+    guess = llm.rule_category(pin.note, domain)
     with tracer.step("research", "parallel-search") as box:
-        agency_hits = research.find_agency(guess)
+        agency_hits = research.find_agency(guess, domain)
         box["ok"] = bool(agency_hits)
         box["detail"] = f"{len(agency_hits)} cited results"
 
     # 3 Already known?
     with tracer.step("dedupe", "parallel-search") as box:
-        dedupe_hits = research.check_already_reported(guess, hint)
+        dedupe_hits = research.check_already_reported(guess, hint, domain)
         box["detail"] = f"{len(dedupe_hits)} results"
 
     snippets = (agency_hits + dedupe_hits)[:8]
@@ -85,8 +87,12 @@ def _run(pin_id: str) -> Pin | None:
 
     # 5 No source, no claim.
     with tracer.step("verify", "guardrails") as box:
+        # Category validation moved here from the model, because only the pipeline knows
+        # which domain is running and therefore which vocabulary is legal.
+        if card.category not in pack.categories:
+            card.category = pack.default_category
         card = guardrails.enforce_sources(card, {s["url"] for s in snippets})
-        verified, reason = guardrails.verify_card(card)
+        verified, reason = guardrails.verify_card(card, domain)
         box["ok"] = verified
         box["detail"] = "cited agency and channel" if verified else reason
 
@@ -101,30 +107,22 @@ def _run(pin_id: str) -> Pin | None:
         status=status, needs_human_reason="" if verified else reason,
     ) or pin
 
-    # 6 Shared ledger mirror. Failure is logged, never fatal.
-    with tracer.step("ledger", "composio-sheets") as box:
-        out = actions.append_to_sheet(pin)
-        box["ok"] = out.ok
-        box["detail"] = "row appended" if out.ok else out.detail
-
-    # 7 Gmail DRAFT. Never sent.
-    draft_id = ""
-    if verified:
-        with tracer.step("draft", "composio-gmail") as box:
-            out = actions.create_draft(pin)
+    # 6 to 8 Composio actions, declared by the domain pack and executed by one generic
+    # loop. The pack chooses which actions and in what order. It does not get to bypass
+    # the shared timeout, the tracing, or the verified gate.
+    draft_id, slack_ts = "", ""
+    for spec in pack.actions(pin, verified):
+        if spec.requires_verified and not verified:
+            tracer.record(spec.step, spec.tool, 0, True, "skipped, not verified")
+            continue
+        with tracer.step(spec.step, spec.tool) as box:
+            out = actions.run_spec(spec, pin)
             box["ok"] = out.ok
-            box["detail"] = f"draft {out.detail}" if out.ok else out.detail
-            draft_id = out.detail if out.ok else ""
-    else:
-        tracer.record("draft", "composio-gmail", 0, True, "skipped, agency not verified")
-
-    # 8 Tell the neighbors.
-    slack_ts = ""
-    with tracer.step("notify", "composio-slack") as box:
-        out = actions.post_to_slack(actions.pin_slack_message(pin))
-        box["ok"] = out.ok
-        box["detail"] = f"posted {out.detail}" if out.ok else out.detail
-        slack_ts = out.detail if out.ok else ""
+            box["detail"] = out.detail or ("done" if out.ok else "failed")
+            if out.ok and spec.kind == "gmail_draft":
+                draft_id = out.detail
+            elif out.ok and spec.kind == "slack_post":
+                slack_ts = out.detail
 
     # 9 Keep watching.
     with tracer.step("watch", "parallel-monitor") as box:

@@ -6,19 +6,11 @@ from typing import Any, Literal, Optional
 
 from pydantic import BaseModel, Field
 
-Category = Literal[
-    "streetlight",
-    "road_pothole",
-    "sidewalk_accessibility",
-    "graffiti",
-    "illegal_dumping",
-    "tree",
-    "transit_stop",
-    "water_sewer",
-    "noise",
-    "parking",
-    "other",
-]
+# Category is a plain string, not a Literal, because the vocabulary is owned by the domain
+# pack rather than by this module. Validation happens at the pipeline boundary against the
+# pack's own `categories`, which is the only place that knows which domain is running.
+# Hardcoding the 311 vocabulary here made a second domain impossible to add.
+Category = str
 CATEGORIES: tuple[str, ...] = (
     "streetlight",
     "road_pothole",
@@ -101,6 +93,9 @@ class Pin(BaseModel):
     slack_ts: str = ""
 
     # Not Sheet columns: demo + UI extras.
+    # Which domain pack routed this item. Defaults to the 311 pillar so every pin written
+    # before domain packs existed still loads and behaves identically.
+    domain: str = "civic_311"
     reporter: str = "neighbor"
     seed: bool = False
     summary: str = ""

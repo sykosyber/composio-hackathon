@@ -64,20 +64,16 @@ def url_is_plausible(url: str) -> bool:
     return bool(host) and host.endswith(TRUSTED_SUFFIXES)
 
 
-def verify_card(card: RoutingCard) -> tuple[bool, str]:
-    """No source, no claim. Returns (verified, reason_if_not)."""
-    if not card.agency.strip():
-        return False, "Couldn't verify the right agency"
-    if not card.channel_url.strip():
-        return False, "Couldn't verify a reporting channel"
-    if not url_is_plausible(card.channel_url):
-        return False, "Couldn't verify a reporting channel on an official domain"
-    cited_hosts = {_host(s.url) for s in card.sources if s.url}
-    if not cited_hosts:
-        return False, "Couldn't verify the right agency, no citation returned"
-    if _host(card.channel_url) not in cited_hosts:
-        return False, "Reporting link was not backed by any cited source"
-    return True, ""
+def verify_card(card: RoutingCard, domain: str | None = None) -> tuple[bool, str]:
+    """No source, no claim. Returns (verified, reason_if_not).
+
+    Each domain decides what counts as sufficient evidence, so the gate itself lives in
+    the domain pack. What does not vary, and therefore stays here, is `enforce_sources`:
+    a citation the model invented is never acceptable in any domain.
+    """
+    from . import domains
+
+    return domains.get(domain).verify(card)
 
 
 def enforce_sources(card: RoutingCard, allowed_urls: set[str]) -> RoutingCard:

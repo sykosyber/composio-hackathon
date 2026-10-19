@@ -12,7 +12,7 @@ from typing import Optional
 
 import httpx
 
-from . import cache, config
+from . import cache, config, domains
 from .models import CATEGORIES, RoutingCard, Source
 
 SYSTEM = """You are a civic issue router for San Francisco. You read one neighborhood report and
@@ -25,38 +25,14 @@ return ONE JSON object. Rules:
 Return JSON with exactly these keys: category, severity, summary, agency, channel, channel_url,
 already_reported, sources, draft_subject, draft_body."""
 
-# Rule-based fallback. Order matters: first match wins.
-_RULES: list[tuple[str, str]] = [
-    (r"street ?light|lamp ?post|light (is )?out|dark at night", "streetlight"),
-    (r"pothole|road (is )?crack|pavement|sinkhole", "road_pothole"),
-    (r"sidewalk|curb ?ramp|wheelchair|accessib|tripping", "sidewalk_accessibility"),
-    (r"graffiti|tag(ged|ging)?\b|spray ?paint", "graffiti"),
-    (r"dumping|mattress|couch|trash pile|debris|abandoned (sofa|furniture)", "illegal_dumping"),
-    (r"tree|branch|limb|canopy|root", "tree"),
-    (r"bus (stop|shelter)|muni|transit|bart|shelter glass", "transit_stop"),
-    (r"water|sewer|hydrant|leak|flood|drain|catch basin", "water_sewer"),
-    (r"noise|loud|music|alarm", "noise"),
-    (r"parking|blocked driveway|double ?park|abandoned (car|vehicle)", "parking"),
-]
-_HIGH = r"danger|unsafe|hazard|exposed wire|live wire|deep|injur|blocking the (whole )?sidewalk|flood"
-_LOW = r"minor|small|cosmetic|faded|slight"
+def rule_category(note: str, domain: str | None = None) -> str:
+    """Rule-based classifier fallback, delegated to the domain pack."""
+    return domains.get(domain).classify(note)
 
 
-def rule_category(note: str) -> str:
-    low = note.lower()
-    for pattern, cat in _RULES:
-        if re.search(pattern, low):
-            return cat
-    return "other"
-
-
-def rule_severity(note: str) -> str:
-    low = note.lower()
-    if re.search(_HIGH, low):
-        return "high"
-    if re.search(_LOW, low):
-        return "low"
-    return "medium"
+def rule_severity(note: str, domain: str | None = None) -> str:
+    """Rule-based severity fallback, delegated to the domain pack."""
+    return domains.get(domain).severity(note)
 
 
 def _chat(system: str, user: str) -> str:

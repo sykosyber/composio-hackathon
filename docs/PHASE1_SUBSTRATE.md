@@ -1,6 +1,35 @@
 # Phase 1: extract the civic substrate
 
-Status: planned, not built. Do not start before the hackathon demo is done.
+Status: **built** on branch `vision/civic-substrate`. Verified by `scripts/smoke.py`
+(32 passed, behavior unchanged) and `scripts/test_domains.py` (23 passed, seam proven).
+Not merged to `main`: the hackathon deliverable ships from `main` untouched.
+
+## What shipped
+
+```
+app/domains/
+  base.py        DomainPack protocol, ActionSpec, shared regex matcher
+  civic_311.py   pillar 0, the reference pack
+  garden.py      pillar 2 stub, the fixture that proves the seam
+  __init__.py    registry: get(slug), all_slugs(), all_categories()
+```
+
+`app/` no longer contains domain-specific logic. `research`, `llm` and `guardrails`
+delegate to the active pack. `pipeline` executes a pack-declared `ActionSpec` list through
+one generic loop instead of three hardcoded Composio steps.
+
+Two findings worth recording, both caught by the garden fixture rather than by review:
+
+1. `models.Category` was a hardcoded `Literal` of the 11 civic-311 categories, which made a
+   second domain structurally impossible. It is now `str`, validated at the pipeline
+   boundary against the active pack's own vocabulary. Loosening a type needs a replacement
+   guard, and that guard moved to where the domain is actually known.
+2. The verification gate genuinely does not generalize as a citation check. A garden task
+   is verified by having a named garden, not by a `.gov` source. `verify` belonging to the
+   pack rather than to `guardrails` is the thing that made the second domain possible.
+
+`enforce_sources` deliberately stayed in `guardrails`: a citation the model invented is
+never acceptable in any domain, so that one is not the pack's business.
 
 This is a pure refactor. No new product surface, no new user-visible behavior. The point is
 to make pillars 2 to 4 cheap to add, and to prove it by moving the existing 311 pillar onto

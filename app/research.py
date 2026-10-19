@@ -13,25 +13,11 @@ from __future__ import annotations
 
 from typing import Any
 
-from . import cache, config
+from . import cache, config, domains
 
-CATEGORY_QUERIES: dict[str, list[str]] = {
-    "streetlight": ["San Francisco report streetlight outage 311", "SFPUC streetlight repair report"],
-    "road_pothole": ["San Francisco report pothole 311 SF Public Works", "SF Public Works street repair request"],
-    "sidewalk_accessibility": ["San Francisco report damaged sidewalk 311 Public Works",
-                               "San Francisco curb ramp accessibility request"],
-    "graffiti": ["San Francisco report graffiti 311 Public Works", "SF graffiti removal request"],
-    "illegal_dumping": ["San Francisco report illegal dumping 311 Recology", "SF bulky item pickup request"],
-    "tree": ["San Francisco report street tree problem 311 Public Works urban forestry",
-             "SF StreetTreeSF maintenance request"],
-    "transit_stop": ["San Francisco Muni bus shelter damage report SFMTA", "SFMTA report transit stop problem"],
-    "water_sewer": ["San Francisco report water leak sewer SFPUC", "SFPUC report flooding clogged drain"],
-    "noise": ["San Francisco noise complaint 311 report", "SF noise ordinance complaint who to call"],
-    "parking": ["San Francisco report blocked driveway abandoned vehicle SFMTA 311",
-                "SFMTA parking enforcement request"],
-    "other": ["San Francisco 311 report a problem city services", "SF 311 service request categories"],
-}
-
+# Kept as a re-export so existing callers and tests keep working. The authoritative copy
+# now lives in the civic_311 domain pack.
+from .domains.civic_311 import CATEGORY_QUERIES  # noqa: F401
 
 def _client():
     from parallel import Parallel  # pip install parallel-web
@@ -75,44 +61,32 @@ def _search(namespace: str, objective: str, queries: list[str], max_chars: int =
         return list(cached or [])
 
 
-def agency_query(category: str) -> tuple[str, list[str]]:
+def agency_query(category: str, domain: str | None = None) -> tuple[str, list[str]]:
     """Single source of truth for the agency cache key, shared with scripts/warm_cache.py.
 
     Keyed on category alone, deliberately. The free text note and the address are excluded
     so every report in a category shares one cache entry, which is what makes DEMO_MODE
     instant and the stage run identical every time.
     """
-    objective = (
-        f"Identify the exact {config.DEMO_CITY} city agency responsible for this issue and the "
-        f"official reporting channel with its URL. Issue category: {category}. "
-        "Prefer official city government pages such as sf.gov and 311."
-    )
-    return objective, CATEGORY_QUERIES.get(category, CATEGORY_QUERIES["other"])
+    return domains.get(domain).research_queries(category)
 
 
-def find_agency(category: str) -> list[dict]:
+def find_agency(category: str, domain: str | None = None) -> list[dict]:
     """Who is responsible and how do you report it, with citations."""
-    objective, queries = agency_query(category)
+    objective, queries = agency_query(category, domain)
     return _search("parallel_agency", objective, queries)
 
 
-def dedupe_query(category: str, address_hint: str) -> tuple[str, list[str]]:
+def dedupe_query(category: str, address_hint: str,
+                 domain: str | None = None) -> tuple[str, list[str]]:
     """Single source of truth for the dedupe cache key, shared with scripts/warm_cache.py."""
-    where = address_hint or config.DEMO_CITY
-    label = category.replace("_", " ")
-    objective = (
-        f"Find out whether a {label} problem near {where} in {config.DEMO_CITY} has already been "
-        "reported recently, for example in 311 open data, an outage map, or local news."
-    )
-    return objective, [
-        f"{where} {label} 311 report {config.DEMO_CITY}",
-        f"{config.DEMO_CITY} {label} near {where} news recent",
-    ]
+    return domains.get(domain).dedupe_queries(category, address_hint or config.DEMO_CITY)
 
 
-def check_already_reported(category: str, address_hint: str) -> list[dict]:
+def check_already_reported(category: str, address_hint: str,
+                           domain: str | None = None) -> list[dict]:
     """Is this already known: existing reports, outage maps, recent local news."""
-    objective, queries = dedupe_query(category, address_hint)
+    objective, queries = dedupe_query(category, address_hint, domain)
     return _search("parallel_dedupe", objective, queries, max_chars=2500)
 
 
