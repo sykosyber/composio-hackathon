@@ -1,34 +1,34 @@
 [
   {
     "id": "seed00",
-    "created_at": "2026-10-18T18:16:42+00:00",
-    "updated_at": "2026-10-19T11:36:42+00:00",
-    "lat": 37.7615,
-    "lng": -122.4218,
-    "address_hint": "Valencia St and 18th St",
-    "note": "Streetlight out on the east side, the crosswalk is very dark at night.",
-    "category": "streetlight",
-    "severity": "high",
-    "agency": "San Francisco Public Utilities Commission",
-    "channel": "SF 311 web form",
-    "channel_url": "https://sf.gov/report-streetlight-problem",
-    "already_reported": "likely",
+    "created_at": "2026-10-18T19:27:50+00:00",
+    "updated_at": "2026-10-19T12:47:50+00:00",
+    "lat": 37.7633,
+    "lng": -122.4106,
+    "address_hint": "Bryant St and 17th St",
+    "note": "White van with two flat tires has not moved from this corner in over a week.",
+    "category": "parking",
+    "severity": "low",
+    "agency": "SFMTA",
+    "channel": "SF 311 abandoned vehicle report",
+    "channel_url": "https://www.sf.gov/report-abandoned-vehicle",
+    "already_reported": "unknown",
     "status": "reported",
     "sources": [
       {
-        "title": "SFPUC streetlight repair",
-        "url": "https://sf.gov/report-streetlight-problem"
+        "title": "Report an abandoned vehicle | SF.gov",
+        "url": "https://www.sf.gov/report-abandoned-vehicle"
       },
       {
-        "title": "SF 311 - Report a problem",
-        "url": "https://sf.gov/report-problem"
+        "title": "SFMTA customer service",
+        "url": "https://www.sfmta.com/contact-us"
       }
     ],
     "draft_id": "draft-seed00",
     "slack_ts": "",
     "reporter": "mateo",
     "seed": true,
-    "summary": "Streetlight reported at Valencia St and 18th St.",
+    "summary": "Parking reported at Bryant St and 17th St.",
     "emergency": false,
     "trace": [
       {
@@ -40,15 +40,15 @@
       }
     ],
     "updates": [],
-    "draft_subject": "[PIN-seed00] Streetlight at Valencia St and 18th St",
-    "draft_body": "Hello,\n\nA neighbor reported the following at Valencia St and 18th St:\n\nStreetlight out on the east side, the crosswalk is very dark at night.\n\nThank you.",
+    "draft_subject": "[PIN-seed00] Parking at Bryant St and 17th St",
+    "draft_body": "Hello,\n\nA neighbor reported the following at Bryant St and 17th St:\n\nWhite van with two flat tires has not moved from this corner in over a week.\n\nThank you.",
     "needs_human_reason": "",
     "monitor_id": ""
   },
   {
     "id": "seed01",
-    "created_at": "2026-10-17T18:16:42+00:00",
-    "updated_at": "2026-10-19T03:36:42+00:00",
+    "created_at": "2026-10-17T19:27:50+00:00",
+    "updated_at": "2026-10-19T04:47:50+00:00",
     "lat": 37.75234,
     "lng": -122.42062,
     "address_hint": "Valencia St and 24th St",
@@ -57,13 +57,13 @@
     "severity": "high",
     "agency": "San Francisco Public Works",
     "channel": "SF 311 web form",
-    "channel_url": "https://sf.gov/report-problem",
+    "channel_url": "https://www.sf.gov/report-pothole-and-street-issues",
     "already_reported": "yes",
     "status": "acknowledged",
     "sources": [
       {
-        "title": "SF 311 - Report a problem",
-        "url": "https://sf.gov/report-problem"
+        "title": "Report pothole and street issues | SF.gov",
+        "url": "https://www.sf.gov/report-pothole-and-street-issues"
       },
       {
         "title": "San Francisco Public Works",
@@ -87,7 +87,7 @@
     ],
     "updates": [
       {
-        "at": "2026-10-19T03:36:42+00:00",
+        "at": "2026-10-19T04:47:50+00:00",
         "kind": "agency_reply",
         "from": "SF 311 Customer Service",
         "text": "Service request opened for [PIN-seed01]."
@@ -100,8 +100,8 @@
   },
   {
     "id": "seed02",
-    "created_at": "2026-10-18T04:16:42+00:00",
-    "updated_at": "2026-10-19T06:56:42+00:00",
+    "created_at": "2026-10-18T05:27:50+00:00",
+    "updated_at": "2026-10-19T08:07:50+00:00",
     "lat": 37.76503,
     "lng": -122.42194,
     "address_hint": "Valencia St and 16th St",
@@ -109,14 +109,14 @@
     "category": "illegal_dumping",
     "severity": "medium",
     "agency": "San Francisco Public Works",
-    "channel": "SF 311 bulky item pickup",
-    "channel_url": "https://sf.gov/report-problem",
+    "channel": "SF 311 illegal dumping report",
+    "channel_url": "https://www.sf.gov/report-illegal-dumping",
     "already_reported": "yes",
     "status": "acknowledged",
     "sources": [
       {
-        "title": "SF 311 - Report a problem",
-        "url": "https://sf.gov/report-problem"
+        "title": "Report illegal dumping activity | SF.gov",
+        "url": "https://www.sf.gov/report-illegal-dumping"
       },
       {
         "title": "San Francisco Public Works",
@@ -140,7 +140,7 @@
     ],
     "updates": [
       {
-        "at": "2026-10-19T06:56:42+00:00",
+        "at": "2026-10-19T08:07:50+00:00",
         "kind": "agency_reply",
         "from": "SF 311 Customer Service",
         "text": "Service request opened for [PIN-seed02]."
@@ -153,8 +153,8 @@
   },
   {
     "id": "seed03",
-    "created_at": "2026-10-19T06:16:42+00:00",
-    "updated_at": "2026-10-19T15:36:42+00:00",
+    "created_at": "2026-10-19T07:27:50+00:00",
+    "updated_at": "2026-10-19T16:47:50+00:00",
     "lat": 37.75824,
     "lng": -122.42393,
     "address_hint": "Guerrero St and 20th St",
@@ -163,17 +163,17 @@
     "severity": "high",
     "agency": "San Francisco Public Works",
     "channel": "SF 311 web form",
-    "channel_url": "https://sf.gov/departments/public-works",
+    "channel_url": "https://www.sf.gov/report-curb-and-sidewalk-problems",
     "already_reported": "unknown",
     "status": "routed",
     "sources": [
       {
-        "title": "San Francisco Public Works",
-        "url": "https://sf.gov/departments/public-works"
+        "title": "Report curb and sidewalk problems | SF.gov",
+        "url": "https://www.sf.gov/report-curb-and-sidewalk-problems"
       },
       {
-        "title": "SF 311 - Report a problem",
-        "url": "https://sf.gov/report-problem"
+        "title": "San Francisco Public Works",
+        "url": "https://sf.gov/departments/public-works"
       }
     ],
     "draft_id": "",
@@ -199,8 +199,8 @@
   },
   {
     "id": "seed04",
-    "created_at": "2026-10-19T12:16:42+00:00",
-    "updated_at": "2026-10-19T17:36:42+00:00",
+    "created_at": "2026-10-19T13:27:50+00:00",
+    "updated_at": "2026-10-19T18:47:50+00:00",
     "lat": 37.765,
     "lng": -122.41966,
     "address_hint": "Mission St and 16th St",
@@ -218,8 +218,8 @@
         "url": "https://www.sfmta.com/contact-us"
       },
       {
-        "title": "SF 311 - Report a problem",
-        "url": "https://sf.gov/report-problem"
+        "title": "311 Customer Service Center | SF.gov",
+        "url": "https://www.sf.gov/departments--311-customer-service-center"
       }
     ],
     "draft_id": "",
@@ -245,8 +245,8 @@
   },
   {
     "id": "seed05",
-    "created_at": "2026-10-15T20:16:42+00:00",
-    "updated_at": "2026-10-18T12:16:42+00:00",
+    "created_at": "2026-10-15T21:27:50+00:00",
+    "updated_at": "2026-10-18T13:27:50+00:00",
     "lat": 37.7554,
     "lng": -122.41296,
     "address_hint": "Folsom St and 22nd St",
@@ -255,13 +255,13 @@
     "severity": "low",
     "agency": "San Francisco Public Works",
     "channel": "SF 311 graffiti removal",
-    "channel_url": "https://sf.gov/report-problem",
+    "channel_url": "https://www.sf.gov/report-graffiti-issues",
     "already_reported": "unknown",
     "status": "resolved",
     "sources": [
       {
-        "title": "SF 311 - Report a problem",
-        "url": "https://sf.gov/report-problem"
+        "title": "Report graffiti issues | SF.gov",
+        "url": "https://www.sf.gov/report-graffiti-issues"
       },
       {
         "title": "San Francisco Public Works",
@@ -285,7 +285,7 @@
     ],
     "updates": [
       {
-        "at": "2026-10-18T12:16:42+00:00",
+        "at": "2026-10-18T13:27:50+00:00",
         "kind": "agency_reply",
         "from": "SF 311 Customer Service",
         "text": "Service request opened for [PIN-seed05]."
@@ -298,8 +298,8 @@
   },
   {
     "id": "seed06",
-    "created_at": "2026-10-19T00:16:42+00:00",
-    "updated_at": "2026-10-19T13:36:42+00:00",
+    "created_at": "2026-10-19T01:27:50+00:00",
+    "updated_at": "2026-10-19T14:47:50+00:00",
     "lat": 37.7585,
     "lng": -122.4072,
     "address_hint": "Potrero Ave and 20th St",
@@ -308,17 +308,13 @@
     "severity": "medium",
     "agency": "San Francisco Public Utilities Commission",
     "channel": "SF 311 web form",
-    "channel_url": "https://sf.gov/report-water-or-sewer-problem",
+    "channel_url": "https://www.sf.gov/report-flooding-water-leaks-sewer-backup-or-odor-issues",
     "already_reported": "likely",
     "status": "reported",
     "sources": [
       {
-        "title": "SFPUC report a water or sewer problem",
-        "url": "https://sf.gov/report-water-or-sewer-problem"
-      },
-      {
-        "title": "SF 311 - Report a problem",
-        "url": "https://sf.gov/report-problem"
+        "title": "Report flooding, water leaks, sewer backup, or odor issues | SF.gov",
+        "url": "https://www.sf.gov/report-flooding-water-leaks-sewer-backup-or-odor-issues"
       }
     ],
     "draft_id": "draft-seed06",
@@ -344,8 +340,8 @@
   },
   {
     "id": "seed07",
-    "created_at": "2026-10-19T15:16:42+00:00",
-    "updated_at": "2026-10-19T18:36:42+00:00",
+    "created_at": "2026-10-19T16:27:50+00:00",
+    "updated_at": "2026-10-19T19:47:50+00:00",
     "lat": 37.7603,
     "lng": -122.4128,
     "address_hint": "Harrison St and 19th St",
@@ -353,18 +349,18 @@
     "category": "tree",
     "severity": "high",
     "agency": "San Francisco Public Works",
-    "channel": "StreetTreeSF request",
-    "channel_url": "https://sf.gov/report-street-tree-problem",
+    "channel": "SF 311 tree report",
+    "channel_url": "https://www.sf.gov/report-damaged-or-fallen-tree",
     "already_reported": "unknown",
     "status": "routed",
     "sources": [
       {
-        "title": "StreetTreeSF maintenance",
-        "url": "https://sf.gov/report-street-tree-problem"
+        "title": "Report a damaged or fallen tree | SF.gov",
+        "url": "https://www.sf.gov/report-damaged-or-fallen-tree"
       },
       {
-        "title": "SF 311 - Report a problem",
-        "url": "https://sf.gov/report-problem"
+        "title": "San Francisco Public Works",
+        "url": "https://sf.gov/departments/public-works"
       }
     ],
     "draft_id": "",
@@ -390,8 +386,8 @@
   },
   {
     "id": "seed08",
-    "created_at": "2026-10-19T09:16:42+00:00",
-    "updated_at": "2026-10-19T16:36:42+00:00",
+    "created_at": "2026-10-19T10:27:50+00:00",
+    "updated_at": "2026-10-19T17:47:50+00:00",
     "lat": 37.76117,
     "lng": -122.42623,
     "address_hint": "Dolores St and 18th St",
@@ -405,8 +401,8 @@
     "status": "needs_human",
     "sources": [
       {
-        "title": "SF 311 - Report a problem",
-        "url": "https://sf.gov/report-problem"
+        "title": "311 Customer Service Center | SF.gov",
+        "url": "https://www.sf.gov/departments--311-customer-service-center"
       }
     ],
     "draft_id": "",

@@ -19,13 +19,18 @@ from app import config  # noqa: E402
 from app.geo import address_hint  # noqa: E402
 from app.models import Pin  # noqa: E402
 
-SF311 = {"title": "SF 311 - Report a problem", "url": "https://sf.gov/report-problem"}
+# Every URL below returned HTTP 200 on 2026-10-19 (re-verified 2:25 PM PT).
+SF311 = {"title": "311 Customer Service Center | SF.gov", "url": "https://www.sf.gov/departments--311-customer-service-center"}
 PW = {"title": "San Francisco Public Works", "url": "https://sf.gov/departments/public-works"}
-PUC = {"title": "SFPUC streetlight repair", "url": "https://sf.gov/report-streetlight-problem"}
 MTA = {"title": "SFMTA customer service", "url": "https://www.sfmta.com/contact-us"}
-WATER = {"title": "SFPUC report a water or sewer problem",
-         "url": "https://sf.gov/report-water-or-sewer-problem"}
-TREE = {"title": "StreetTreeSF maintenance", "url": "https://sf.gov/report-street-tree-problem"}
+POTHOLE = {"title": "Report pothole and street issues | SF.gov", "url": "https://www.sf.gov/report-pothole-and-street-issues"}
+DUMPING = {"title": "Report illegal dumping activity | SF.gov", "url": "https://www.sf.gov/report-illegal-dumping"}
+SIDEWALK = {"title": "Report curb and sidewalk problems | SF.gov", "url": "https://www.sf.gov/report-curb-and-sidewalk-problems"}
+GRAFFITI = {"title": "Report graffiti issues | SF.gov", "url": "https://www.sf.gov/report-graffiti-issues"}
+WATER = {"title": "Report flooding, water leaks, sewer backup, or odor issues | SF.gov",
+         "url": "https://www.sf.gov/report-flooding-water-leaks-sewer-backup-or-odor-issues"}
+TREE = {"title": "Report a damaged or fallen tree | SF.gov", "url": "https://www.sf.gov/report-damaged-or-fallen-tree"}
+VEHICLE = {"title": "Report an abandoned vehicle | SF.gov", "url": "https://www.sf.gov/report-abandoned-vehicle"}
 
 
 def hours_ago(h: float) -> str:
@@ -33,26 +38,27 @@ def hours_ago(h: float) -> str:
 
 
 SEEDS = [
-    dict(lat=37.76150, lng=-122.42180, age=26, reporter="mateo", status="reported",
-         note="Streetlight out on the east side, the crosswalk is very dark at night.",
-         category="streetlight", severity="high", already_reported="likely",
-         agency="San Francisco Public Utilities Commission", channel="SF 311 web form",
-         channel_url=PUC["url"], sources=[PUC, SF311]),
+    # Bryant and 17th, well away from the live demo pin at Valencia and 18th.
+    dict(lat=37.76330, lng=-122.41060, age=26, reporter="mateo", status="reported",
+         note="White van with two flat tires has not moved from this corner in over a week.",
+         category="parking", severity="low", already_reported="unknown",
+         agency="SFMTA", channel="SF 311 abandoned vehicle report",
+         channel_url=VEHICLE["url"], sources=[VEHICLE, MTA]),
     dict(lat=37.75234, lng=-122.42062, age=50, reporter="mateo", status="acknowledged",
          note="Deep pothole in the right lane, bikes are swerving around it.",
          category="road_pothole", severity="high", already_reported="yes",
          agency="San Francisco Public Works", channel="SF 311 web form",
-         channel_url=SF311["url"], sources=[SF311, PW]),
+         channel_url=POTHOLE["url"], sources=[POTHOLE, PW]),
     dict(lat=37.76503, lng=-122.42194, age=40, reporter="priya", status="acknowledged",
          note="Mattress and two broken chairs dumped on the corner since Friday.",
          category="illegal_dumping", severity="medium", already_reported="yes",
-         agency="San Francisco Public Works", channel="SF 311 bulky item pickup",
-         channel_url=SF311["url"], sources=[SF311, PW]),
+         agency="San Francisco Public Works", channel="SF 311 illegal dumping report",
+         channel_url=DUMPING["url"], sources=[DUMPING, PW]),
     dict(lat=37.75824, lng=-122.42393, age=14, reporter="dana", status="routed",
          note="Sidewalk slab lifted by tree roots, hard to pass with a wheelchair.",
          category="sidewalk_accessibility", severity="high", already_reported="unknown",
          agency="San Francisco Public Works", channel="SF 311 web form",
-         channel_url=PW["url"], sources=[PW, SF311]),
+         channel_url=SIDEWALK["url"], sources=[SIDEWALK, PW]),
     dict(lat=37.76500, lng=-122.41966, age=8, reporter="neighbor", status="routed",
          note="Bus shelter glass panel shattered, glass on the bench.",
          category="transit_stop", severity="medium", already_reported="unknown",
@@ -62,17 +68,17 @@ SEEDS = [
          note="Graffiti tags across the whole roll up door of the corner shop.",
          category="graffiti", severity="low", already_reported="unknown",
          agency="San Francisco Public Works", channel="SF 311 graffiti removal",
-         channel_url=SF311["url"], sources=[SF311, PW]),
+         channel_url=GRAFFITI["url"], sources=[GRAFFITI, PW]),
     dict(lat=37.75850, lng=-122.40720, age=20, reporter="mateo", status="reported",
          note="Water pooling at the catch basin all week, looks like a blocked drain.",
          category="water_sewer", severity="medium", already_reported="likely",
          agency="San Francisco Public Utilities Commission", channel="SF 311 web form",
-         channel_url=WATER["url"], sources=[WATER, SF311]),
+         channel_url=WATER["url"], sources=[WATER]),
     dict(lat=37.76030, lng=-122.41280, age=5, reporter="dana", status="routed",
          note="Large tree limb cracked and hanging low over the sidewalk.",
          category="tree", severity="high", already_reported="unknown",
-         agency="San Francisco Public Works", channel="StreetTreeSF request",
-         channel_url=TREE["url"], sources=[TREE, SF311]),
+         agency="San Francisco Public Works", channel="SF 311 tree report",
+         channel_url=TREE["url"], sources=[TREE, PW]),
     dict(lat=37.76117, lng=-122.42623, age=11, reporter="neighbor", status="needs_human",
          note="Loud generator running overnight behind the building, unclear who owns it.",
          category="noise", severity="low", already_reported="unknown",
