@@ -1,0 +1,433 @@
+[
+  {
+    "id": "seed00",
+    "created_at": "2026-10-18T17:13:50+00:00",
+    "updated_at": "2026-10-19T10:33:50+00:00",
+    "lat": 37.7615,
+    "lng": -122.4218,
+    "address_hint": "Valencia St and 18th St",
+    "note": "Streetlight out on the east side, the crosswalk is very dark at night.",
+    "category": "streetlight",
+    "severity": "high",
+    "agency": "San Francisco Public Utilities Commission",
+    "channel": "SF 311 web form",
+    "channel_url": "https://sf.gov/report-streetlight-problem",
+    "already_reported": "likely",
+    "status": "reported",
+    "sources": [
+      {
+        "title": "SFPUC streetlight repair",
+        "url": "https://sf.gov/report-streetlight-problem"
+      },
+      {
+        "title": "SF 311 - Report a problem",
+        "url": "https://sf.gov/report-problem"
+      }
+    ],
+    "draft_id": "draft-seed00",
+    "slack_ts": "",
+    "reporter": "mateo",
+    "seed": true,
+    "summary": "Streetlight reported at Valencia St and 18th St.",
+    "emergency": false,
+    "trace": [
+      {
+        "step": "seed",
+        "tool": "seed-script",
+        "ms": 0,
+        "ok": true,
+        "detail": "pre-warmed demo pin"
+      }
+    ],
+    "updates": [],
+    "draft_subject": "[PIN-seed00] Streetlight at Valencia St and 18th St",
+    "draft_body": "Hello,\n\nA neighbor reported the following at Valencia St and 18th St:\n\nStreetlight out on the east side, the crosswalk is very dark at night.\n\nThank you.",
+    "needs_human_reason": "",
+    "monitor_id": ""
+  },
+  {
+    "id": "seed01",
+    "created_at": "2026-10-17T17:13:50+00:00",
+    "updated_at": "2026-10-19T02:33:50+00:00",
+    "lat": 37.75234,
+    "lng": -122.42062,
+    "address_hint": "Valencia St and 24th St",
+    "note": "Deep pothole in the right lane, bikes are swerving around it.",
+    "category": "road_pothole",
+    "severity": "high",
+    "agency": "San Francisco Public Works",
+    "channel": "SF 311 web form",
+    "channel_url": "https://sf.gov/report-problem",
+    "already_reported": "yes",
+    "status": "acknowledged",
+    "sources": [
+      {
+        "title": "SF 311 - Report a problem",
+        "url": "https://sf.gov/report-problem"
+      },
+      {
+        "title": "San Francisco Public Works",
+        "url": "https://sf.gov/departments/public-works"
+      }
+    ],
+    "draft_id": "draft-seed01",
+    "slack_ts": "",
+    "reporter": "mateo",
+    "seed": true,
+    "summary": "Road pothole reported at Valencia St and 24th St.",
+    "emergency": false,
+    "trace": [
+      {
+        "step": "seed",
+        "tool": "seed-script",
+        "ms": 0,
+        "ok": true,
+        "detail": "pre-warmed demo pin"
+      }
+    ],
+    "updates": [
+      {
+        "at": "2026-10-19T02:33:50+00:00",
+        "kind": "agency_reply",
+        "from": "SF 311 Customer Service",
+        "text": "Service request opened for [PIN-seed01]."
+      }
+    ],
+    "draft_subject": "[PIN-seed01] Road pothole at Valencia St and 24th St",
+    "draft_body": "Hello,\n\nA neighbor reported the following at Valencia St and 24th St:\n\nDeep pothole in the right lane, bikes are swerving around it.\n\nThank you.",
+    "needs_human_reason": "",
+    "monitor_id": ""
+  },
+  {
+    "id": "seed02",
+    "created_at": "2026-10-18T03:13:50+00:00",
+    "updated_at": "2026-10-19T05:53:50+00:00",
+    "lat": 37.76503,
+    "lng": -122.42194,
+    "address_hint": "Valencia St and 16th St",
+    "note": "Mattress and two broken chairs dumped on the corner since Friday.",
+    "category": "illegal_dumping",
+    "severity": "medium",
+    "agency": "San Francisco Public Works",
+    "channel": "SF 311 bulky item pickup",
+    "channel_url": "https://sf.gov/report-problem",
+    "already_reported": "yes",
+    "status": "acknowledged",
+    "sources": [
+      {
+        "title": "SF 311 - Report a problem",
+        "url": "https://sf.gov/report-problem"
+      },
+      {
+        "title": "San Francisco Public Works",
+        "url": "https://sf.gov/departments/public-works"
+      }
+    ],
+    "draft_id": "draft-seed02",
+    "slack_ts": "",
+    "reporter": "priya",
+    "seed": true,
+    "summary": "Illegal dumping reported at Valencia St and 16th St.",
+    "emergency": false,
+    "trace": [
+      {
+        "step": "seed",
+        "tool": "seed-script",
+        "ms": 0,
+        "ok": true,
+        "detail": "pre-warmed demo pin"
+      }
+    ],
+    "updates": [
+      {
+        "at": "2026-10-19T05:53:50+00:00",
+        "kind": "agency_reply",
+        "from": "SF 311 Customer Service",
+        "text": "Service request opened for [PIN-seed02]."
+      }
+    ],
+    "draft_subject": "[PIN-seed02] Illegal dumping at Valencia St and 16th St",
+    "draft_body": "Hello,\n\nA neighbor reported the following at Valencia St and 16th St:\n\nMattress and two broken chairs dumped on the corner since Friday.\n\nThank you.",
+    "needs_human_reason": "",
+    "monitor_id": ""
+  },
+  {
+    "id": "seed03",
+    "created_at": "2026-10-19T05:13:50+00:00",
+    "updated_at": "2026-10-19T14:33:50+00:00",
+    "lat": 37.75824,
+    "lng": -122.42393,
+    "address_hint": "Guerrero St and 20th St",
+    "note": "Sidewalk slab lifted by tree roots, hard to pass with a wheelchair.",
+    "category": "sidewalk_accessibility",
+    "severity": "high",
+    "agency": "San Francisco Public Works",
+    "channel": "SF 311 web form",
+    "channel_url": "https://sf.gov/departments/public-works",
+    "already_reported": "unknown",
+    "status": "routed",
+    "sources": [
+      {
+        "title": "San Francisco Public Works",
+        "url": "https://sf.gov/departments/public-works"
+      },
+      {
+        "title": "SF 311 - Report a problem",
+        "url": "https://sf.gov/report-problem"
+      }
+    ],
+    "draft_id": "",
+    "slack_ts": "",
+    "reporter": "dana",
+    "seed": true,
+    "summary": "Sidewalk accessibility reported at Guerrero St and 20th St.",
+    "emergency": false,
+    "trace": [
+      {
+        "step": "seed",
+        "tool": "seed-script",
+        "ms": 0,
+        "ok": true,
+        "detail": "pre-warmed demo pin"
+      }
+    ],
+    "updates": [],
+    "draft_subject": "[PIN-seed03] Sidewalk accessibility at Guerrero St and 20th St",
+    "draft_body": "Hello,\n\nA neighbor reported the following at Guerrero St and 20th St:\n\nSidewalk slab lifted by tree roots, hard to pass with a wheelchair.\n\nThank you.",
+    "needs_human_reason": "",
+    "monitor_id": ""
+  },
+  {
+    "id": "seed04",
+    "created_at": "2026-10-19T11:13:50+00:00",
+    "updated_at": "2026-10-19T16:33:50+00:00",
+    "lat": 37.765,
+    "lng": -122.41966,
+    "address_hint": "Mission St and 16th St",
+    "note": "Bus shelter glass panel shattered, glass on the bench.",
+    "category": "transit_stop",
+    "severity": "medium",
+    "agency": "SFMTA",
+    "channel": "SFMTA customer service",
+    "channel_url": "https://www.sfmta.com/contact-us",
+    "already_reported": "unknown",
+    "status": "routed",
+    "sources": [
+      {
+        "title": "SFMTA customer service",
+        "url": "https://www.sfmta.com/contact-us"
+      },
+      {
+        "title": "SF 311 - Report a problem",
+        "url": "https://sf.gov/report-problem"
+      }
+    ],
+    "draft_id": "",
+    "slack_ts": "",
+    "reporter": "neighbor",
+    "seed": true,
+    "summary": "Transit stop reported at Mission St and 16th St.",
+    "emergency": false,
+    "trace": [
+      {
+        "step": "seed",
+        "tool": "seed-script",
+        "ms": 0,
+        "ok": true,
+        "detail": "pre-warmed demo pin"
+      }
+    ],
+    "updates": [],
+    "draft_subject": "[PIN-seed04] Transit stop at Mission St and 16th St",
+    "draft_body": "Hello,\n\nA neighbor reported the following at Mission St and 16th St:\n\nBus shelter glass panel shattered, glass on the bench.\n\nThank you.",
+    "needs_human_reason": "",
+    "monitor_id": ""
+  },
+  {
+    "id": "seed05",
+    "created_at": "2026-10-15T19:13:50+00:00",
+    "updated_at": "2026-10-18T11:13:50+00:00",
+    "lat": 37.7554,
+    "lng": -122.41296,
+    "address_hint": "Folsom St and 22nd St",
+    "note": "Graffiti tags across the whole roll up door of the corner shop.",
+    "category": "graffiti",
+    "severity": "low",
+    "agency": "San Francisco Public Works",
+    "channel": "SF 311 graffiti removal",
+    "channel_url": "https://sf.gov/report-problem",
+    "already_reported": "unknown",
+    "status": "resolved",
+    "sources": [
+      {
+        "title": "SF 311 - Report a problem",
+        "url": "https://sf.gov/report-problem"
+      },
+      {
+        "title": "San Francisco Public Works",
+        "url": "https://sf.gov/departments/public-works"
+      }
+    ],
+    "draft_id": "draft-seed05",
+    "slack_ts": "",
+    "reporter": "priya",
+    "seed": true,
+    "summary": "Graffiti reported at Folsom St and 22nd St.",
+    "emergency": false,
+    "trace": [
+      {
+        "step": "seed",
+        "tool": "seed-script",
+        "ms": 0,
+        "ok": true,
+        "detail": "pre-warmed demo pin"
+      }
+    ],
+    "updates": [
+      {
+        "at": "2026-10-18T11:13:50+00:00",
+        "kind": "agency_reply",
+        "from": "SF 311 Customer Service",
+        "text": "Service request opened for [PIN-seed05]."
+      }
+    ],
+    "draft_subject": "[PIN-seed05] Graffiti at Folsom St and 22nd St",
+    "draft_body": "Hello,\n\nA neighbor reported the following at Folsom St and 22nd St:\n\nGraffiti tags across the whole roll up door of the corner shop.\n\nThank you.",
+    "needs_human_reason": "",
+    "monitor_id": ""
+  },
+  {
+    "id": "seed06",
+    "created_at": "2026-10-18T23:13:50+00:00",
+    "updated_at": "2026-10-19T12:33:50+00:00",
+    "lat": 37.7585,
+    "lng": -122.4072,
+    "address_hint": "Potrero Ave and 20th St",
+    "note": "Water pooling at the catch basin all week, looks like a blocked drain.",
+    "category": "water_sewer",
+    "severity": "medium",
+    "agency": "San Francisco Public Utilities Commission",
+    "channel": "SF 311 web form",
+    "channel_url": "https://sf.gov/report-water-or-sewer-problem",
+    "already_reported": "likely",
+    "status": "reported",
+    "sources": [
+      {
+        "title": "SFPUC report a water or sewer problem",
+        "url": "https://sf.gov/report-water-or-sewer-problem"
+      },
+      {
+        "title": "SF 311 - Report a problem",
+        "url": "https://sf.gov/report-problem"
+      }
+    ],
+    "draft_id": "draft-seed06",
+    "slack_ts": "",
+    "reporter": "mateo",
+    "seed": true,
+    "summary": "Water sewer reported at Potrero Ave and 20th St.",
+    "emergency": false,
+    "trace": [
+      {
+        "step": "seed",
+        "tool": "seed-script",
+        "ms": 0,
+        "ok": true,
+        "detail": "pre-warmed demo pin"
+      }
+    ],
+    "updates": [],
+    "draft_subject": "[PIN-seed06] Water sewer at Potrero Ave and 20th St",
+    "draft_body": "Hello,\n\nA neighbor reported the following at Potrero Ave and 20th St:\n\nWater pooling at the catch basin all week, looks like a blocked drain.\n\nThank you.",
+    "needs_human_reason": "",
+    "monitor_id": ""
+  },
+  {
+    "id": "seed07",
+    "created_at": "2026-10-19T14:13:50+00:00",
+    "updated_at": "2026-10-19T17:33:50+00:00",
+    "lat": 37.7603,
+    "lng": -122.4128,
+    "address_hint": "Harrison St and 19th St",
+    "note": "Large tree limb cracked and hanging low over the sidewalk.",
+    "category": "tree",
+    "severity": "high",
+    "agency": "San Francisco Public Works",
+    "channel": "StreetTreeSF request",
+    "channel_url": "https://sf.gov/report-street-tree-problem",
+    "already_reported": "unknown",
+    "status": "routed",
+    "sources": [
+      {
+        "title": "StreetTreeSF maintenance",
+        "url": "https://sf.gov/report-street-tree-problem"
+      },
+      {
+        "title": "SF 311 - Report a problem",
+        "url": "https://sf.gov/report-problem"
+      }
+    ],
+    "draft_id": "",
+    "slack_ts": "",
+    "reporter": "dana",
+    "seed": true,
+    "summary": "Tree reported at Harrison St and 19th St.",
+    "emergency": false,
+    "trace": [
+      {
+        "step": "seed",
+        "tool": "seed-script",
+        "ms": 0,
+        "ok": true,
+        "detail": "pre-warmed demo pin"
+      }
+    ],
+    "updates": [],
+    "draft_subject": "[PIN-seed07] Tree at Harrison St and 19th St",
+    "draft_body": "Hello,\n\nA neighbor reported the following at Harrison St and 19th St:\n\nLarge tree limb cracked and hanging low over the sidewalk.\n\nThank you.",
+    "needs_human_reason": "",
+    "monitor_id": ""
+  },
+  {
+    "id": "seed08",
+    "created_at": "2026-10-19T08:13:50+00:00",
+    "updated_at": "2026-10-19T15:33:50+00:00",
+    "lat": 37.76117,
+    "lng": -122.42623,
+    "address_hint": "Dolores St and 18th St",
+    "note": "Loud generator running overnight behind the building, unclear who owns it.",
+    "category": "noise",
+    "severity": "low",
+    "agency": "",
+    "channel": "",
+    "channel_url": "",
+    "already_reported": "unknown",
+    "status": "needs_human",
+    "sources": [
+      {
+        "title": "SF 311 - Report a problem",
+        "url": "https://sf.gov/report-problem"
+      }
+    ],
+    "draft_id": "",
+    "slack_ts": "",
+    "reporter": "neighbor",
+    "seed": true,
+    "summary": "Noise reported at Dolores St and 18th St.",
+    "emergency": false,
+    "trace": [
+      {
+        "step": "seed",
+        "tool": "seed-script",
+        "ms": 0,
+        "ok": true,
+        "detail": "pre-warmed demo pin"
+      }
+    ],
+    "updates": [],
+    "draft_subject": "[PIN-seed08] Noise at Dolores St and 18th St",
+    "draft_body": "Hello,\n\nA neighbor reported the following at Dolores St and 18th St:\n\nLoud generator running overnight behind the building, unclear who owns it.\n\nThank you.",
+    "needs_human_reason": "Couldn't verify the right agency",
+    "monitor_id": ""
+  }
+]
