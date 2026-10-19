@@ -153,6 +153,9 @@ def route(pin_id: str, note: str, address_hint: str, lat: float, lng: float,
     payload = {"note": note, "hint": address_hint, "snips": snippets, "dedupe": dedupe_hint,
                "model": config.LLM_MODEL, "prompt": PROMPT_VERSION}
     cached = cache.get("llm_route", payload)
+    if cached is None and not config.LLM_MODEL:
+        # Keyless fresh clone: use the committed cache, which was warmed with the default model.
+        cached = cache.get("llm_route", {**payload, "model": config.DEFAULT_LLM_MODEL})
     if cached is not None:
         try:
             card = _coerce(dict(cached))
