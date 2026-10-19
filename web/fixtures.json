@@ -1,0 +1,106 @@
+[
+  {
+    "id": "fx01",
+    "created_at": "2026-10-19T08:12:00-07:00",
+    "updated_at": "2026-10-19T08:13:10-07:00",
+    "lat": 37.76155,
+    "lng": -122.42185,
+    "address_hint": "Valencia St and 18th St",
+    "note": "Streetlight out at Valencia and 18th, very dark at night.",
+    "reporter": "Mateo",
+    "status": "reported",
+    "card": {
+      "category": "streetlight",
+      "severity": "medium",
+      "summary": "A streetlight at Valencia St and 18th St is out, leaving the crosswalk dark at night.",
+      "agency": "San Francisco Public Utilities Commission (SFPUC) Streetlights",
+      "channel": "SF311 app or web form, category Streetlight",
+      "channel_url": "https://sf311.org/",
+      "already_reported": "unknown",
+      "sources": [
+        {"title": "SFPUC: Report a streetlight outage", "url": "https://www.sfpuc.gov/"},
+        {"title": "SF311: Streetlight repair", "url": "https://sf311.org/"}
+      ],
+      "draft_subject": "[PIN-fx01] Streetlight out at Valencia and 18th",
+      "draft_body": "Hello,\n\nI would like to report a streetlight that is out at Valencia St and 18th St in the Mission. The crosswalk is very dark at night.\n\nThank you,\nA neighbor"
+    },
+    "trace": [
+      {"step": "classify", "tool": "llm", "ms": 1840, "ok": true},
+      {"step": "parallel_search", "tool": "parallel", "ms": 4210, "ok": true},
+      {"step": "sheet", "tool": "composio", "ms": 980, "ok": true},
+      {"step": "gmail_draft", "tool": "composio", "ms": 1320, "ok": true},
+      {"step": "slack", "tool": "composio", "ms": 760, "ok": true}
+    ],
+    "updates": ["Draft ready in Gmail. Review and click send."],
+    "draft_id": "r-fixture-1",
+    "slack_ts": "1760886780.000100",
+    "seed": true
+  },
+  {
+    "id": "fx02",
+    "created_at": "2026-10-18T17:40:00-07:00",
+    "updated_at": "2026-10-19T07:02:00-07:00",
+    "lat": 37.7648,
+    "lng": -122.4194,
+    "address_hint": "16th St and Mission St",
+    "note": "Overflowing pile of dumped mattresses on the sidewalk by the BART plaza.",
+    "reporter": "Ana",
+    "status": "acknowledged",
+    "card": {
+      "category": "illegal_dumping",
+      "severity": "medium",
+      "summary": "Several mattresses dumped on the sidewalk near the 16th St BART plaza.",
+      "agency": "San Francisco Public Works",
+      "channel": "SF311, category Street and Sidewalk Cleaning",
+      "channel_url": "https://sf311.org/",
+      "already_reported": "likely",
+      "sources": [
+        {"title": "SF Public Works: Street cleaning requests", "url": "https://sfpublicworks.org/"}
+      ],
+      "draft_subject": "[PIN-fx02] Dumped mattresses at 16th and Mission",
+      "draft_body": "Hello,\n\nThere are several mattresses dumped on the sidewalk near the 16th St BART plaza.\n\nThank you,\nA neighbor"
+    },
+    "trace": [
+      {"step": "classify", "tool": "llm", "ms": 1500, "ok": true},
+      {"step": "parallel_search", "tool": "parallel", "ms": 3900, "ok": true},
+      {"step": "sheet", "tool": "composio", "ms": 1100, "ok": false},
+      {"step": "gmail_draft", "tool": "composio", "ms": 1250, "ok": true},
+      {"step": "slack", "tool": "composio", "ms": 700, "ok": true}
+    ],
+    "updates": ["Agency replied: request received, crew scheduled."],
+    "draft_id": "r-fixture-2",
+    "slack_ts": null,
+    "seed": true
+  },
+  {
+    "id": "fx03",
+    "created_at": "2026-10-19T09:00:00-07:00",
+    "updated_at": "2026-10-19T09:00:30-07:00",
+    "lat": 37.7583,
+    "lng": -122.4148,
+    "address_hint": "20th St and Folsom St",
+    "note": "Weird smell from a manhole, not sure who handles it.",
+    "reporter": "neighbor",
+    "status": "needs_human",
+    "card": {
+      "category": "water_sewer",
+      "severity": "low",
+      "summary": "Unusual odor coming from a manhole at 20th and Folsom.",
+      "agency": null,
+      "channel": null,
+      "channel_url": null,
+      "already_reported": "unknown",
+      "sources": [],
+      "draft_subject": "[PIN-fx03] Odor from manhole at 20th and Folsom",
+      "draft_body": ""
+    },
+    "trace": [
+      {"step": "classify", "tool": "llm", "ms": 1700, "ok": true},
+      {"step": "parallel_search", "tool": "parallel", "ms": 15000, "ok": false}
+    ],
+    "updates": [],
+    "draft_id": null,
+    "slack_ts": null,
+    "seed": true
+  }
+]
