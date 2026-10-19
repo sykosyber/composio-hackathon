@@ -1,0 +1,659 @@
+{
+  "_meta": {
+    "demo_source": "OFFICIAL Contra Costa County Elections pages for the November 3, 2026 General Election, fetched 2026-10-19 (PT).",
+    "is_seed": true,
+    "note": "Hand-built from official county pages to mirror the Parallel Task API result shape ({output: {type, content, basis[]}}). NOT a live Parallel response. Replace entries with real Task results as they come in; keep this file as the offline fallback.",
+    "fetched_at": "2026-10-19T10:30:00-07:00",
+    "unverified": [
+      "Candidate ballot designations and stated priorities (left null/empty; fill via live Parallel Task).",
+      "Exact contest list for a specific address (varies by precinct; e.g. school board, Acalanes Measure W, Assembly District 15 vs 16)."
+    ]
+  },
+  "trigger_email": {
+    "from": "demo-county-elections@example.org",
+    "subject": "Your Vote-By-Mail ballot for the November 3, 2026 General Election is on its way",
+    "body": "Contra Costa County Elections: Your official ballot for the November 3, 2026 General Election was mailed to your address in Walnut Creek, CA 94596. Track your ballot and find drop boxes at contracostavote.gov.",
+    "_note": "SYNTHETIC demo email sent from a test account to trigger the pipeline. Not a real county message."
+  },
+  "extraction": {
+    "county": "Contra Costa",
+    "city": "Walnut Creek",
+    "election_name": "November 3, 2026 General Election",
+    "election_date": "2026-11-03",
+    "official_election_url": "https://www.contracostavote.gov/election/november-3-2026-general-election/",
+    "contests": [
+      {
+        "kind": "contest",
+        "name": "City of Walnut Creek, Member, City Council (Vote for 2)",
+        "jurisdiction": "City of Walnut Creek",
+        "source_url": "https://www.contracostavote.gov/wp-content/uploads/8-14-26_candidatelist_summary_final.pdf"
+      },
+      {
+        "kind": "contest",
+        "name": "City of Walnut Creek, City Treasurer (Vote for 1)",
+        "jurisdiction": "City of Walnut Creek",
+        "source_url": "https://www.contracostavote.gov/wp-content/uploads/8-14-26_candidatelist_summary_final.pdf"
+      },
+      {
+        "kind": "measure",
+        "name": "Measure T",
+        "jurisdiction": "City of Walnut Creek",
+        "source_url": "https://www.contracostavote.gov/m9012-en-2/"
+      },
+      {
+        "kind": "measure",
+        "name": "Measure U",
+        "jurisdiction": "City of Walnut Creek",
+        "source_url": "https://www.contracostavote.gov/m9013-en/"
+      }
+    ]
+  },
+  "deadlines": [
+    {
+      "date": "2026-10-19",
+      "title": "Registration deadline (online/mail). After today: Same Day (conditional) registration in person",
+      "source_url": "https://www.contracostavote.gov/election/november-3-2026-general-election/",
+      "extra_source_url": "https://www.sos.ca.gov/elections/voter-registration/same-day-reg"
+    },
+    {
+      "date": "2026-10-27",
+      "title": "Last day to request a Vote-By-Mail ballot",
+      "source_url": "https://www.contracostavote.gov/election/november-3-2026-general-election/"
+    },
+    {
+      "date": "2026-10-30",
+      "start": "11:00",
+      "end": "18:00",
+      "title": "Regional early voting: Center for Community Arts, 111 N Wiget Ln, Walnut Creek",
+      "source_url": "https://www.contracostavote.gov/election/november-3-2026-general-election/"
+    },
+    {
+      "date": "2026-10-31",
+      "start": "09:00",
+      "end": "15:00",
+      "title": "Regional early voting: Center for Community Arts, 111 N Wiget Ln, Walnut Creek",
+      "source_url": "https://www.contracostavote.gov/election/november-3-2026-general-election/"
+    },
+    {
+      "date": "2026-11-02",
+      "start": "11:00",
+      "end": "18:00",
+      "title": "Regional early voting: Center for Community Arts, 111 N Wiget Ln, Walnut Creek",
+      "source_url": "https://www.contracostavote.gov/election/november-3-2026-general-election/"
+    },
+    {
+      "date": "2026-11-03",
+      "start": "07:00",
+      "end": "20:00",
+      "title": "Election Day: polls 7am-8pm; drop boxes close 8:00pm sharp; mail ballots must be postmarked today",
+      "source_url": "https://www.contracostavote.gov/election/november-3-2026-general-election/"
+    }
+  ],
+  "drop_boxes_walnut_creek": [
+    {
+      "name": "Grace Presbyterian Church",
+      "address": "2100 Tice Valley Blvd, Walnut Creek"
+    },
+    {
+      "name": "Walnut Creek Center for Community Arts",
+      "address": "111 N Wiget Ln, Walnut Creek"
+    },
+    {
+      "name": "Walnut Creek City Hall",
+      "address": "1666 N Main St, Walnut Creek"
+    }
+  ],
+  "drop_boxes_source_url": "https://www.contracostavote.gov/election/november-3-2026-general-election/",
+  "research": {
+    "City of Walnut Creek, Member, City Council (Vote for 2)": {
+      "kind": "contest",
+      "run_id": null,
+      "output": {
+        "type": "json",
+        "content": {
+          "contest_name": "City of Walnut Creek, Member, City Council",
+          "jurisdiction": "City of Walnut Creek",
+          "vote_for": 2,
+          "is_contested": false,
+          "what_the_office_controls": "The five-member City Council sets Walnut Creek's budget, land-use and zoning rules, and local ordinances, and appoints the City Manager. It placed Measure T on this ballot.",
+          "term_length": "4 years",
+          "candidates": [
+            {
+              "name": "Cherise Marie Khaund",
+              "ballot_designation": null,
+              "is_incumbent": null,
+              "stated_priorities": [],
+              "official_statement_url": null
+            },
+            {
+              "name": "Brendan Moran",
+              "ballot_designation": null,
+              "is_incumbent": null,
+              "stated_priorities": [],
+              "official_statement_url": null
+            }
+          ],
+          "neutral_summary": "Two seats are open and two candidates qualified, Cherise Marie Khaund and Brendan Moran, so both are expected to be seated. You may vote for up to two."
+        },
+        "basis": [
+          {
+            "field": "contest_name",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/wp-content/uploads/8-14-26_candidatelist_summary_final.pdf",
+                "excerpts": [
+                  "WalnutCreekCouncil Vote for 2"
+                ]
+              },
+              {
+                "url": "https://www.contracostavote.gov/wp-content/uploads/26Nov03_PositionsUpForElection.pdf",
+                "excerpts": [
+                  "Walnut Creek Treasurer 2 Councilmembers"
+                ]
+              }
+            ],
+            "reasoning": "Official county candidate list and positions-up-for-election list.",
+            "confidence": "high"
+          },
+          {
+            "field": "vote_for",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/wp-content/uploads/8-14-26_candidatelist_summary_final.pdf",
+                "excerpts": [
+                  "WalnutCreekCouncil Vote for 2"
+                ]
+              }
+            ],
+            "reasoning": "Official candidate list.",
+            "confidence": "high"
+          },
+          {
+            "field": "is_contested",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/wp-content/uploads/8-14-26_candidatelist_summary_final.pdf",
+                "excerpts": [
+                  "WalnutCreekCouncil Vote for 2 CHERISE MARIE KHAUND ... BRENDAN MORAN ..."
+                ]
+              }
+            ],
+            "reasoning": "Two qualified candidates for two seats.",
+            "confidence": "high"
+          },
+          {
+            "field": "candidates",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/wp-content/uploads/8-14-26_candidatelist_summary_final.pdf",
+                "excerpts": [
+                  "CHERISE MARIE KHAUND 8/ 4/2026",
+                  "BRENDAN MORAN 8/ 6/2026"
+                ]
+              }
+            ],
+            "reasoning": "Names from official candidate list; designations/priorities not yet researched.",
+            "confidence": "high"
+          },
+          {
+            "field": "what_the_office_controls",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9012-en-2/",
+                "excerpts": [
+                  "Measure T was placed on the ballot by the City Council through Resolution No. 26-31."
+                ]
+              }
+            ],
+            "reasoning": "Council's ballot role is cited; budget/land-use description is general knowledge of CA general-law cities and should be backed by a live Task citation.",
+            "confidence": "medium"
+          },
+          {
+            "field": "term_length",
+            "citations": [],
+            "reasoning": "SEED: no citation captured yet. Guardrail should DROP this field until a live Task run cites it.",
+            "confidence": "low"
+          },
+          {
+            "field": "neutral_summary",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/wp-content/uploads/8-14-26_candidatelist_summary_final.pdf",
+                "excerpts": [
+                  "WalnutCreekCouncil Vote for 2"
+                ]
+              }
+            ],
+            "reasoning": "Derived from official candidate list.",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    "City of Walnut Creek, City Treasurer (Vote for 1)": {
+      "kind": "contest",
+      "run_id": null,
+      "output": {
+        "type": "json",
+        "content": {
+          "contest_name": "City of Walnut Creek, City Treasurer",
+          "jurisdiction": "City of Walnut Creek",
+          "vote_for": 1,
+          "is_contested": false,
+          "what_the_office_controls": "The City Treasurer receives and safeguards city funds, manages about $145 million in average daily funds, and submits monthly reports on receipts, disbursements, and balances.",
+          "term_length": null,
+          "candidates": [
+            {
+              "name": "Ronald Cassano",
+              "ballot_designation": null,
+              "is_incumbent": true,
+              "stated_priorities": [],
+              "official_statement_url": null
+            }
+          ],
+          "neutral_summary": "Ronald Cassano, the current treasurer, is the only candidate. Measure T on the same ballot asks whether this office should become appointed instead of elected."
+        },
+        "basis": [
+          {
+            "field": "contest_name",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/wp-content/uploads/8-14-26_candidatelist_summary_final.pdf",
+                "excerpts": [
+                  "WalnutCreekTreasurer Vote for 1"
+                ]
+              }
+            ],
+            "reasoning": "Official candidate list.",
+            "confidence": "high"
+          },
+          {
+            "field": "vote_for",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/wp-content/uploads/8-14-26_candidatelist_summary_final.pdf",
+                "excerpts": [
+                  "WalnutCreekTreasurer Vote for 1"
+                ]
+              }
+            ],
+            "reasoning": "Official candidate list.",
+            "confidence": "high"
+          },
+          {
+            "field": "is_contested",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/wp-content/uploads/8-14-26_candidatelist_summary_final.pdf",
+                "excerpts": [
+                  "WalnutCreekTreasurer Vote for 1 RONALD CASSANO"
+                ]
+              }
+            ],
+            "reasoning": "One candidate, one seat.",
+            "confidence": "high"
+          },
+          {
+            "field": "what_the_office_controls",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9012-en-2/",
+                "excerpts": [
+                  "In 2026, the Walnut Creek City Treasurer is responsible for management of approximately 145 million dollars in average daily funds."
+                ]
+              }
+            ],
+            "reasoning": "City Attorney's impartial analysis of Measure T.",
+            "confidence": "high"
+          },
+          {
+            "field": "candidates",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/wp-content/uploads/8-14-26_candidatelist_summary_final.pdf",
+                "excerpts": [
+                  "RONALD CASSANO 7/22/2026"
+                ]
+              },
+              {
+                "url": "https://www.contracostavote.gov/m9012-en-2/",
+                "excerpts": [
+                  "current elected (30-year) City Treasurer Ron Cassano"
+                ]
+              }
+            ],
+            "reasoning": "Official list + signer line in Measure T argument.",
+            "confidence": "high"
+          },
+          {
+            "field": "neutral_summary",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/wp-content/uploads/8-14-26_candidatelist_summary_final.pdf",
+                "excerpts": [
+                  "WalnutCreekTreasurer Vote for 1"
+                ]
+              },
+              {
+                "url": "https://www.contracostavote.gov/m9012-en-2/",
+                "excerpts": [
+                  "Shall the office of the City Treasurer be appointive?"
+                ]
+              }
+            ],
+            "reasoning": "Official sources.",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    "Measure T": {
+      "kind": "measure",
+      "run_id": null,
+      "output": {
+        "type": "json",
+        "content": {
+          "measure_id": "Measure T",
+          "jurisdiction": "City of Walnut Creek",
+          "ballot_question": "Shall the office of the City Treasurer be appointive?",
+          "plain_language_summary": "Walnut Creek currently elects its City Treasurer. Measure T would make it an appointed position chosen by the City Manager, who could set professional qualifications for the job.",
+          "yes_means": "The treasurer would be appointed by the City Manager instead of elected, starting when the current term ends (December 2026, or December 2030 if a treasurer is elected this November).",
+          "no_means": "Voters would keep electing the City Treasurer.",
+          "vote_threshold": "simple majority",
+          "fiscal_impact": "The City Attorney's analysis says approval would save future costs of candidate elections for the position.",
+          "argument_for": {
+            "status": "filed",
+            "summary": "Supporters say the job now oversees about $145 million and should require finance qualifications, noting that fewer than 10% of California cities still elect their treasurer.",
+            "signers": [
+              "Kevin Wilk, Mayor",
+              "Matt Francois, Mayor Pro Tem",
+              "Ron Cassano, City Treasurer",
+              "Susan Hildreth",
+              "Audrey Gee"
+            ]
+          },
+          "argument_against": {
+            "status": "filed",
+            "summary": "Opponents say voters would lose direct choice of the official who reviews the city's own accounts, that voters rejected this in 1956 and 1996, and that savings would be minimal.",
+            "signers": [
+              "Contra Costa Taxpayers Assn",
+              "Denise P Kalm, Vice President",
+              "Robert Marshall, Retired Businessman"
+            ]
+          },
+          "official_source_url": "https://www.contracostavote.gov/m9012-en-2/"
+        },
+        "basis": [
+          {
+            "field": "ballot_question",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9012-en-2/",
+                "excerpts": [
+                  "Shall the office of the City Treasurer be appointive?"
+                ]
+              }
+            ],
+            "reasoning": "Verbatim from official page.",
+            "confidence": "high"
+          },
+          {
+            "field": "plain_language_summary",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9012-en-2/",
+                "excerpts": [
+                  "Measure T presents to the voters of Walnut Creek the question of whether the office of City Treasurer should be made an appointed position, with the City Manager having the authority to appoint the City Treasurer."
+                ]
+              }
+            ],
+            "reasoning": "Impartial analysis.",
+            "confidence": "high"
+          },
+          {
+            "field": "yes_means",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9012-en-2/",
+                "excerpts": [
+                  "The City Manager ... would appoint the City Treasurer when the term of the current incumbent expires in December 2026 or ... in December 2030"
+                ]
+              }
+            ],
+            "reasoning": "Impartial analysis.",
+            "confidence": "high"
+          },
+          {
+            "field": "no_means",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9012-en-2/",
+                "excerpts": [
+                  "If a simple majority of voters vote “NO” on this measure, the office of City Treasurer in the City of Walnut Creek will continue to be elected by voters."
+                ]
+              }
+            ],
+            "reasoning": "Impartial analysis.",
+            "confidence": "high"
+          },
+          {
+            "field": "vote_threshold",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9012-en-2/",
+                "excerpts": [
+                  "If a simple majority of voters vote “YES” on this measure"
+                ]
+              }
+            ],
+            "reasoning": "Impartial analysis.",
+            "confidence": "high"
+          },
+          {
+            "field": "fiscal_impact",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9012-en-2/",
+                "excerpts": [
+                  "this measure would save future costs associated with candidate elections related the position of City Treasurer."
+                ]
+              }
+            ],
+            "reasoning": "Impartial analysis.",
+            "confidence": "high"
+          },
+          {
+            "field": "argument_for",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9012-en-2/",
+                "excerpts": [
+                  "ARGUMENT IN FAVOR OF MEASURE T",
+                  "fewer than 10% of California’s 483 cities still locally elect their city treasurers"
+                ]
+              }
+            ],
+            "reasoning": "Official argument in favor.",
+            "confidence": "high"
+          },
+          {
+            "field": "argument_against",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9012-en-2/",
+                "excerpts": [
+                  "ARGUMENT AGAINST MEASURE T",
+                  "Walnut Creek voters have weighed this question before and rejected it, in 1956 and again in 1996."
+                ]
+              }
+            ],
+            "reasoning": "Official argument against.",
+            "confidence": "high"
+          },
+          {
+            "field": "official_source_url",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9012-en-2/",
+                "excerpts": [
+                  "MEASURE T CITY OF WALNUT CREEK"
+                ]
+              }
+            ],
+            "reasoning": "Official page.",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    "Measure U": {
+      "kind": "measure",
+      "run_id": null,
+      "output": {
+        "type": "json",
+        "content": {
+          "measure_id": "Measure U",
+          "jurisdiction": "City of Walnut Creek",
+          "ballot_question": "Shall the measure amending the City of Walnut Creek General Plan, the North Downtown Specific Plan, and the Municipal Code to redesignate a 2.4 acre site at the northeast corner of North California Boulevard and Ygnacio Valley Road from office uses to mixed use residential uses, and to create a new Mixed Use Residential Senior & Commercial zoning district to limit allowable uses on the site to multifamily senior housing (primarily 55 years of age or older) and commercial uses compatible with senior housing, be adopted?",
+          "plain_language_summary": "A citizen petition put this on the ballot. It would rezone a 2.4-acre office site across from Walnut Creek BART for housing mainly for people 55+, plus compatible shops. It does not approve a specific project.",
+          "yes_means": "The site is rezoned for senior housing and compatible commercial uses, and the city could not substantively reduce that zoning later without another vote or the landowner's request.",
+          "no_means": "The site keeps its current office designation.",
+          "vote_threshold": "simple majority",
+          "fiscal_impact": null,
+          "argument_for": {
+            "status": "filed",
+            "summary": "Supporters say seniors make up a large share of nearby households but few planned homes are reserved for them, and that the measure would allow 200+ senior homes near BART without raising taxes.",
+            "signers": [
+              "Marlene R. Farrell, Friends of Walnut Creek Senior Housing",
+              "Stephen L. Kostka, Advocate for Senior Housing",
+              "Hailey Murphy, Walnut Creek Resident"
+            ]
+          },
+          "argument_against": {
+            "status": "none_filed",
+            "summary": null,
+            "signers": []
+          },
+          "official_source_url": "https://www.contracostavote.gov/m9013-en/"
+        },
+        "basis": [
+          {
+            "field": "ballot_question",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9013-en/",
+                "excerpts": [
+                  "Shall the measure amending the City of Walnut Creek General Plan, the North Downtown Specific Plan, and the Municipal Code to redesignate a 2.4 acre site"
+                ]
+              }
+            ],
+            "reasoning": "Verbatim from official page.",
+            "confidence": "high"
+          },
+          {
+            "field": "plain_language_summary",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9013-en/",
+                "excerpts": [
+                  "Measure U was placed on the ballot through a voter-sponsored petition",
+                  "The Measure does not propose a specific project in the MU-RSC"
+                ]
+              }
+            ],
+            "reasoning": "Impartial analysis.",
+            "confidence": "high"
+          },
+          {
+            "field": "yes_means",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9013-en/",
+                "excerpts": [
+                  "Absent voter approval or city approval of the landowner’s application, the city cannot substantively amend the MU-RSC or reduce its development capacities"
+                ]
+              }
+            ],
+            "reasoning": "Impartial analysis.",
+            "confidence": "high"
+          },
+          {
+            "field": "no_means",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9013-en/",
+                "excerpts": [
+                  "A “No” vote is a vote against Measure U and the proposed amendments."
+                ]
+              }
+            ],
+            "reasoning": "Impartial analysis.",
+            "confidence": "medium"
+          },
+          {
+            "field": "vote_threshold",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9013-en/",
+                "excerpts": [
+                  "Measure U will be approved if it receives a simple majority of “Yes” votes."
+                ]
+              }
+            ],
+            "reasoning": "Impartial analysis.",
+            "confidence": "high"
+          },
+          {
+            "field": "argument_for",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9013-en/",
+                "excerpts": [
+                  "ARGUMENT IN FAVOR OF MEASURE U",
+                  "permit over 200 units of high-quality senior housing and community-serving retail near BART – without raising taxes"
+                ]
+              }
+            ],
+            "reasoning": "Official argument in favor.",
+            "confidence": "high"
+          },
+          {
+            "field": "argument_against",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9013-en/",
+                "excerpts": [
+                  "ARGUMENT AGAINST MEASURE U No Argument Against was filed."
+                ]
+              }
+            ],
+            "reasoning": "Official page states no argument against was filed.",
+            "confidence": "high"
+          },
+          {
+            "field": "official_source_url",
+            "citations": [
+              {
+                "url": "https://www.contracostavote.gov/m9013-en/",
+                "excerpts": [
+                  "MEASURE U CITY OF WALNUT CREEK"
+                ]
+              }
+            ],
+            "reasoning": "Official page.",
+            "confidence": "high"
+          }
+        ]
+      }
+    }
+  },
+  "_demo_injections": {
+    "_note": "SYNTHETIC. Applied by scripts/run_demo.py --inject so the guardrail visibly catches something on stage. Never ship these in a real run.",
+    "Measure U": {
+      "plain_language_summary_append": " Honestly, this is a no-brainer that every caring neighbor should support."
+    },
+    "City of Walnut Creek, Member, City Council (Vote for 2)": {
+      "neutral_summary_append": " You should definitely vote for both of them."
+    }
+  }
+}

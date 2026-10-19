@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "description": "Neutral, cited explainer for ONE candidate contest on a local ballot. Never recommend a candidate. Describe; do not evaluate.",
+  "properties": {
+    "contest_name": {
+      "type": "string",
+      "description": "Contest name exactly as printed on the official sample ballot, e.g. 'City of Walnut Creek, Member, City Council'."
+    },
+    "jurisdiction": {
+      "type": "string",
+      "description": "Government body the office belongs to, e.g. 'City of Walnut Creek'."
+    },
+    "vote_for": {
+      "type": "integer",
+      "description": "How many candidates a voter may select in this contest, from the official ballot."
+    },
+    "is_contested": {
+      "type": "boolean",
+      "description": "True if there are more qualified candidates than seats."
+    },
+    "what_the_office_controls": {
+      "type": "string",
+      "description": "2-3 plain-language sentences (8th-grade reading level) on what this office actually decides: budgets, land use, schools, water, etc. Cite official city/county/state sources where possible."
+    },
+    "term_length": {
+      "type": ["string", "null"],
+      "description": "Length of the term, e.g. '4 years'. Null if not found in an authoritative source."
+    },
+    "candidates": {
+      "type": "array",
+      "description": "Every qualified candidate on the official candidate list for this contest, in ballot order.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name as printed on the ballot."
+          },
+          "ballot_designation": {
+            "type": ["string", "null"],
+            "description": "Occupation/ballot designation as printed, e.g. 'Small Business Owner'. Null if not found."
+          },
+          "is_incumbent": {
+            "type": ["boolean", "null"],
+            "description": "True if currently holds this office. Null if unclear."
+          },
+          "stated_priorities": {
+            "type": "array",
+            "description": "Up to 3 priorities in the candidate's OWN words, paraphrased neutrally, each attributed (e.g. 'Says she will ...'). Only from the candidate's official statement, campaign site, or a published forum/interview. Empty array if none found.",
+            "items": { "type": "string" }
+          },
+          "official_statement_url": {
+            "type": ["string", "null"],
+            "description": "URL of the candidate statement in the county voter guide, if available."
+          }
+        },
+        "required": ["name", "ballot_designation", "is_incumbent", "stated_priorities", "official_statement_url"],
+        "additionalProperties": false
+      }
+    },
+    "neutral_summary": {
+      "type": "string",
+      "description": "One neutral paragraph a first-time voter can read in 20 seconds. No adjectives that praise or criticize any candidate. No recommendation."
+    }
+  },
+  "required": ["contest_name", "jurisdiction", "vote_for", "is_contested", "what_the_office_controls", "term_length", "candidates", "neutral_summary"],
+  "additionalProperties": false
+}

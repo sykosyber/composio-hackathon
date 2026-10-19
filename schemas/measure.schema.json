@@ -1,0 +1,88 @@
+{
+  "type": "object",
+  "description": "Neutral, cited explainer for ONE ballot measure. Present both sides from the official voter guide. Never recommend a vote.",
+  "properties": {
+    "measure_id": {
+      "type": "string",
+      "description": "Measure letter or proposition number exactly as on the ballot, e.g. 'Measure T' or 'Proposition 1'."
+    },
+    "jurisdiction": {
+      "type": "string",
+      "description": "Who placed it on the ballot / where it applies, e.g. 'City of Walnut Creek'."
+    },
+    "ballot_question": {
+      "type": "string",
+      "description": "The ballot question, quoted verbatim from the official sample ballot or voter guide."
+    },
+    "plain_language_summary": {
+      "type": "string",
+      "description": "2-3 neutral sentences on what the measure would change, based on the impartial analysis (city attorney / county counsel / Legislative Analyst)."
+    },
+    "yes_means": {
+      "type": "string",
+      "description": "One sentence: what happens if it passes. Paraphrase the impartial analysis."
+    },
+    "no_means": {
+      "type": "string",
+      "description": "One sentence: what happens if it fails. Paraphrase the impartial analysis."
+    },
+    "vote_threshold": {
+      "type": ["string", "null"],
+      "description": "Votes needed to pass, e.g. 'simple majority' or 'two-thirds'. Null if not stated."
+    },
+    "fiscal_impact": {
+      "type": ["string", "null"],
+      "description": "Cost, tax, or savings impact per the official fiscal analysis. Null if none was published."
+    },
+    "argument_for": {
+      "type": "object",
+      "description": "The official ballot argument IN FAVOR, attributed to its signers.",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["filed", "none_filed", "not_found"],
+          "description": "'filed' if an argument in favor appears in the official voter guide; 'none_filed' if the guide states none was filed; 'not_found' if you could not locate the voter guide text."
+        },
+        "summary": {
+          "type": ["string", "null"],
+          "description": "Neutral 2-3 sentence summary of the argument's main points, framed as 'Supporters say ...'. Null unless status is 'filed'."
+        },
+        "signers": {
+          "type": "array",
+          "description": "Names/titles of signers as printed. Empty if none.",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["status", "summary", "signers"],
+      "additionalProperties": false
+    },
+    "argument_against": {
+      "type": "object",
+      "description": "The official ballot argument AGAINST, attributed to its signers.",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["filed", "none_filed", "not_found"],
+          "description": "'filed' if an argument against appears in the official voter guide; 'none_filed' if the guide states none was filed; 'not_found' if you could not locate the voter guide text."
+        },
+        "summary": {
+          "type": ["string", "null"],
+          "description": "Neutral 2-3 sentence summary of the argument's main points, framed as 'Opponents say ...'. Null unless status is 'filed'."
+        },
+        "signers": {
+          "type": "array",
+          "description": "Names/titles of signers as printed. Empty if none.",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["status", "summary", "signers"],
+      "additionalProperties": false
+    },
+    "official_source_url": {
+      "type": "string",
+      "description": "URL of the official county/state page with the full measure text, impartial analysis, and arguments."
+    }
+  },
+  "required": ["measure_id", "jurisdiction", "ballot_question", "plain_language_summary", "yes_means", "no_means", "vote_threshold", "fiscal_impact", "argument_for", "argument_against", "official_source_url"],
+  "additionalProperties": false
+}

@@ -1,0 +1,9 @@
+# Verified package names 2026-10-19:
+#   parallel-web  -> `from parallel import Parallel`   (https://docs.parallel.ai/task-api/task-quickstart)
+#   composio      -> `from composio import Composio`   (https://docs.composio.dev/docs/quickstart)
+#   NOTE: do NOT install `composio-core` (legacy v1 SDK, no sessions). Composio Python SDK needs Python 3.11+.
+parallel-web>=1.3.5
+composio>=0.28.0
+httpx>=0.27
+pydantic>=2.7
+python-dotenv>=1.0

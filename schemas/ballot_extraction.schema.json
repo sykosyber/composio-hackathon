@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "description": "Output of Step 1 (model call over the trigger email + Parallel Extract excerpts). Not sent to Parallel Task; validated locally.",
+  "properties": {
+    "county": { "type": "string" },
+    "city": { "type": ["string", "null"] },
+    "election_name": { "type": "string" },
+    "election_date": { "type": "string", "description": "YYYY-MM-DD" },
+    "official_election_url": { "type": "string" },
+    "contests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": { "type": "string", "enum": ["contest", "measure"] },
+          "name": { "type": "string" },
+          "jurisdiction": { "type": "string" },
+          "source_url": { "type": "string" }
+        },
+        "required": ["kind", "name", "jurisdiction", "source_url"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["county", "city", "election_name", "election_date", "official_election_url", "contests"],
+  "additionalProperties": false
+}
