@@ -1,0 +1,23 @@
+{
+  "namespace": "parallel_agency",
+  "input": {
+    "objective": "Identify the exact San Francisco city agency responsible for this issue and the official reporting channel with its URL. Issue category: illegal_dumping. Prefer official city government pages such as sf.gov and 311.",
+    "queries": [
+      "San Francisco report illegal dumping 311 Recology",
+      "SF bulky item pickup request"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "Report illegal dumping activity | SF.gov",
+      "url": "https://www.sf.gov/report-illegal-dumping-activity",
+      "excerpt": "Report illegally dumped items on streets and sidewalks. San Francisco Public Works collects the material."
+    },
+    {
+      "title": "Request street or sidewalk cleaning | SF.gov",
+      "url": "https://www.sf.gov/request-street-or-sidewalk-cleaning",
+      "excerpt": "Request cleaning of a street or sidewalk through SF 311."
+    }
+  ]
+}

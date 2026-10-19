@@ -1,0 +1,23 @@
+{
+  "namespace": "parallel_agency",
+  "input": {
+    "objective": "Identify the exact San Francisco city agency responsible for this issue and the official reporting channel with its URL. Issue category: water_sewer. Prefer official city government pages such as sf.gov and 311.",
+    "queries": [
+      "San Francisco report water leak sewer SFPUC",
+      "SFPUC report flooding clogged drain"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "Report flooding, water leaks, sewer backup, or odor issues | SF.gov",
+      "url": "https://www.sf.gov/report-flooding-water-leaks-sewer-backup-or-odor-issues/",
+      "excerpt": "The San Francisco Public Utilities Commission handles water main breaks, sewer backups, clogged catch basins and street flooding."
+    },
+    {
+      "title": "311 Customer Service Center | SF.gov",
+      "url": "https://www.sf.gov/departments--311-customer-service-center",
+      "excerpt": "SF 311 is the city's single point of contact for non emergency service requests. Call 311, use the web forms, or use the SF311 mobile app."
+    }
+  ]
+}

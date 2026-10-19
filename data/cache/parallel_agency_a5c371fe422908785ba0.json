@@ -1,0 +1,18 @@
+{
+  "namespace": "parallel_agency",
+  "input": {
+    "objective": "Identify the exact San Francisco city agency responsible for this issue and the official reporting channel with its URL. Issue category: other. Prefer official city government pages such as sf.gov and 311.",
+    "queries": [
+      "San Francisco 311 report a problem city services",
+      "SF 311 service request categories"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "311 Customer Service Center | SF.gov",
+      "url": "https://www.sf.gov/departments--311-customer-service-center",
+      "excerpt": "SF 311 is the city's single point of contact for non emergency service requests. Call 311, use the web forms, or use the SF311 mobile app."
+    }
+  ]
+}

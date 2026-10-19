@@ -1,0 +1,23 @@
+{
+  "namespace": "parallel_agency",
+  "input": {
+    "objective": "Identify the exact San Francisco city agency responsible for this issue and the official reporting channel with its URL. Issue category: transit_stop. Prefer official city government pages such as sf.gov and 311.",
+    "queries": [
+      "San Francisco Muni bus shelter damage report SFMTA",
+      "SFMTA report transit stop problem"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "Enforcement Requests | SFMTA",
+      "url": "https://www.sfmta.com/services/enforcement-requests",
+      "excerpt": "The San Francisco Municipal Transportation Agency operates Muni and maintains transit stops and shelters."
+    },
+    {
+      "title": "311 Customer Service Center | SF.gov",
+      "url": "https://www.sf.gov/departments--311-customer-service-center",
+      "excerpt": "SF 311 is the city's single point of contact for non emergency service requests. Call 311, use the web forms, or use the SF311 mobile app."
+    }
+  ]
+}

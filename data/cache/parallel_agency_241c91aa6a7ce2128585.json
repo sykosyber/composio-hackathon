@@ -1,0 +1,23 @@
+{
+  "namespace": "parallel_agency",
+  "input": {
+    "objective": "Identify the exact San Francisco city agency responsible for this issue and the official reporting channel with its URL. Issue category: road_pothole. Prefer official city government pages such as sf.gov and 311.",
+    "queries": [
+      "San Francisco report pothole 311 SF Public Works",
+      "SF Public Works street repair request"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "Report pothole and street issues | SF.gov",
+      "url": "https://www.sf.gov/report-pothole-and-street-issues",
+      "excerpt": "San Francisco Public Works repairs potholes on city maintained streets. Report potholes and street defects through SF 311."
+    },
+    {
+      "title": "311 Customer Service Center | SF.gov",
+      "url": "https://www.sf.gov/departments--311-customer-service-center",
+      "excerpt": "SF 311 is the city's single point of contact for non emergency service requests. Call 311, use the web forms, or use the SF311 mobile app."
+    }
+  ]
+}

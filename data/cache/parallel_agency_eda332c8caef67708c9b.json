@@ -1,0 +1,23 @@
+{
+  "namespace": "parallel_agency",
+  "input": {
+    "objective": "Identify the exact San Francisco city agency responsible for this issue and the official reporting channel with its URL. Issue category: parking. Prefer official city government pages such as sf.gov and 311.",
+    "queries": [
+      "San Francisco report blocked driveway abandoned vehicle SFMTA 311",
+      "SFMTA parking enforcement request"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "Report blocked driveway or illegal parking | SF.gov",
+      "url": "https://www.sf.gov/report-blocked-driveway-or-illegal-parking",
+      "excerpt": "SFMTA parking enforcement responds to blocked driveways and illegal parking. Abandoned vehicles are reported separately."
+    },
+    {
+      "title": "311 Customer Service Center | SF.gov",
+      "url": "https://www.sf.gov/departments--311-customer-service-center",
+      "excerpt": "SF 311 is the city's single point of contact for non emergency service requests. Call 311, use the web forms, or use the SF311 mobile app."
+    }
+  ]
+}

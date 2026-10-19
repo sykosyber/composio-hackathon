@@ -1,0 +1,23 @@
+{
+  "namespace": "parallel_agency",
+  "input": {
+    "objective": "Identify the exact San Francisco city agency responsible for this issue and the official reporting channel with its URL. Issue category: streetlight. Prefer official city government pages such as sf.gov and 311.",
+    "queries": [
+      "San Francisco report streetlight outage 311",
+      "SFPUC streetlight repair report"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "Report a problem with a streetlight | SF.gov",
+      "url": "https://www.sf.gov/report-problem-streetlight",
+      "excerpt": "Report a streetlight that is out, flickering or damaged. The San Francisco Public Utilities Commission maintains most city streetlights and SF 311 routes the request."
+    },
+    {
+      "title": "311 Customer Service Center | SF.gov",
+      "url": "https://www.sf.gov/departments--311-customer-service-center",
+      "excerpt": "SF 311 is the city's single point of contact for non emergency service requests. Call 311, use the web forms, or use the SF311 mobile app."
+    }
+  ]
+}
