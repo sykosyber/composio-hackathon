@@ -1,0 +1,12 @@
+{
+  "namespace": "jev_triage",
+  "input": {
+    "note": "I smell gas really strongly outside 2400 Mission, the whole block reeks",
+    "v": 1
+  },
+  "value": {
+    "emergency_p": 0.86,
+    "category": "other",
+    "category_confidence": 0.89
+  }
+}

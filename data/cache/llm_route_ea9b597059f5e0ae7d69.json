@@ -1,0 +1,69 @@
+{
+  "namespace": "llm_route",
+  "input": {
+    "note": "Streetlight out at Valencia and 18th, very dark at night. reach me at [phone removed]",
+    "hint": "Valencia St and 18th St",
+    "snips": [
+      {
+        "title": "Report a problem with a streetlight | SF.gov",
+        "url": "https://www.sf.gov/report-problem-streetlight",
+        "excerpt": "Report a streetlight that is out, flickering or damaged. The San Francisco Public Utilities Commission maintains most city streetlights and SF 311 routes the request."
+      },
+      {
+        "title": "311 Customer Service Center | SF.gov",
+        "url": "https://www.sf.gov/departments--311-customer-service-center",
+        "excerpt": "SF 311 is the city's single point of contact for non emergency service requests. Call 311, use the web forms, or use the SF311 mobile app."
+      },
+      {
+        "title": "\n      San Francisco 311\n    ",
+        "url": "https://mobile311.sfgov.org/tickets/202000061919",
+        "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000061919\nDamaged public property"
+      },
+      {
+        "title": "\n      San Francisco 311\n    ",
+        "url": "https://mobile311.sfgov.org/tickets/202000060613",
+        "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000060613\nStreetlight repair"
+      },
+      {
+        "title": "\n      San Francisco 311\n    ",
+        "url": "https://mobile311.sfgov.org/tickets/202000060447",
+        "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000060447\nStreetlight repair"
+      },
+      {
+        "title": "311 Cases",
+        "url": "https://data.sf.gov/api/views/ktji-gk7t/rows.pdf?app_token=U29jcmF0YS0td2VraWNrYXNz0",
+        "excerpt": "210341677. Citation was issued.\nFRANCISCO, CA, 94107\n1360 48TH AVE, SAN FRANCISCO,\nCA, 94122\n48TH AVE 4 Outer Sunset\n901 VALENCIA ST, SAN\nFRANCISCO, CA, 94110\nVALENCIA ST 9 Mission\n5 WOOL ST, SAN FRANCISCO, CA,\n94110\nWOOL ST 9 Bernal Heights\nIntersection of CHENERY ST and\nBURNSIDE AVE\nCHENERY ST 8 Glen Park\n168 ESCOLTA WAY, SAN"
+      },
+      {
+        "title": "Report a problem with a streetlight | SF.gov",
+        "url": "https://www.sf.gov/report-problem-streetlight",
+        "excerpt": "Report a problem with a streetlight | SF.gov\nWhat to do To report a damaged traffic signal, please call 311 for quicker response."
+      },
+      {
+        "title": "StreetLight",
+        "url": "https://linkedin.com/company/streetlight-data-inc-",
+        "excerpt": "StreetLight\nLocations Primary 677 Harrison St San Francisco, California 94107, US Get directions 3117 W Clay St Suite 102 Richmond, Virginia 23230, US"
+      }
+    ],
+    "dedupe": "\n      San Francisco 311\n    : San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #20200006191 | \n      San Francisco 311\n    : San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #20200006061 | \n      San Francisco 311\n    : San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #20200006044",
+    "model": "openai/gpt-oss-20b",
+    "prompt": "c34c9e85"
+  },
+  "value": {
+    "category": "streetlight",
+    "severity": "medium",
+    "summary": "Streetlight out at Valencia St and 18th St, causing darkness at night.",
+    "agency": "San Francisco Public Utilities Commission",
+    "channel": "SF311",
+    "channel_url": "https://www.sf.gov/report-problem-streetlight",
+    "already_reported": "unknown",
+    "sources": [
+      {
+        "title": "Report a problem with a streetlight | SF.gov",
+        "url": "https://www.sf.gov/report-problem-streetlight"
+      }
+    ],
+    "draft_subject": "[PIN-c6b192] Streetlight out at Valencia St & 18th St",
+    "draft_body": "A streetlight is out at the intersection of Valencia St and 18th St, creating a dark area at night. The issue has been reported to SF311 for repair."
+  }
+}

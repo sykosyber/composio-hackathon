@@ -1,0 +1,12 @@
+{
+  "namespace": "jev_triage",
+  "input": {
+    "note": "Streetlight out at Valencia and 18th, very dark at night. reach me at [phone removed]",
+    "v": 1
+  },
+  "value": {
+    "emergency_p": 0.09,
+    "category": "streetlight",
+    "category_confidence": 1.0
+  }
+}

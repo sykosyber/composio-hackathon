@@ -1,6 +1,7 @@
 """Deterministic pin pipeline with LLM steps inside it. Same order every time.
 
   0 guardrail  emergency check (skips everything and says call 911)
+  0 triage     TypeSafe Jev: emergency probability + category with calibrated confidence (~100ms)
   1 geocode    coarse address hint from coordinates, offline table
   2 research   Parallel Search: responsible agency + official reporting channel, cited
   3 dedupe     Parallel Search: is this already known
@@ -15,7 +16,7 @@ Every external call has a timeout and a fallback, so the map never stalls.
 """
 from __future__ import annotations
 
-from . import actions, guardrails, llm, research, store
+from . import actions, guardrails, jev, llm, research, store
 from .geo import address_hint
 from .models import Pin
 from .trace import Tracer
@@ -32,10 +33,19 @@ def run(pin_id: str) -> Pin | None:
         return None
     tracer = Tracer(pin_id)
 
-    # 0 Emergencies are not routed.
+    # 0 Emergencies are not routed. Rules OR Jev: Jev can only make this more cautious, never less.
     with tracer.step("guardrail", "local-rules") as box:
         emergency = guardrails.is_emergency(pin.note)
         box["detail"] = "emergency detected" if emergency else "no emergency signals"
+    tri = None
+    if jev.available():
+        with tracer.step("triage", "typesafe-jev") as box:
+            tri = jev.triage(pin.note)
+            box["ok"] = tri is not None
+            box["detail"] = (f"emergency p={tri.emergency_p:.2f}, {tri.category} ({tri.category_confidence:.2f})"
+                             if tri else "unavailable, using rules")
+        if tri and tri.emergency_p >= jev.EMERGENCY_THRESHOLD:
+            emergency = True
     if emergency:
         return _save(pin_id, tracer, status="needs_human", emergency=True,
                      summary=guardrails.EMERGENCY_MESSAGE,
@@ -49,6 +59,8 @@ def run(pin_id: str) -> Pin | None:
 
     # 2 Who is responsible, with citations.
     guess = llm.rule_category(pin.note)
+    if tri and tri.category != "other" and tri.category_confidence >= jev.CATEGORY_MIN_CONFIDENCE:
+        guess = tri.category  # sharper Parallel queries when Jev is confident
     with tracer.step("research", "parallel-search") as box:
         agency_hits = research.find_agency(guess, pin.note, hint)
         box["ok"] = bool(agency_hits)

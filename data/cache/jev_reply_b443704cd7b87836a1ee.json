@@ -1,0 +1,11 @@
+{
+  "namespace": "jev_reply",
+  "input": {
+    "reply": "Our crew replaced the lamp this morning. This request is now closed.",
+    "v": 1
+  },
+  "value": {
+    "label": "resolved",
+    "confidence": 1.0
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "namespace": "jev_reply",
+  "input": {
+    "reply": "Thank you for your report [PIN-7d982a]. A service request has been opened and assigned to the responsible crew.",
+    "v": 1
+  },
+  "value": {
+    "label": "acknowledged",
+    "confidence": 1.0
+  }
+}
