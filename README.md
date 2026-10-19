@@ -12,14 +12,16 @@ One person reporting a broken streetlight helps one block. The same work, made s
 
 **Loop 1, pin it.** You click the map and write one line. The agent then:
 
-1. classifies the issue into a category
+1. triages the note with TypeSafe Jev: emergency probability and category, in about 100ms
 2. uses Parallel Search to find the responsible agency and the correct reporting channel, with citations
 3. checks with Parallel whether the issue is already known
-4. writes the pin to the shared community ledger, a Google Sheet, via Composio
-5. drafts a report email to the agency via Composio Gmail, and never sends it
-6. posts the pin to the neighborhood Slack channel via Composio
-7. creates a Parallel Monitor so the issue keeps getting watched
-8. flips the pin to `acknowledged` when the agency replies, detected by a Composio Gmail trigger
+4. has an open-weight model (gpt-oss-20b) turn those citations into a routing card, and refuses to name an agency no citation supports
+5. writes the pin to the shared community ledger, a Google Sheet, via Composio
+6. drafts a report email to the agency via Composio Gmail, and never sends it
+7. posts the pin to the neighborhood Slack channel via Composio
+8. watches Gmail through Composio for the agency's reply to the `[PIN-<id>]` thread, and Jev reads it: `acknowledged`, `resolved`, or `needs_human`
+
+A Parallel Monitor step is wired (`app/research.py`, `/webhooks/parallel`) but cut from the live demo, see [docs/DECISION_monitor.md](docs/DECISION_monitor.md).
 
 **Loop 2, morning brief.** A digest of pins near you, status changes on your issues, and civic dates, posted to Slack via Composio.
 
@@ -44,7 +46,7 @@ browser: Leaflet + OpenStreetMap, polls GET /pins every 3s
 | 6 ledger      append pin row             COMPOSIO Sheets       |
 | 7 draft       report email, never sent   COMPOSIO Gmail        |
 | 8 notify      post to the neighborhood   COMPOSIO Slack        |
-| 9 watch       keep watching the issue    PARALLEL Monitor      |
+| 9 watch       keep watching (cut, wired) PARALLEL Monitor      |
 +---------------------------------------------------------------+
    |                         |                          |
    v                         v                          v
@@ -62,9 +64,10 @@ later, asynchronously:
                      attach an update to the pin
 ```
 
-The Gmail path is a poller on an 8 second loop rather than the Composio trigger, because
-Gmail triggers poll upstream and can lag by minutes. `POST /webhooks/composio` is still
-wired and tested for the trigger case.
+The Gmail path is a poller (`app/reply_poller.py`, `GMAIL_FETCH_EMAILS` every 8 seconds) rather than
+the Composio trigger. Our Composio key is a consumer key, which has no trigger API, and Gmail
+triggers poll upstream with minutes of lag anyway. `POST /webhooks/composio` is still wired and
+tested with synthetic payloads for setups that use a project key and a trigger.
 
 `data/pins.json` is the source of truth so the map always works. The Google Sheet is a mirror. If the Sheet write fails we log it and continue.
 
@@ -75,7 +78,7 @@ wired and tested for the trigger case.
 | Sponsor | Where | Why it matters |
 |---|---|---|
 | **Parallel** | `app/research.py`. `client.search(objective, search_queries)` for the agency lookup and the duplicate check. `client.monitor.create(type="event_stream")` for the ongoing watch, delivered to `/webhooks/parallel`. | This is what makes routing trustworthy. Without cited search results the agent refuses to name an agency. |
-| **Composio** | `app/actions.py`. Gmail draft, Google Sheets append, Slack post, all by verified tool slug. Gmail trigger delivers agency replies to `/webhooks/composio`. | This is the agent's hands. The pin becomes a real row, a real draft, and a real message in your neighbors' Slack. |
+| **Composio** | `app/actions.py`. Gmail draft, Google Sheets append, Slack post, all by verified tool slug. `app/reply_poller.py` watches Gmail for agency replies. With a consumer key (`ck_...`) every call goes through Composio's MCP server (`connect.composio.dev/mcp`) as `COMPOSIO_MULTI_EXECUTE_TOOL` with one fixed slug; a project key uses the Python SDK. | This is the agent's hands. The pin becomes a real row, a real draft, and a real message in your neighbors' Slack. |
 | **Open source model** | `app/llm.py`. OpenAI's open-weight **gpt-oss-20b** on NVIDIA's OpenAI-compatible endpoint, set with `NVIDIA_API_KEY`. Any other OpenAI-compatible provider works via `LLM_BASE_URL`. JSON out, validated by Pydantic, one retry, then a rule based classifier. | The fuzzy part only: classify, summarize, write the draft. It is never allowed to invent an agency or a URL. |
 | **TypeSafe Jev** | `app/jev.py`. Typed decisions with calibrated confidence, about 100 to 300ms each, in three places: emergency triage, category triage before the Parallel search, and reading what an agency reply actually means. | Decisions, not prose. Confidence is a number we can threshold on, so a low confidence answer falls back to rules instead of guessing. |
 | **Cline** | The whole build. | Pivoted the repo from an earlier idea and shipped this in one afternoon. |
@@ -89,7 +92,7 @@ graffiti and tree reports.
 **or** Jev say so. Jev can only ever make that check more cautious, never less. If Jev is
 unavailable or slow, the keyword rules stand on their own and the pipeline continues.
 
-Tool slugs are never chosen by a model. The pipeline executes `GMAIL_CREATE_EMAIL_DRAFT`, `GOOGLESHEETS_SPREADSHEETS_VALUES_APPEND` and `SLACK_SEND_MESSAGE` directly, against schemas verified on 2026-10-19.
+Tool slugs are never chosen by a model. The pipeline executes `GMAIL_CREATE_EMAIL_DRAFT`, `GOOGLESHEETS_SPREADSHEETS_VALUES_APPEND`, `SLACK_SEND_MESSAGE` and `GMAIL_FETCH_EMAILS` directly, against schemas verified on 2026-10-19.
 
 ---
 
@@ -144,7 +147,7 @@ To connect real accounts, put your keys in `.env` and run:
 Verify everything with the smoke suite, which needs no keys:
 
 ```bash
-.venv/bin/python scripts/smoke.py         # 29 checks
+.venv/bin/python scripts/smoke.py         # 32 checks
 ```
 
 ## API
@@ -156,10 +159,10 @@ Verify everything with the smoke suite, which needs no keys:
 | GET | `/pins/{id}` | one pin with its routing card and agent trace |
 | GET | `/brief` | morning brief as JSON and markdown |
 | POST | `/brief/send` | post the brief to Slack |
-| POST | `/webhooks/composio` | Gmail trigger, matches `[PIN-<id>]`, flips status to `acknowledged` |
+| POST | `/webhooks/composio` | Gmail trigger (project-key setups), matches `[PIN-<id>]`, Jev sets the status |
 | POST | `/webhooks/parallel` | Monitor events, attached to the matching pin |
 | POST | `/demo/reset` | restore seeded data |
-| POST | `/demo/simulate_reply/{id}` | stage safe stand in for the Gmail trigger, which polls |
+| POST | `/demo/simulate_reply/{id}` | stage safe stand in for a real agency reply |
 
 ## Pin schema
 
@@ -175,7 +178,8 @@ These are also the Google Sheet columns, in this order.
 
 ```
 app/        config, models, store, cache, trace, geo, guardrails,
-            llm, research (Parallel), actions (Composio), pipeline, main (FastAPI)
+            llm, research (Parallel), actions (Composio), jev (TypeSafe),
+            reply_poller (Gmail via Composio), pipeline, main (FastAPI)
 web/        index.html, app.js, app.css   one static page, Leaflet, no build step
 scripts/    seed.py, warm_cache.py, connect.py, smoke.py
 data/       pins.json (source of truth), pins.seed.json, cache/
