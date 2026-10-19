@@ -26,6 +26,21 @@ def _save(pin_id: str, tracer: Tracer, **fields) -> Pin | None:
 
 
 def run(pin_id: str) -> Pin | None:
+    """Run the pipeline. Never raises: a pin must never be left stuck in `routing`."""
+    try:
+        return _run(pin_id)
+    except Exception as exc:
+        # Last resort. Any unhandled failure still leaves the pin in a terminal, honest state
+        # rather than an endless spinner on the map.
+        print(f"[pipeline] unhandled failure on {pin_id}: {exc!r}")
+        return store.update(
+            pin_id,
+            status="needs_human",
+            needs_human_reason="Routing failed, a human should take a look",
+        )
+
+
+def _run(pin_id: str) -> Pin | None:
     pin = store.get(pin_id)
     if pin is None:
         print(f"[pipeline] unknown pin {pin_id}")
@@ -50,7 +65,7 @@ def run(pin_id: str) -> Pin | None:
     # 2 Who is responsible, with citations.
     guess = llm.rule_category(pin.note)
     with tracer.step("research", "parallel-search") as box:
-        agency_hits = research.find_agency(guess, pin.note, hint)
+        agency_hits = research.find_agency(guess)
         box["ok"] = bool(agency_hits)
         box["detail"] = f"{len(agency_hits)} cited results"
 

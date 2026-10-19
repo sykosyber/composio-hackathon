@@ -102,11 +102,11 @@ def warm_search(live: bool) -> None:
     """Cache one agency lookup and one duplicate check per category."""
     for category, hits in OFFICIAL.items():
         if live and config.PARALLEL_API_KEY:
-            got = research.find_agency(category, f"a {category} problem", DEMO_HINT)
+            got = research.find_agency(category)
             research.check_already_reported(category, DEMO_HINT)
             print(f"  live {category}: {len(got)} results")
             continue
-        objective, queries = research.agency_query(category, f"a {category} problem", DEMO_HINT)
+        objective, queries = research.agency_query(category)
         cache.put("parallel_agency",
                   {"objective": objective, "queries": queries,
                    "mode": config.PARALLEL_SEARCH_MODE}, hits)
