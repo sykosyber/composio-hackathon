@@ -1,0 +1,63 @@
+{
+  "namespace": "parallel_dedupe",
+  "input": {
+    "objective": "Find out whether a graffiti problem near Balmy Alley and 24th St in San Francisco has already been reported recently, for example in 311 open data, an outage map, or local news.",
+    "queries": [
+      "Balmy Alley and 24th St graffiti 311 report San Francisco",
+      "San Francisco graffiti near Balmy Alley and 24th St news recent"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000109871",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000109871\nGraffiti"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000104484",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000104484\nGraffiti"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000100776",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000100776\nGraffiti"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets?filter%5Bfacets%5D%5Bticket_type_code%5D%5B%5D=PW%3ABSES%3AGraffiti%20Public&page=3",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\nReports 177,891 of 7,597,501 · 1 filter applied\n3 of 20"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000109437",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000109437\nGraffiti"
+    },
+    {
+      "title": "Balmy Alley - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Balmy_Alley",
+      "excerpt": "Balmy Alley - Wikipedia\nBalmy Alley (formally Balmy Street) is a one-block-long secondary back alley that is home to a concentrated collection of murals in the city of San Francisco. It is located in the south central portion of the Inner Mission District in the Calle 24 Latino Cultural District between 24th Street, and 25th Street at Garfield Square."
+    },
+    {
+      "title": "Balmy Alley",
+      "url": "https://balmyalley.org/",
+      "excerpt": "Balmy Alley\nBalmy Alley Welcome to Balmy Alley. The street is located in the Mission District in San Francisco, California. The block long alley is the best place to see the most concentrated collection of murals in San Francisco. The murals began in the mid-80's as an expression of artists' outrage over human rights and political abuses in Central America."
+    },
+    {
+      "title": "Balmy Alley Murals in San Francisco - Atlas Obscura",
+      "url": "https://www.atlasobscura.com/places/balmy-alley-murals-skb",
+      "excerpt": "Balmy Alley Murals in San Francisco - Atlas Obscura\nIn the heart of the Mission District lies the most concentrated collection of murals in San Francisco. Renowned for its political import and reverential maintenance, Balmy Alley has"
+    },
+    {
+      "title": "Balmy Alley | Entrance Fee, Opening Hours & More",
+      "url": "https://forevervacation.com/san-francisco/balmy-alley",
+      "excerpt": "Balmy Alley | Entrance Fee, Opening Hours & More\nNo, there is no entrance fee to visit Balmy Alley, as it is a public street in San Francisco."
+    },
+    {
+      "title": "The Best Street Art in San Francisco: Mission District Art Walk",
+      "url": "https://www.dotsonamap.net/san-francisco-street-art",
+      "excerpt": "The Best Street Art in San Francisco: Mission District Art Walk\nThe neighborhood is home to hundreds of murals … in Clarion Alley near 16th and Valencia/Mission. of a mural in Balmy Alley off 24th Street"
+    }
+  ]
+}

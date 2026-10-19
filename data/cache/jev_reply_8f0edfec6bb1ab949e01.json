@@ -1,0 +1,11 @@
+{
+  "namespace": "jev_reply",
+  "input": {
+    "reply": "We opened service request 24-118.",
+    "v": 1
+  },
+  "value": {
+    "label": "acknowledged",
+    "confidence": 1.0
+  }
+}

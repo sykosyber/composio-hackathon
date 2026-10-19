@@ -1,0 +1,12 @@
+{
+  "namespace": "jev_triage",
+  "input": {
+    "note": "Strong gas leak smell near the corner store",
+    "v": 1
+  },
+  "value": {
+    "emergency_p": 0.92,
+    "category": "other",
+    "category_confidence": 0.96
+  }
+}

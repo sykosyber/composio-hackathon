@@ -6,6 +6,7 @@ stalls when the model is unreachable.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 from typing import Optional
@@ -23,7 +24,16 @@ return ONE JSON object. Rules:
 - Never recommend candidates or political positions.
 - draft_body is a short, polite, factual report: what, where, since when if known. No personal data.
 Return JSON with exactly these keys: category, severity, summary, agency, channel, channel_url,
-already_reported, sources, draft_subject, draft_body."""
+already_reported, sources, draft_subject, draft_body.
+- category is exactly one of: """ + ", ".join(CATEGORIES) + """.
+- severity is one of: low, medium, high. already_reported is one of: yes, likely, unknown.
+- agency is the department that fixes the issue (for example the utility or public works department),
+  not the 311 call center, when a snippet names it.
+- sources is an array of {"title": ..., "url": ...} objects copied from the snippets that support the
+  agency and channel_url. Always include the snippet whose url you used as channel_url."""
+
+# Part of the route cache key, so editing the prompt never serves answers from the old prompt.
+PROMPT_VERSION = hashlib.sha256(SYSTEM.encode()).hexdigest()[:8]
 
 # Rule-based fallback. Order matters: first match wins.
 _RULES: list[tuple[str, str]] = [
@@ -69,6 +79,7 @@ def _chat(system: str, user: str) -> str:
             "model": config.LLM_MODEL,
             "temperature": 0,
             "response_format": {"type": "json_object"},
+            **config.LLM_EXTRA,
             "messages": [
                 {"role": "system", "content": system},
                 {"role": "user", "content": user},
@@ -140,7 +151,7 @@ def route(pin_id: str, note: str, address_hint: str, lat: float, lng: float,
           snippets: list[dict], dedupe_hint: str = "") -> tuple[RoutingCard, str]:
     """Return (card, source_label). source_label is cache | llm | fallback."""
     payload = {"note": note, "hint": address_hint, "snips": snippets, "dedupe": dedupe_hint,
-               "model": config.LLM_MODEL}
+               "model": config.LLM_MODEL, "prompt": PROMPT_VERSION}
     cached = cache.get("llm_route", payload)
     if cached is not None:
         try:

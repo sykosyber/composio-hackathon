@@ -24,7 +24,7 @@ def get(namespace: str, payload: Any) -> Optional[Any]:
     if not path.exists():
         return None
     try:
-        return json.loads(path.read_text())["value"]
+        return json.loads(path.read_text(encoding="utf-8"))["value"]
     except Exception:
         return None
 
@@ -34,7 +34,8 @@ def put(namespace: str, payload: Any, value: Any) -> None:
     try:
         path.write_text(
             json.dumps({"namespace": namespace, "input": payload, "value": value},
-                       indent=2, ensure_ascii=False, default=str)
+                       indent=2, ensure_ascii=False, default=str),
+            encoding="utf-8",
         )
     except Exception as exc:  # cache is best effort, never fail the pipeline
         print(f"[cache] write failed for {namespace}: {exc!r}")

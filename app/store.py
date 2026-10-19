@@ -20,14 +20,14 @@ def _read_raw() -> list[dict]:
     if not config.PINS_PATH.exists():
         reset()
     try:
-        return json.loads(config.PINS_PATH.read_text())
+        return json.loads(config.PINS_PATH.read_text(encoding="utf-8"))
     except Exception:
         return []
 
 
 def _write_raw(rows: list[dict]) -> None:
     tmp = config.PINS_PATH.with_suffix(".json.tmp")
-    tmp.write_text(json.dumps(rows, indent=2, ensure_ascii=False))
+    tmp.write_text(json.dumps(rows, indent=2, ensure_ascii=False), encoding="utf-8")
     tmp.replace(config.PINS_PATH)
 
 
@@ -100,5 +100,5 @@ def reset() -> int:
     if config.SEED_PATH.exists():
         shutil.copyfile(config.SEED_PATH, config.PINS_PATH)
     else:
-        config.PINS_PATH.write_text("[]")
+        config.PINS_PATH.write_text("[]", encoding="utf-8")
     return len(_read_raw())

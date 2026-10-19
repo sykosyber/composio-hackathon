@@ -20,7 +20,7 @@ from fastapi import BackgroundTasks, FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from . import actions, brief as brief_mod, config, guardrails, pipeline, research, store
+from . import actions, brief as brief_mod, config, guardrails, jev, pipeline, reply_poller, research, store
 from .models import Pin, PinCreate, now_iso
 
 app = FastAPI(title="Altruistic Agent", version="1.0.0")
@@ -90,15 +90,30 @@ def _acknowledge(pin_id: str, who: str, excerpt: str) -> dict:
     pin = store.get(pin_id)
     if pin is None:
         return {"matched": False, "reason": f"no pin {pin_id}"}
-    store.append_update(pin_id, {"kind": "agency_reply", "from": who, "text": excerpt[:400]})
-    updated = store.update(pin_id, status="acknowledged")
+    # TypeSafe Jev reads the reply: fixed, received, or needs a human. Low confidence stays "acknowledged".
+    verdict = jev.classify_reply(excerpt)
+    status = "acknowledged"
+    if verdict and verdict.confidence >= jev.REPLY_MIN_CONFIDENCE:
+        status = {"resolved": "resolved", "needs_info": "needs_human", "rejected": "needs_human"}.get(
+            verdict.label, "acknowledged")
+    entry = {"kind": "agency_reply", "from": who, "text": excerpt[:400]}
+    if verdict:
+        entry["jev"] = f"{verdict.label} ({verdict.confidence:.2f})"
+    store.append_update(pin_id, entry)
+    updated = store.update(pin_id, status=status)
     if updated:
         actions.post_to_slack(
             f"*Update on `PIN-{pin_id}`*: {updated.agency or who} replied. "
-            f"Status is now *acknowledged*.\n> {excerpt[:240]}",
+            f"Status is now *{status.replace('_', ' ')}*.\n> {excerpt[:240]}",
             thread_ts=updated.slack_ts,
         )
-    return {"matched": True, "pin_id": pin_id, "status": "acknowledged"}
+    return {"matched": True, "pin_id": pin_id, "status": status, "jev": entry.get("jev")}
+
+
+@app.on_event("startup")
+def _start_reply_poller() -> None:
+    """Real agency replies: poll Gmail via Composio for [PIN-<id>] replies (no tunnel or trigger needed)."""
+    reply_poller.start(_acknowledge)
 
 
 @app.post("/webhooks/composio")

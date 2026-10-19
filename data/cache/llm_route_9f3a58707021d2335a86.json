@@ -1,0 +1,68 @@
+{
+  "namespace": "llm_route",
+  "input": {
+    "note": "Big tree branch cracked and hanging over the sidewalk at 19th and Dolores.",
+    "hint": "19th St and Dolores St",
+    "snips": [
+      {
+        "title": "Report a damaged or fallen tree | SF.gov",
+        "url": "https://www.sf.gov/report-damaged-or-fallen-tree",
+        "excerpt": "San Francisco Public Works urban forestry maintains street trees. Report hanging limbs, fallen branches or tree damage. Hazardous limbs are treated as urgent."
+      },
+      {
+        "title": "311 Customer Service Center | SF.gov",
+        "url": "https://www.sf.gov/departments--311-customer-service-center",
+        "excerpt": "SF 311 is the city's single point of contact for non emergency service requests. Call 311, use the web forms, or use the SF311 mobile app."
+      },
+      {
+        "title": "Video What we know about what caused Amazon Web Services outage - ABC News",
+        "url": "https://abcnews.com/video/126716555",
+        "excerpt": "Dolores Huerta: Her Words, Her Movement\n* Mar 22\n  24:29"
+      },
+      {
+        "title": "\n      San Francisco 311\n    ",
+        "url": "https://mobile311.sfgov.org/tickets/202000094779",
+        "excerpt": "1200 Dolores St\nOPEN 5d ago Sep 22, 2026, 1:49 PM · #202000094779\nOpened Sep 22, 2026, 1:49 PM 5d ago\nDescription There are 2 trees at this location that need to be addressed. 1 is completely blocking the street light, another is encroaching onto the callers property. This was supposed ]to pruned 3 years ago , but that never happenend."
+      },
+      {
+        "title": "311 Cases | DataSF - SF.gov",
+        "url": "https://data.sf.gov/City-Infrastructure/311-Cases/vw6y-z8j6",
+        "excerpt": "* Supervisor District | San Francisco Supervisor District as defined in 'Supervisor Districts as of 2022' | supervisor_district | Number\n* Neighborhood | San Francisco Neighborhood as defined in 'SF Find Neighborhoods' | neighborhoods_sffind_boundaries | Text"
+      },
+      {
+        "title": "\n      San Francisco 311\n    ",
+        "url": "https://mobile311.sfgov.org/tickets/202000106825",
+        "excerpt": "Intersection Dolores St, 19th St\nOPEN 1d ago Sep 26, 2026, 12:48 AM · #202000106825\nOpened Sep 26, 2026, 12:48 AM 1d ago\nDescription a lot of graffiti under the bridge at Dolores park\nAdditional Details Nature of request\nNot offensive (no racial slurs or profanity)\nObject\nsidewalk_structure\nLocation Intersection Dolores St, 19th St"
+      },
+      {
+        "title": "\n      San Francisco 311\n    ",
+        "url": "https://mobile311.sfgov.org/tickets/202000106434",
+        "excerpt": "3784 19th St\nCLOSED 1d ago Sep 25, 2026, 10:28 PM · #202000106434\nCase is a Duplicate.\nOpened Sep 25, 2026, 7:39 PM 1d ago\nClosed Sep 25, 2026, 10:28 PM 1d ago\nDescription Graffiti in Mission Dolores Park. Clean the multiple black, red, and yellow graffiti tags on the concrete railing.\nLocation 3784 19th St\n37.7597996, -122.42778641"
+      },
+      {
+        "title": "\n      San Francisco 311\n    ",
+        "url": "https://mobile311.sfgov.org/tickets/202000097718",
+        "excerpt": "775 Dolores St\nOPEN 4d ago Sep 23, 2026, 11:02 AM · #202000097718\nOpened Sep 23, 2026, 11:02 AM 4d ago\nDescription overgrown city tree, lower branches are hanging very low either duck go ground to avoid being hit in the head!\nAdditional Details Request type\npruning_request\nLocation 775 Dolores St\n37.75704595, -122.42536891"
+      }
+    ],
+    "dedupe": "Video What we know about what caused Amazon Web Services outage - ABC News: Dolores Huerta: Her Words, Her Movement\n* Mar 22\n  24:29 | \n      San Francisco 311\n    : 1200 Dolores St\nOPEN 5d ago Sep 22, 2026, 1:49 PM · #202000094779\nOpened Sep 22, 2026, 1:49 PM 5d ago\nDescription There are 2 trees at this location that need t | 311 Cases | DataSF - SF.gov: * Supervisor District | San Francisco Supervisor District as defined in 'Supervisor Districts as of 2022' | supervisor_district | Number\n* Neighborhood | San Fr",
+    "model": "openai/gpt-oss-20b"
+  },
+  "value": {
+    "category": "tree",
+    "severity": "high",
+    "summary": "Hanging tree branch at 19th St and Dolores St",
+    "agency": "San Francisco Public Works urban forestry",
+    "channel": "",
+    "channel_url": "https://www.sf.gov/report-damaged-or-fallen-tree",
+    "already_reported": "unknown",
+    "sources": [
+      {
+        "title": "Report a damaged or fallen tree | SF.gov",
+        "url": "https://www.sf.gov/report-damaged-or-fallen-tree"
+      }
+    ],
+    "draft_subject": "[PIN-bx] Hanging tree branch at 19th and Dolores",
+    "draft_body": "A large tree branch is cracked and hanging over the sidewalk at the intersection of 19th Street and Dolores Street. The issue was noted on September 26, 2026. Please investigate and address the hazardous limb."
+  }
+}
