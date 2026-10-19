@@ -62,7 +62,14 @@ def add(pin: Pin) -> Pin:
 
 
 def update(pin_id: str, **fields) -> Optional[Pin]:
-    """Patch a pin in place. Returns the updated pin, or None if the id is unknown."""
+    """Patch a pin in place. Returns the updated pin, or None if the id is unknown.
+
+    Unknown field names are a programming error, not user input, so they fail loudly
+    instead of being silently dropped into a dict nobody reads again.
+    """
+    unknown = set(fields) - set(Pin.model_fields)
+    if unknown:
+        raise ValueError(f"unknown Pin field(s): {sorted(unknown)}")
     with _LOCK:
         rows = _read_raw()
         for i, row in enumerate(rows):

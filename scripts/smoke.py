@@ -44,6 +44,35 @@ def main() -> int:
     check("rule classifier", llm.rule_category("streetlight out, very dark") == "streetlight")
     check("rule severity", llm.rule_severity("exposed wire, very unsafe") == "high")
 
+    print("unit: failure handling")
+    # A pin must never be left stuck in `routing`, even if a step raises unexpectedly.
+    import app.pipeline as pipeline_mod
+    import app.research as research_mod
+    import app.store as store_mod
+    from app.models import Pin, now_iso
+
+    original = research_mod.find_agency
+    try:
+        def _boom(*_a, **_k):
+            raise RuntimeError("simulated outage")
+
+        research_mod.find_agency = _boom
+        stamp = now_iso()
+        store_mod.add(Pin(id="smoke1", created_at=stamp, updated_at=stamp,
+                          lat=37.7615, lng=-122.4218, note="streetlight out", status="routing"))
+        result = pipeline_mod.run("smoke1")
+        check("pipeline survives a raising step", result is not None)
+        check("failed pin is not stuck routing",
+              result is not None and result.status == "needs_human", "")
+    finally:
+        research_mod.find_agency = original
+
+    try:
+        store_mod.update("smoke1", stattus="typo")
+        check("unknown field rejected", False, "typo was silently accepted")
+    except ValueError:
+        check("unknown field rejected", True)
+
     print("api: reset and list")
     client = httpx.Client(base_url=BASE, timeout=20)
     seeded = client.post("/demo/reset").json()["pins"]
