@@ -75,11 +75,12 @@ def _search(namespace: str, objective: str, queries: list[str], max_chars: int =
         return list(cached or [])
 
 
-def agency_query(category: str, note: str, address_hint: str) -> tuple[str, list[str]]:
+def agency_query(category: str) -> tuple[str, list[str]]:
     """Single source of truth for the agency cache key, shared with scripts/warm_cache.py.
 
-    The objective deliberately excludes the free text note so that every report in a
-    category shares one cache entry. That is what makes DEMO_MODE instant.
+    Keyed on category alone, deliberately. The free text note and the address are excluded
+    so every report in a category shares one cache entry, which is what makes DEMO_MODE
+    instant and the stage run identical every time.
     """
     objective = (
         f"Identify the exact {config.DEMO_CITY} city agency responsible for this issue and the "
@@ -89,9 +90,9 @@ def agency_query(category: str, note: str, address_hint: str) -> tuple[str, list
     return objective, CATEGORY_QUERIES.get(category, CATEGORY_QUERIES["other"])
 
 
-def find_agency(category: str, note: str, address_hint: str) -> list[dict]:
+def find_agency(category: str) -> list[dict]:
     """Who is responsible and how do you report it, with citations."""
-    objective, queries = agency_query(category, note, address_hint)
+    objective, queries = agency_query(category)
     return _search("parallel_agency", objective, queries)
 
 
