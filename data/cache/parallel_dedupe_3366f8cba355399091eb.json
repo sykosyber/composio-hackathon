@@ -1,0 +1,63 @@
+{
+  "namespace": "parallel_dedupe",
+  "input": {
+    "objective": "Find out whether a streetlight problem near Valencia St and 18th St in San Francisco has already been reported recently, for example in 311 open data, an outage map, or local news.",
+    "queries": [
+      "Valencia St and 18th St streetlight 311 report San Francisco",
+      "San Francisco streetlight near Valencia St and 18th St news recent"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000061919",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000061919\nDamaged public property"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000060613",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000060613\nStreetlight repair"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000060447",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000060447\nStreetlight repair"
+    },
+    {
+      "title": "311 Cases",
+      "url": "https://data.sf.gov/api/views/ktji-gk7t/rows.pdf?app_token=U29jcmF0YS0td2VraWNrYXNz0",
+      "excerpt": "210341677. Citation was issued.\nFRANCISCO, CA, 94107\n1360 48TH AVE, SAN FRANCISCO,\nCA, 94122\n48TH AVE 4 Outer Sunset\n901 VALENCIA ST, SAN\nFRANCISCO, CA, 94110\nVALENCIA ST 9 Mission\n5 WOOL ST, SAN FRANCISCO, CA,\n94110\nWOOL ST 9 Bernal Heights\nIntersection of CHENERY ST and\nBURNSIDE AVE\nCHENERY ST 8 Glen Park\n168 ESCOLTA WAY, SAN"
+    },
+    {
+      "title": "Report a problem with a streetlight | SF.gov",
+      "url": "https://www.sf.gov/report-problem-streetlight",
+      "excerpt": "Report a problem with a streetlight | SF.gov\nWhat to do To report a damaged traffic signal, please call 311 for quicker response."
+    },
+    {
+      "title": "StreetLight",
+      "url": "https://linkedin.com/company/streetlight-data-inc-",
+      "excerpt": "StreetLight\nLocations Primary 677 Harrison St San Francisco, California 94107, US Get directions 3117 W Clay St Suite 102 Richmond, Virginia 23230, US"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000062998",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000062998\nStreetlight repair"
+    },
+    {
+      "title": "Streetlight Repair | SFGOV",
+      "url": "https://www.sfgov.org/services/streetlight-repair",
+      "excerpt": "Streetlight Repair | SFGOV\nReport streetlights that are broken, damaged, or not functioning correctly."
+    },
+    {
+      "title": "California 311 - Report Issues to California Local Government",
+      "url": "https://311ca.org/",
+      "excerpt": "California 311 - Report Issues to California Local Government\nSpot a pothole, a broken streetlight, some graffiti? Reporting it is the first step to the fix. We work out whether it belongs to your city,"
+    },
+    {
+      "title": "StreetLight Data: Transportation Data Solutions",
+      "url": "https://www.streetlightdata.com/",
+      "excerpt": "StreetLight Data: Transportation Data Solutions\nGain actionable insights into transportation patterns with our transportation data solutions. Measure mobility, optimize infrastructure, and more."
+    }
+  ]
+}

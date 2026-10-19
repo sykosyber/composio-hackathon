@@ -1,0 +1,68 @@
+{
+  "namespace": "llm_route",
+  "input": {
+    "note": "Huge pothole on 24th St near Folsom, cars swerving.",
+    "hint": "24th St and Folsom St",
+    "snips": [
+      {
+        "title": "Report pothole and street issues | SF.gov",
+        "url": "https://www.sf.gov/report-pothole-and-street-issues",
+        "excerpt": "San Francisco Public Works repairs potholes on city maintained streets. Report potholes and street defects through SF 311."
+      },
+      {
+        "title": "311 Customer Service Center | SF.gov",
+        "url": "https://www.sf.gov/departments--311-customer-service-center",
+        "excerpt": "SF 311 is the city's single point of contact for non emergency service requests. Call 311, use the web forms, or use the SF311 mobile app."
+      },
+      {
+        "title": "Report pothole and street issues | SF.gov",
+        "url": "https://www.sf.gov/report-pothole-and-street-issues",
+        "excerpt": "* Manhole cover off: as soon as possible\n* Utility excavation: as soon as possible\n* Pavement defect (pothole): 3 calendar days\nSpecial cases\nOther ways to report\nCall 311 to make a report\n415-701-2311 if you are outside of San Francisco\nHearing or speaking impaired; please call TDD/TTY 711\nUse our Mobile App"
+      },
+      {
+        "title": "Report a problem | SF.gov",
+        "url": "https://www.sf.gov/topics--problems-and-complaints",
+        "excerpt": "Report a violation of San Francisco’s food delivery service requirements Food delivery services must follow several City requirements when contracting with San Francisco restaurants. Learn about these requirements and how to report a violation."
+      },
+      {
+        "title": "311 Cases",
+        "url": "https://data.sf.gov/api/views/ktji-gk7t/rows.pdf?app_token=U29jcmF0YS0td2VraWNrYXNz0",
+        "excerpt": "182853459. Citation was issued.\nFRANCISCO, CA, 94109\n1379 FOLSOM ST, SAN FRANCISCO,\nCA, 94103\nFOLSOM ST 6 South of Market\n410 FUNSTON AVE, SAN\nFRANCISCO, CA, 94118\nFUNSTON AVE 1 Inner Richmond\n34 GUERRERO ST, SAN\nFRANCISCO, CA, 94103\nGUERRERO ST 8 Mint Hill\n333 RANDOLPH ST, SAN\nFRANCISCO, CA, 94132\nRANDOLPH ST 11 Merced Heights"
+      },
+      {
+        "title": "Potholes | Public Works",
+        "url": "https://sfpublicworks.org/services/potholes",
+        "excerpt": "Potholes | Public Works\nReport a pothole online, use the mobile SF311 app or call 311. Our goal is to repair any pothole that is our responsibility within 72 hours during weekdays. Before you call, please determine the street address and the nearest cross-street where the pothole is located. What happens after I call?"
+      },
+      {
+        "title": "\n      San Francisco 311\n    ",
+        "url": "https://mobile311.sfgov.org/tickets?filter%5Bfacets%5D%5Bstatus%5D%5B%5D=closed&filter%5Bfacets%5D%5Bticket_type_code%5D%5B%5D=PW%3ABSM%3ADamage%20Property&page=3",
+        "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\nReports 16,024 of 7,608,819 · 2 filters applied\n3 of 20"
+      },
+      {
+        "title": "\n      San Francisco 311\n    ",
+        "url": "https://mobile311.sfgov.org/tickets/202000109207",
+        "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000109207\nStreet defect"
+      }
+    ],
+    "dedupe": "Report pothole and street issues | SF.gov: * Manhole cover off: as soon as possible\n* Utility excavation: as soon as possible\n* Pavement defect (pothole): 3 calendar days\nSpecial cases\nOther ways to repo | Report a problem | SF.gov: Report a violation of San Francisco’s food delivery service requirements Food delivery services must follow several City requirements when contracting with San  | 311 Cases: 182853459. Citation was issued.\nFRANCISCO, CA, 94109\n1379 FOLSOM ST, SAN FRANCISCO,\nCA, 94103\nFOLSOM ST 6 South of Market\n410 FUNSTON AVE, SAN\nFRANCISCO, CA, 94",
+    "model": "openai/gpt-oss-20b"
+  },
+  "value": {
+    "category": "road_pothole",
+    "severity": "high",
+    "summary": "Huge pothole on 24th St near Folsom St, causing cars to swerve.",
+    "agency": "Public Works",
+    "channel": "SF311",
+    "channel_url": "https://www.sf.gov/report-pothole-and-street-issues",
+    "already_reported": "unknown",
+    "sources": [
+      {
+        "title": "Report pothole and street issues | SF.gov",
+        "url": "https://www.sf.gov/report-pothole-and-street-issues"
+      }
+    ],
+    "draft_subject": "[PIN-bx] Report: Huge pothole on 24th St near Folsom St",
+    "draft_body": "A large pothole has been reported at the intersection of 24th St and Folsom St, San Francisco. Vehicles are swerving to avoid the defect. The issue was noted on [date of report] and requires prompt repair."
+  }
+}

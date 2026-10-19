@@ -1,0 +1,63 @@
+{
+  "namespace": "parallel_dedupe",
+  "input": {
+    "objective": "Find out whether a road pothole problem near 24th St and Folsom St in San Francisco has already been reported recently, for example in 311 open data, an outage map, or local news.",
+    "queries": [
+      "24th St and Folsom St road pothole 311 report San Francisco",
+      "San Francisco road pothole near 24th St and Folsom St news recent"
+    ],
+    "mode": "fast"
+  },
+  "value": [
+    {
+      "title": "Report pothole and street issues | SF.gov",
+      "url": "https://www.sf.gov/report-pothole-and-street-issues",
+      "excerpt": "* Manhole cover off: as soon as possible\n* Utility excavation: as soon as possible\n* Pavement defect (pothole): 3 calendar days\nSpecial cases\nOther ways to report\nCall 311 to make a report\n415-701-2311 if you are outside of San Francisco\nHearing or speaking impaired; please call TDD/TTY 711\nUse our Mobile App"
+    },
+    {
+      "title": "Report a problem | SF.gov",
+      "url": "https://www.sf.gov/topics--problems-and-complaints",
+      "excerpt": "Report a violation of San Francisco’s food delivery service requirements Food delivery services must follow several City requirements when contracting with San Francisco restaurants. Learn about these requirements and how to report a violation."
+    },
+    {
+      "title": "311 Cases",
+      "url": "https://data.sf.gov/api/views/ktji-gk7t/rows.pdf?app_token=U29jcmF0YS0td2VraWNrYXNz0",
+      "excerpt": "182853459. Citation was issued.\nFRANCISCO, CA, 94109\n1379 FOLSOM ST, SAN FRANCISCO,\nCA, 94103\nFOLSOM ST 6 South of Market\n410 FUNSTON AVE, SAN\nFRANCISCO, CA, 94118\nFUNSTON AVE 1 Inner Richmond\n34 GUERRERO ST, SAN\nFRANCISCO, CA, 94103\nGUERRERO ST 8 Mint Hill\n333 RANDOLPH ST, SAN\nFRANCISCO, CA, 94132\nRANDOLPH ST 11 Merced Heights"
+    },
+    {
+      "title": "Potholes | Public Works",
+      "url": "https://sfpublicworks.org/services/potholes",
+      "excerpt": "Potholes | Public Works\nReport a pothole online, use the mobile SF311 app or call 311. Our goal is to repair any pothole that is our responsibility within 72 hours during weekdays. Before you call, please determine the street address and the nearest cross-street where the pothole is located. What happens after I call?"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets?filter%5Bfacets%5D%5Bstatus%5D%5B%5D=closed&filter%5Bfacets%5D%5Bticket_type_code%5D%5B%5D=PW%3ABSM%3ADamage%20Property&page=3",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\nReports 16,024 of 7,608,819 · 2 filters applied\n3 of 20"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000109207",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000109207\nStreet defect"
+    },
+    {
+      "title": "Folsom, CA - Report potholes, graffiti, street light out, and other community issues. - SeeClickFix - Web and Mobile Government 311",
+      "url": "https://seeclickfix.com/folsom?locale=ar",
+      "excerpt": "Toggle navigation CivicPlus SeeClickFix 311 CRM\n* 311 Mobile Apps\n* Info for Orgs\n* التسجيل\n* تسجيل الدخول\nFolsom, CA [Change location]\nاتبع هذا مكان\n×\nAttribution\nMap tiles by Stamen Design , under CC BY 3.0 . Data by OpenStreetMap , under ODbL .\n* مكان\n* مشاهدة المناطق\nService Providers in This Area\n* Logo for Folsom, CA\nFolsom, CA"
+    },
+    {
+      "title": "Report a problem with a streetlight | SF.gov",
+      "url": "https://www.sf.gov/report-problem-streetlight",
+      "excerpt": "Report a problem with a streetlight | SF.gov\nWhat to do To report a damaged traffic signal, please call 311 for quicker response."
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000071348",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000071348\nCurb or sidewalk issues"
+    },
+    {
+      "title": "\n      San Francisco 311\n    ",
+      "url": "https://mobile311.sfgov.org/tickets/202000094790",
+      "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000094790\nCurb or sidewalk issues"
+    }
+  ]
+}

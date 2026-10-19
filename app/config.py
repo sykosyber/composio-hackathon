@@ -43,6 +43,15 @@ PARALLEL_MONITOR_WEBHOOK_URL = os.getenv("PARALLEL_MONITOR_WEBHOOK_URL", "")
 LLM_BASE_URL = os.getenv("LLM_BASE_URL", "")
 LLM_API_KEY = os.getenv("LLM_API_KEY", "")
 LLM_MODEL = os.getenv("LLM_MODEL", "")
+# Default: NVIDIA's free OpenAI-compatible endpoint with OpenAI's open-weight gpt-oss-20b.
+# Benchmarked 2026-10-19 on the real route prompt: correct cited agency + URL in ~24s; gemma-4, deepseek-v4.1-flash
+# and glm-5.3-flash timed out at 60s, nemotron-3.5-lightning was slower.
+if not LLM_API_KEY and os.getenv("NVIDIA_API_KEY"):
+    LLM_API_KEY = os.getenv("NVIDIA_API_KEY", "").strip()
+    LLM_BASE_URL = LLM_BASE_URL or "https://integrate.api.nvidia.com/v1"
+    LLM_MODEL = LLM_MODEL or "openai/gpt-oss-20b"
+# gpt-oss reasons before answering; "low" cut the route call from ~28s to 4-7s with the same cited answer.
+LLM_EXTRA = {"reasoning_effort": os.getenv("LLM_REASONING_EFFORT", "low"), "max_tokens": 1500} if "gpt-oss" in LLM_MODEL else {}
 
 # ---- Demo ----
 # 1 = serve cached Parallel/LLM results first so the stage demo is fast and identical every run.

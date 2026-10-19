@@ -1,0 +1,68 @@
+{
+  "namespace": "llm_route",
+  "input": {
+    "note": "Fresh graffiti tags all over the mural on Balmy Alley.",
+    "hint": "Balmy Alley and 24th St",
+    "snips": [
+      {
+        "title": "Report graffiti issues | SF.gov",
+        "url": "https://www.sf.gov/report-graffiti-issues",
+        "excerpt": "Report graffiti on public or private property. San Francisco Public Works removes graffiti from public property."
+      },
+      {
+        "title": "311 Customer Service Center | SF.gov",
+        "url": "https://www.sf.gov/departments--311-customer-service-center",
+        "excerpt": "SF 311 is the city's single point of contact for non emergency service requests. Call 311, use the web forms, or use the SF311 mobile app."
+      },
+      {
+        "title": "\n      San Francisco 311\n    ",
+        "url": "https://mobile311.sfgov.org/tickets/202000109871",
+        "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000109871\nGraffiti"
+      },
+      {
+        "title": "\n      San Francisco 311\n    ",
+        "url": "https://mobile311.sfgov.org/tickets/202000104484",
+        "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000104484\nGraffiti"
+      },
+      {
+        "title": "\n      San Francisco 311\n    ",
+        "url": "https://mobile311.sfgov.org/tickets/202000100776",
+        "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000100776\nGraffiti"
+      },
+      {
+        "title": "\n      San Francisco 311\n    ",
+        "url": "https://mobile311.sfgov.org/tickets?filter%5Bfacets%5D%5Bticket_type_code%5D%5B%5D=PW%3ABSES%3AGraffiti%20Public&page=3",
+        "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\nReports 177,891 of 7,597,501 · 1 filter applied\n3 of 20"
+      },
+      {
+        "title": "\n      San Francisco 311\n    ",
+        "url": "https://mobile311.sfgov.org/tickets/202000109437",
+        "excerpt": "San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #202000109437\nGraffiti"
+      },
+      {
+        "title": "Balmy Alley - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Balmy_Alley",
+        "excerpt": "Balmy Alley - Wikipedia\nBalmy Alley (formally Balmy Street) is a one-block-long secondary back alley that is home to a concentrated collection of murals in the city of San Francisco. It is located in the south central portion of the Inner Mission District in the Calle 24 Latino Cultural District between 24th Street, and 25th Street at Garfield Square."
+      }
+    ],
+    "dedupe": "\n      San Francisco 311\n    : San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #20200010987 | \n      San Francisco 311\n    : San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #20200010448 | \n      San Francisco 311\n    : San Francisco 311\nHome News Reports\nSearch\nSan Francisco 311\nHome News Reports Language\nNew Report\nChange Language New Report\n1. Home\n2. Reports\n3. #20200010077",
+    "model": "openai/gpt-oss-20b"
+  },
+  "value": {
+    "category": "graffiti",
+    "severity": "medium",
+    "summary": "Fresh graffiti tags on the mural at Balmy Alley and 24th St.",
+    "agency": "San Francisco Public Works",
+    "channel": "Report graffiti issues",
+    "channel_url": "https://www.sf.gov/report-graffiti-issues",
+    "already_reported": "unknown",
+    "sources": [
+      {
+        "title": "Report graffiti issues | SF.gov",
+        "url": "https://www.sf.gov/report-graffiti-issues"
+      }
+    ],
+    "draft_subject": "[PIN-bx] Fresh graffiti on Balmy Alley mural",
+    "draft_body": "A report of fresh graffiti tags has been observed on the mural located at Balmy Alley and 24th Street, San Francisco. The issue was noted on [date of report]."
+  }
+}
